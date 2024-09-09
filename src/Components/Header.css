@@ -1,0 +1,12 @@
+li{
+    padding: 6px;
+    font-weight: bold;
+    
+    
+}
+li .active{
+    padding: 6px;
+    border-radius: 15px;
+    color: white;
+    background-color:rgb(234 179 8) ;
+}
