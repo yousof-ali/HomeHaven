@@ -7,6 +7,6 @@ li{
 li .active{
     padding: 6px;
     border-radius: 15px;
-    color: white;
-    background-color:rgb(234 179 8) ;
+    color: white !important;
+    background-color:rgb(192, 146, 10) !important ;
 }
