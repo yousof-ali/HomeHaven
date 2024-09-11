@@ -15,13 +15,22 @@ import CommonButton from "../Components/CommonButton";
 import { MdOutlineHomeWork } from "react-icons/md";
 import { PiUsersThree } from "react-icons/pi";
 import { TbDatabaseDollar } from "react-icons/tb";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { FaChevronCircleRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const handleClick = (id) =>{
+    navigate(`/all/${id}`)
+  }
   AOS.init({
-    duration:1200
-  })
+    duration: 1200,
+    easing: "ease-in-out",
+    once: true,
+  });
+
   return (
     <div>
       <div className="max-w-[2000px] mx-auto">
@@ -120,131 +129,236 @@ const Home = () => {
         </div>
       </div>
 
+      <div className="py-8 md:py-16">
+        <div className="mb-4">
+          <h2 className="text-3xl text-yellow-600 font-Josefin font-bold text-center">
+            Explore More{" "}
+          </h2>
+          <p className="text-center">
+            Explore all the different types of apartments so you can choose the
+            best option for you
+          </p>
+        </div>
+        <div className="grid container h-[150vh] md:h-[70vh]   mx-auto gap-4 md:grid-cols-4 md:grid-rows-2">
+          <div  onClick={()=>handleClick(1)} className="mx-2 md:mx-0 cursor-pointer relative zoom-container md:col-span-2 ">
+            <img className="w-full" src="./collections5.jpg" alt="" />
+
+            <div  className=" absolute  bottom-5 right-14 ">
+              <div className="flex items-center gap-3">
+                <h2 className="text-3xl text-white">Student</h2>
+                <span className="text-white  text-2xl">
+                  <FaChevronCircleRight />
+                </span>
+              </div>
+              <p className="text-white">6 Properties</p>
+            </div>
+          </div>
+
+          <div  onClick={()=>handleClick(2)} className=" mx-2 md:mx-0 cursor-pointer relative zoom-container  ">
+            <img className="w-full h-full" src="./collections4.jpg" alt="" />
+
+            <div className=" absolute  bottom-5 right-14 md:right-2 ">
+              <div className="flex items-center gap-3">
+                <h2 className="text-3xl text-white">Vacation Rentals</h2>
+                <span className="text-white  text-2xl">
+                  <FaChevronCircleRight />
+                </span>
+              </div>
+              <p className="text-white">7 Properties</p>
+            </div>
+          </div>
+
+          <div   onClick={()=>handleClick(3)} className=" mx-2 cursor-pointer md:mx-0 relative zoom-container md:row-span-2">
+            <img className="w-full h-full" src="./collections3.jpg" alt="" />
+
+            <div className=" absolute  bottom-5 right-14 md:right-2 ">
+              <div className="flex items-center gap-3">
+                <h2 className="text-3xl text-white">Student Housing</h2>
+                <span className="text-white  text-2xl">
+                  <FaChevronCircleRight />
+                </span>
+              </div>
+              <p className="text-white">5 Properties</p>
+            </div>
+          </div>
+         
+         <div onClick={()=>handleClick(4)} className=" mx-2 md:mx-0 cursor-pointer relative  zoom-container  ">
+            <img className="w-full h-full" src="./collections2.jpg" alt="" />
+
+            <div className=" absolute  bottom-5 right-14 md:right-2 ">
+              <div className="flex items-center gap-3">
+                <h2 className="text-3xl text-white">Family House</h2>
+                <span className="text-white  text-2xl">
+                  <FaChevronCircleRight />
+                </span>
+              </div>
+              <p className="text-white">7 Properties</p>
+            </div>
+          </div>
+         
+
+          
+          <div onClick={()=>handleClick(5)} className="mx-2 cursor-pointer md:mx-0 relative zoom-container  md:col-span-2">
+            <img className="w-full" src="./collections1.jpg" alt="" />
+
+            <div  className=" absolute  bottom-5 right-14 ">
+              <div className="flex items-center gap-3">
+                <h2 className="text-3xl text-white">Apartments</h2>
+                <span className="text-white  text-2xl">
+                  <FaChevronCircleRight />
+                </span>
+              </div>
+              <p className="text-white">6 Properties</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
       <div className="my-12">
         <div className=" md:flex items-center max-w-[2000px] mx-auto gap-4 lg:gap-12">
-        <div 
-          className=" flex-1 py-8 "
-          style={{
-            backgroundImage: "url(https://i.ibb.co.com/J2hn7ff/bac.jpg)",
-            backgroundPosition: "center",
-            backgroundRepeat:"no-repeat",
-            backgroundSize:"cover"
-          }}
-        >
-          <div className=" flex md:justify-end justify-center md:mr-4">
-            <div className="hero-content flex-col ">
-              <div className="text-center lg:text-left">
-                <h1 className="text-3xl font-bold font-Josefin text-yellow-600">Real Estate Inquiry Form</h1>
-              </div>
-              <div data-aos="fade-down-right" className=" rounded bg-base-100 w-full max-w-sm shrink-0 ">
-                <form className="card-body">
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">Inquiry Type</span>
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Inquiry Type"
-                      className="border p-2 rounded border-black outline-yellow-500"
-                      required
-                    />
-                  </div>
-                  <div className="form-control">
-                    <label>
-                      <span className="label-text font-bold">Personal Info</span>
-                      </label> 
-
-                  </div>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text ">Name</span>
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Name"
-                      className="border p-2 rounded border-black outline-yellow-500"
-                      required
-                    />
+          <div
+            className=" flex-1 py-8 "
+            style={{
+              backgroundImage: "url(https://i.ibb.co.com/J2hn7ff/bac.jpg)",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}
+          >
+            <div className=" flex md:justify-end justify-center md:mr-4">
+              <div className="hero-content flex-col ">
+                <div className="text-center lg:text-left">
+                  <h1 className="text-3xl font-bold font-Josefin text-yellow-600">
+                    Real Estate Inquiry Form
+                  </h1>
+                </div>
+                <div
+                  data-aos="fade-down-right"
+                  className=" rounded bg-base-100 w-full max-w-sm shrink-0 "
+                >
+                  <form className="card-body">
+                    <div className="form-control">
+                      <label className="label">
+                        <span className="label-text">Inquiry Type</span>
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Inquiry Type"
+                        className="border p-2 rounded border-black outline-yellow-500"
+                        required
+                      />
                     </div>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">Email</span>
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="Email"
-                      className="border p-2 rounded border-black outline-yellow-500"
-                      required
-                    />
-                  </div>
-                  <div className=" form-control">
-                    <div className="flex gap-2 justify-center">
-                    <input className="border w-full border-black p-2 rounded mt-3 outline-yellow-500" type="text" placeholder="Max Price" />
-                    <input className="border w-full border-black p-2 rounded mt-3 outline-yellow-500" type="text" placeholder="Minimum size (sq)" />
+                    <div className="form-control">
+                      <label>
+                        <span className="label-text font-bold">
+                          Personal Info
+                        </span>
+                      </label>
                     </div>
-                  </div>
-                  <div className="form-control mt-6">
-                    <CommonButton>Submit</CommonButton>
-                  </div>
-                </form>
+                    <div className="form-control">
+                      <label className="label">
+                        <span className="label-text ">Name</span>
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Name"
+                        className="border p-2 rounded border-black outline-yellow-500"
+                        required
+                      />
+                    </div>
+                    <div className="form-control">
+                      <label className="label">
+                        <span className="label-text">Email</span>
+                      </label>
+                      <input
+                        type="email"
+                        placeholder="Email"
+                        className="border p-2 rounded border-black outline-yellow-500"
+                        required
+                      />
+                    </div>
+                    <div className=" form-control">
+                      <div className="flex gap-2 justify-center">
+                        <input
+                          className="border w-full border-black p-2 rounded mt-3 outline-yellow-500"
+                          type="text"
+                          placeholder="Max Price"
+                        />
+                        <input
+                          className="border w-full border-black p-2 rounded mt-3 outline-yellow-500"
+                          type="text"
+                          placeholder="Minimum size (sq)"
+                        />
+                      </div>
+                    </div>
+                    <div className="form-control mt-6">
+                      <CommonButton>Submit</CommonButton>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="flex-1 mx-2 md:mx-0 my-10 ">
-          <div className="mb-10">
-            <h2 className="text-3xl text-yellow-600 font-Josefin text-center font-bold">
-              Why Choose Us
-            </h2>
-            <p className="text-center">
-              Our stress-free finance department that can find financial
-              solutions to save you money.
-            </p>
-          </div>
+          <div className="flex-1 mx-2 md:mx-0 my-10 ">
+            <div className="mb-10">
+              <h2 className="text-3xl text-yellow-600 font-Josefin text-center font-bold">
+                Why Choose Us
+              </h2>
+              <p className="text-center">
+                Our stress-free finance department that can find financial
+                solutions to save you money.
+              </p>
+            </div>
 
-          <div data-aos="fade-up-left" className="space-y-10 border-purple-600 shadow-md shadow-purple-800 rounded p-4 border-2">
-            <div className="flex  items-center gap-3 md:gap-6">
-              <div className="text-6xl text-purple-700">
-                <MdOutlineHomeWork />
+            <div
+              data-aos="fade-up-left"
+              className="space-y-10 border-purple-600 shadow-md shadow-purple-800 rounded p-4 border-2"
+            >
+              <div className="flex  items-center gap-3 md:gap-6">
+                <div className="text-6xl text-purple-700">
+                  <MdOutlineHomeWork />
+                </div>
+                <div>
+                  <h2 className="text-2xl mb-1 font-bold">
+                    Wide Range of Properties
+                  </h2>
+                  <p>
+                    With a robust selection of popular properties on hand, as
+                    well as leading properties from real estate experts.
+                  </p>
+                </div>
               </div>
-              <div>
-                <h2 className="text-2xl mb-1 font-bold">
-                  Wide Range of Properties
-                </h2>
-                <p>
-                  With a robust selection of popular properties on hand, as well
-                  as leading properties from real estate experts.
-                </p>
+              <div className="flex  items-center gap-3 md:gap-6">
+                <div className="text-6xl text-purple-700">
+                  <TbDatabaseDollar />
+                </div>
+                <div>
+                  <h2 className="text-2xl mb-1 font-bold">
+                    Financing Made Easy
+                  </h2>
+                  <p>
+                    Our stress-free finance department that can find financial
+                    solutions to save you money.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="flex  items-center gap-3 md:gap-6">
-              <div className="text-6xl text-purple-700">
-                <TbDatabaseDollar />
-              </div>
-              <div>
-                <h2 className="text-2xl mb-1 font-bold">Financing Made Easy</h2>
-                <p>
-                  Our stress-free finance department that can find financial
-                  solutions to save you money.
-                </p>
-              </div>
-            </div>
-            <div className="flex  items-center gap-3 md:gap-6">
-              <div className="text-6xl text-purple-700">
-                <PiUsersThree />
-              </div>
-              <div>
-                <h2 className="text-2xl mb-1 font-bold">
-                  Thrusted by Thousands
-                </h2>
-                <p>
-                  10 new offers every day. 350 offers on site, trusted by a
-                  community of thousands of users.
-                </p>
+              <div className="flex  items-center gap-3 md:gap-6">
+                <div className="text-6xl text-purple-700">
+                  <PiUsersThree />
+                </div>
+                <div>
+                  <h2 className="text-2xl mb-1 font-bold">
+                    Thrusted by Thousands
+                  </h2>
+                  <p>
+                    10 new offers every day. 350 offers on site, trusted by a
+                    community of thousands of users.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </div>
