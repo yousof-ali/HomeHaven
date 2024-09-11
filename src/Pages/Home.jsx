@@ -15,8 +15,13 @@ import CommonButton from "../Components/CommonButton";
 import { MdOutlineHomeWork } from "react-icons/md";
 import { PiUsersThree } from "react-icons/pi";
 import { TbDatabaseDollar } from "react-icons/tb";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Home = () => {
+  AOS.init({
+    duration:1200
+  })
   return (
     <div>
       <div className="max-w-[2000px] mx-auto">
@@ -131,7 +136,7 @@ const Home = () => {
               <div className="text-center lg:text-left">
                 <h1 className="text-3xl font-bold font-Josefin text-yellow-600">Real Estate Inquiry Form</h1>
               </div>
-              <div className=" rounded bg-base-100 w-full max-w-sm shrink-0 ">
+              <div data-aos="fade-down-right" className=" rounded bg-base-100 w-full max-w-sm shrink-0 ">
                 <form className="card-body">
                   <div className="form-control">
                     <label className="label">
@@ -197,7 +202,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="space-y-10">
+          <div data-aos="fade-up-left" className="space-y-10 border-purple-600 shadow-md shadow-purple-800 rounded p-4 border-2">
             <div className="flex  items-center gap-3 md:gap-6">
               <div className="text-6xl text-purple-700">
                 <MdOutlineHomeWork />
