@@ -35,7 +35,7 @@ const Home = () => {
                 <p className=" max-w-[80%] lg:max-w-[60%] text-center">
                 These are standalone houses designed for one family.
                 </p>
-                <Link className="mt-4"><CommonButton>Explore More <FaChevronRight /></CommonButton></Link>
+                <Link><CommonButton className={'mt-4 md:mt-6'}>Explore More <FaChevronRight /></CommonButton></Link>
                 </div>
             </div>
           </SwiperSlide>
@@ -54,7 +54,7 @@ const Home = () => {
                 <p className=" max-w-[80%] lg:max-w-[60%] text-center">
                 Apartments are ideal for those seeking lower maintenance living and often include .
                 </p>
-                <Link className="mt-4"><CommonButton>Explore More <FaChevronRight /></CommonButton></Link>
+                <Link ><CommonButton className={'mt-4 md:mt-6'}>Explore More <FaChevronRight /></CommonButton></Link>
                 </div>
             </div>
           </SwiperSlide>
@@ -71,7 +71,7 @@ const Home = () => {
                 <p className=" max-w-[80%] lg:max-w-[60%] text-center">
                 These are short-term rental properties used for holidays or vacations.
                 </p>
-                <Link className="mt-4"><CommonButton>Explore More <FaChevronRight /></CommonButton></Link>
+                <Link><CommonButton className={'mt-4 md:mt-6'}>Explore More <FaChevronRight /></CommonButton></Link>
                 </div>
             </div>
           </SwiperSlide>
