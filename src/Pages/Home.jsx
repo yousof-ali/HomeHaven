@@ -19,6 +19,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaChevronCircleRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import SingleCard from "../Components/SingleCard";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -119,13 +120,16 @@ const Home = () => {
       </div>
       <div>
         <div>
-          <h2 className="text-3xl font-Josefin font-bold text-center">
+          <h2 className="text-3xl text-yellow-500 font-Josefin font-bold text-center">
             Estate Sale & Rent{" "}
           </h2>
           <p className="text-center">
             Search over 2000 properties to rent from the top agents in the
             country
           </p>
+        </div>
+        <div className="bg-base-200">
+          <SingleCard></SingleCard>
         </div>
       </div>
 
@@ -227,7 +231,7 @@ const Home = () => {
             }}
           >
             <div className=" flex md:justify-end justify-center md:mr-4">
-              <div className="hero-content flex-col ">
+              <div className="hero-content  flex-col ">
                 <div className="text-center lg:text-left">
                   <h1 className="text-3xl font-bold font-Josefin text-yellow-600">
                     Real Estate Inquiry Form
@@ -237,7 +241,7 @@ const Home = () => {
                   data-aos="fade-down-right"
                   className=" rounded bg-base-100 w-full max-w-sm shrink-0 "
                 >
-                  <form className="card-body">
+                  <form className=" card-body">
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text">Inquiry Type</span>
