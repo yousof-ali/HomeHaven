@@ -39,7 +39,7 @@ const Header = () => {
       </ul>
     </div>
     <Link to={'/'} className="text-xl flex items-center">
-    <img className='w-14' src="./logo.png" alt="" />
+    <img className='w-14' src="/logo.png" alt="" />
     <h2 className='font-bold text-yellow-600 font-Josefin'>Haven</h2>
     </Link>
   </div>

@@ -1,0 +1,97 @@
+[
+    {
+        "id": "1",
+        "img": "https://i.ibb.co.com/pwsH4QX/1.jpg",
+        "title": "Spacious Family Home",
+        "segment_name": "Single Family Homes",
+        "description": "This charming single-family home offers ample space for a growing family. With a large backyard and modern amenities, it's perfect for creating lasting memories.",
+        "price": 350000,
+        "status": "Sale",
+        "area": 2500,
+        "location": "123 Maple Street, Springfield",
+        "facilities": [
+            "living room",
+            "swimming pool",
+            "kitchen"
+        ]
+    },
+    {
+        "id": "2",
+        "img": "https://i.ibb.co.com/pQjHPTg/2.jpg",
+        "title": "Modern Townhouse",
+        "segment_name": "Townhouse",
+        "description": "A sleek and modern townhouse located in a vibrant neighborhood. Enjoy the convenience of city living with a touch of elegance.",
+        "price": 275000,
+        "status": "Rent",
+        "area": 1800,
+        "location": "456 Oak Avenue, Greenfield",
+        "facilities": [
+            "living room",
+            "kitchen"
+        ]
+    },
+    {
+        "id": "3",
+        "img": "https://i.ibb.co.com/KrkLGjr/3.webp",
+        "title": "Luxury Apartment",
+        "segment_name": "Apartments",
+        "description": "Experience high-end living in this luxury apartment with stunning city views and premium finishes. Ideal for urban professionals.",
+        "price": 420000,
+        "status": "Sale",
+        "area": 1200,
+        "location": "789 Elm Street, Metropolis",
+        "facilities": [
+            "living room",
+            "swimming pool",
+            "kitchen"
+        ]
+    },
+    {
+        "id": "4",
+        "img": "https://i.ibb.co.com/8dTj2C9/4.jpg",
+        "title": "Student Housing Complex",
+        "segment_name": "Student Housing",
+        "description": "Affordable and comfortable student housing close to the university campus. Includes study rooms and communal areas.",
+        "price": 1500,
+        "status": "Rent",
+        "area": 800,
+        "location": "321 College Road, Campus City",
+        "facilities": [
+            "living room",
+            "kitchen"
+        ]
+    },
+    {
+        "id": "5",
+        "img": "https://i.ibb.co.com/dmsVNGs/5.jpg",
+        "title": "Cozy Vacation Rental",
+        "segment_name": "Vacation Rentals",
+        "description": "A charming vacation rental with easy access to the beach and local attractions. Ideal for a relaxing getaway.",
+        "price": 2000,
+        "status": "Rent",
+        "area": 1000,
+        "location": "654 Beachfront Drive, Seaside",
+        "facilities": [
+            "living room",
+            "swimming pool",
+            "kitchen"
+        ]
+    },
+    {
+        "id": "6",
+        "img": "https://i.ibb.co.com/BsmhLzX/6.jpg",
+        "title": "Elegant Family Home",
+        "segment_name": "Single Family Homes",
+        "description": "Elegant home with beautiful landscaping and spacious interiors. Perfect for families who value both style and comfort.",
+        "price": 420000,
+        "status": "Sale",
+        "area": 2700,
+        "location": "789 Pine Road, Oakwood",
+        "facilities": [
+            "living room",
+            "swimming pool",
+            "kitchen"
+        ]
+    }
+   
+]

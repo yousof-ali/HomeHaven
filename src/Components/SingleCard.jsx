@@ -1,21 +1,29 @@
 import React from "react";
 import CommonButton from "./CommonButton";
+import { Link } from "react-router-dom";
 
-const SingleCard = () => {
+
+const SingleCard = ({singledata}) => {
+  const{id,img,title,segment_name,status}=singledata
   return (
-    <div className="card bg-base-100 shadow-md w-96">
+    <div className="card mx-4 md:mx-0 bg-base-100 shadow-md  ">
       <figure>
         <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-          alt="car!"
+          src={img}
+          alt="home"
         />
       </figure>
-      <div className="card-body ">
-        <p className="text-yellow-600 font-bold">Sell</p>
-        <h2 className="card-title">Life hack</h2>
-        <p>How to park your car at your garage?</p>
+      <div className=" p-4 space-y-1">
+      <div className="flex gap-4 justify-start">
+        <p className="text-white rounded p-1 bg-green-500 text-sm">{status}</p>
+        </div>
+        
+        <p className="font-bold">{segment_name}</p>
+        
+        <h2 className="card-title text-yellow-600">{title}</h2>
+       
         <div className="card-actions justify-end">
-          <CommonButton>Details</CommonButton>
+          <Link to={`/details/${id}`}><CommonButton>Details</CommonButton></Link>
         </div>
       </div>
     </div>

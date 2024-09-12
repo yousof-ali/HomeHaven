@@ -5,6 +5,7 @@ import {
 import Root from "./Root";
 import Home from "../Pages/Home";
 import Estate from "../Pages/Estate";
+import Details from "../Pages/Details";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
         {
           path:'/all/:id',
           element:<Estate></Estate>
+        },
+        {
+          path:'/details/:id',
+          element:<Details></Details>
         }
       ]
     },

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Navigation,
@@ -20,9 +20,16 @@ import "aos/dist/aos.css";
 import { FaChevronCircleRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import SingleCard from "../Components/SingleCard";
+import { auth } from "../Context/AuthContext";
 
 const Home = () => {
+  const{homeData}= useContext(auth)
+  console.log(homeData);
+  console.log(homeData.length)
   const navigate = useNavigate();
+  const[recentData,setRecentData]=useState([]);
+
+
   const handleClick = (id) =>{
     navigate(`/all/${id}`)
   }
@@ -31,6 +38,16 @@ const Home = () => {
     easing: "ease-in-out",
     once: true,
   });
+
+  useEffect(() =>{
+    fetch('/homedata.json')
+    .then(res => res.json())
+    .then(data => {
+      setRecentData(data)
+    })
+  },[])
+
+  console.log(recentData.length)
 
   return (
     <div>
@@ -51,7 +68,7 @@ const Home = () => {
             <div className="absolute  top-0 bg-opacity-40 bg-black w-full h-full">
               <div className="flex w-full text-white flex-col h-full items-center justify-center">
                 <h4 className="font-Josefin">Best Way to find your</h4>
-                <h1 className="text-3xl text-yellow-600 font-Josefin  font-bold">
+                <h1 className="text-4xl text-yellow-600 font-Josefin  font-bold">
                   Family Homes
                 </h1>
                 <p className=" max-w-[80%] lg:max-w-[60%] text-center">
@@ -75,7 +92,7 @@ const Home = () => {
               <div className="flex text-white w-full flex-col h-full items-center justify-center">
                 <h4 className="font-Josefin">Best Way to find your</h4>
 
-                <h1 className="text-3xl text-yellow-600 font-Josefin  font-bold">
+                <h1 className="text-4xl text-yellow-600 font-Josefin  font-bold">
                   {" "}
                   Dream Apartments
                 </h1>
@@ -100,7 +117,7 @@ const Home = () => {
             <div className="absolute text-white  top-0 bg-opacity-40 bg-black w-full h-full">
               <div className="flex w-full flex-col h-full items-center justify-center">
                 <h4 className="font-Josefin ">Best Way to find your</h4>
-                <h1 className="text-3xl text-yellow-600 font-Josefin  font-bold">
+                <h1 className="text-4xl text-yellow-600 font-Josefin  font-bold">
                   {" "}
                   Vacation Rentals
                 </h1>
@@ -118,22 +135,24 @@ const Home = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div>
-        <div>
+      <div className="py-8 md:py-12 px-2  max-w-[2000px] mx-auto bg-slate-100">
+        <div className="mb-4">
           <h2 className="text-3xl text-yellow-500 font-Josefin font-bold text-center">
-            Estate Sale & Rent{" "}
+           Recent Estate{" "}
           </h2>
           <p className="text-center">
             Search over 2000 properties to rent from the top agents in the
             country
           </p>
         </div>
-        <div className="bg-base-200">
-          <SingleCard></SingleCard>
+        <div className="container grid grid-cols- 1 md:grid-cols-2 lg:grid-cols-4 gap-6  items-center justify-center mx-auto">
+          {
+            recentData.map(singledata => <SingleCard key={singledata.id} singledata={singledata}></SingleCard>)
+          }
         </div>
       </div>
 
-      <div className="py-8 md:py-16">
+      <div className="py-8 md:py-12">
         <div className="mb-4">
           <h2 className="text-3xl text-yellow-600 font-Josefin font-bold text-center">
             Explore More{" "}
@@ -220,7 +239,7 @@ const Home = () => {
       </div>
 
       <div className="my-12">
-        <div className=" md:flex items-center max-w-[2000px] mx-auto gap-4 lg:gap-12">
+        <div className=" md:flex items-center container mx-auto gap-4 lg:gap-12">
           <div
             className=" flex-1 py-8 "
             style={{
@@ -230,7 +249,7 @@ const Home = () => {
               backgroundSize: "cover",
             }}
           >
-            <div className=" flex md:justify-end justify-center md:mr-4">
+            <div className=" flex md:justify-end justify-center lg:mr-8">
               <div className="hero-content  flex-col ">
                 <div className="text-center lg:text-left">
                   <h1 className="text-3xl font-bold font-Josefin text-yellow-600">
