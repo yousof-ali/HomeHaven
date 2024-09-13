@@ -23,7 +23,8 @@ import SingleCard from "../Components/SingleCard";
 import { auth } from "../Context/AuthContext";
 
 const Home = () => {
-  const{homeData}= useContext(auth)
+  const{homeData}= useContext(auth);
+  
   console.log(homeData);
   console.log(homeData.length)
   const navigate = useNavigate();

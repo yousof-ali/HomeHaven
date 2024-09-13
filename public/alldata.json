@@ -1,0 +1,229 @@
+[
+    
+    {
+      "id": 7,
+      "img": "https://i.ibb.co.com/ykvvzyp/townhouse2.png",
+      "title": "Contemporary Townhouse",
+      "segment_name": "Townhouse",
+      "description": "A modern townhouse featuring open-plan living and high ceilings. Perfect for urban living.",
+      "price": 320000,
+      "status": "Sale",
+      "Area": "1,800 sq ft",
+      "location": "234 Birch Road, Lakeside",
+      "facilities": ["living room", "kitchen"]
+    },
+    {
+        "id": 5,
+        "img": "https://i.ibb.co.com/dmsVNGs/5.jpg",
+        "title": "Cozy Vacation Rental",
+        "segment_name": "Vacation Rentals",
+        "description": "A charming vacation rental with easy access to the beach and local attractions. Ideal for a relaxing getaway.",
+        "price": 2000,
+        "status": "Rent",
+        "area": 1000,
+        "location": "654 Beachfront Drive, Seaside",
+        "facilities": [
+            "living room",
+            "swimming pool",
+            "kitchen"
+        ]
+    },
+    {
+      "id": 8,
+      "img": "https://i.ibb.co.com/KqKPPhG/apartment.jpg",
+      "title": "Luxurious Apartment",
+      "segment_name": "Apartment",
+      "description": "A high-end apartment with top-of-the-line appliances and a private balcony overlooking the city.",
+      "price": 2500,
+      "status": "Rent",
+      "Area": "1,500 sq ft",
+      "location": "456 Cedar Avenue, Downtown",
+      "facilities": ["living room", "kitchen", "swimming pool"]
+    },
+    {
+        "id": 6,
+        "img": "https://i.ibb.co.com/BsmhLzX/6.jpg",
+        "title": "Elegant Family Home",
+        "segment_name": "Single Family Homes",
+        "description": "Elegant home with beautiful landscaping and spacious interiors. Perfect for families who value both style and comfort.",
+        "price": 420000,
+        "status": "Sale",
+        "area": 2700,
+        "location": "789 Pine Road, Oakwood",
+        "facilities": [
+            "living room",
+            "swimming pool",
+            "kitchen"
+        ]
+    },
+    {
+      "id": 9,
+      "img": "https://i.ibb.co.com/SV7GBLX/student2.jpg",
+      "title": "Affordable Student Housing",
+      "segment_name": "Student Housing",
+      "description": "Convenient housing for students with easy access to public transport and essential amenities.",
+      "price": 450,
+      "status": "Rent",
+      "Area": "750 sq ft",
+      "location": "789 College Road, University Town",
+      "facilities": ["living room", "kitchen"]
+    },
+    {
+        "id": 4,
+        "img": "https://i.ibb.co.com/8dTj2C9/4.jpg",
+        "title": "Student Housing Complex",
+        "segment_name": "Student Housing",
+        "description": "Affordable and comfortable student housing close to the university campus. Includes study rooms and communal areas.",
+        "price": 1500,
+        "status": "Rent",
+        "area": 800,
+        "location": "321 College Road, Campus City",
+        "facilities": [
+            "living room",
+            "kitchen"
+        ]
+    },
+    {
+      "id": 10,
+      "img": "https://i.ibb.co.com/wR8bwyZ/vacation2.jpg",
+      "title": "Seaside Vacation Rental",
+      "segment_name": "Vacation Rentals",
+      "description": "Enjoy your stay in this beachfront rental with stunning ocean views and direct beach access.",
+      "price": 200,
+      "status": "Rent",
+      "Area": "1,200 sq ft",
+      "location": "123 Shoreline Drive, Coastal City",
+      "facilities": ["living room", "kitchen"]
+    },
+    {
+      "id": 11,
+      "img": "https://i.ibb.co.com/MPmby3K/home4.jpg",
+      "title": "Spacious Single Family Home",
+      "segment_name": "Single Family Homes",
+      "description": "A well-maintained home with large rooms and a beautiful garden. Great for growing families.",
+      "price": 375000,
+      "status": "Sale",
+      "Area": "2,200 sq ft",
+      "location": "321 Willow Street, Greenfield",
+      "facilities": ["living room", "kitchen", "swimming pool"]
+    },
+    {
+      "id": 12,
+      "img": "https://i.ibb.co.com/8b034s3/townhouse3.jpg",
+      "title": "Chic Townhouse",
+      "segment_name": "Townhouse",
+      "description": "Stylish townhouse with a contemporary design. Features an open floor plan and modern finishes.",
+      "price": 295000,
+      "status": "Sale",
+      "Area": "1,600 sq ft",
+      "location": "654 Pine Avenue, Maplewood",
+      "facilities": ["living room", "kitchen"]
+    },
+    {
+      "id": 13,
+      "img": "https://i.ibb.co.com/kG0814h/apartment3.jpg",
+      "title": "Modern Apartment",
+      "segment_name": "Apartment",
+      "description": "A sleek, modern apartment in the heart of the city. Includes a fitness center and rooftop access.",
+      "price": 2200,
+      "status": "Rent",
+      "Area": "1,300 sq ft",
+      "location": "789 Main Street, City Center",
+      "facilities": ["living room", "kitchen", "swimming pool"]
+    },
+    {
+        "id": 3,
+        "img": "https://i.ibb.co.com/KrkLGjr/3.webp",
+        "title": "Luxury Apartment",
+        "segment_name": "Apartments",
+        "description": "Experience high-end living in this luxury apartment with stunning city views and premium finishes. Ideal for urban professionals.",
+        "price": 420000,
+        "status": "Sale",
+        "area": 1200,
+        "location": "789 Elm Street, Metropolis",
+        "facilities": [
+            "living room",
+            "swimming pool",
+            "kitchen"
+        ]
+    },
+    {
+      "id": 14,
+      "img": "https://i.ibb.co.com/KKR6t6r/student3.jpg",
+      "title": "Comfortable Student Housing",
+      "segment_name": "Student Housing",
+      "description": "Spacious rooms with a shared living area and study lounges. Ideal for academic life.",
+      "price": 550,
+      "status": "Rent",
+      "Area": "850 sq ft",
+      "location": "456 Scholar Lane, Campus City",
+      "facilities": ["living room", "kitchen"]
+    },
+    {
+      "id": 15,
+      "img": "https://i.ibb.co.com/VLz9rrj/vacation3.jpg",
+      "title": "Rustic Vacation Rental",
+      "segment_name": "Vacation Rentals",
+      "description": "A charming rental with rustic decor and a large deck. Enjoy nature and tranquility.",
+      "price": 180,
+      "status": "Rent",
+      "Area": "1,100 sq ft",
+      "location": "321 Forest Road, Woodsville",
+      "facilities": ["living room", "kitchen"]
+    },
+    {
+        "id": 2,
+        "img": "https://i.ibb.co.com/pQjHPTg/2.jpg",
+        "title": "Modern Townhouse",
+        "segment_name": "Townhouse",
+        "description": "A sleek and modern townhouse located in a vibrant neighborhood. Enjoy the convenience of city living with a touch of elegance.",
+        "price": 275000,
+        "status": "Rent",
+        "area": 1800,
+        "location": "456 Oak Avenue, Greenfield",
+        "facilities": [
+            "living room",
+            "kitchen"
+        ]
+    },
+    {
+      "id": 16,
+      "img": "https://i.ibb.co.com/Ptq6pN4/home5.jpg",
+      "title": "Family-Friendly Home",
+      "segment_name": "Single Family Homes",
+      "description": "A spacious home with a play area and close to schools. Ideal for families with children.",
+      "price": 325000,
+      "status": "Sale",
+      "Area": "2,100 sq ft",
+      "location": "654 Park Avenue, Pleasantville",
+      "facilities": ["living room", "kitchen", "swimming pool"]
+    },
+    {
+        "id": 1,
+        "img": "https://i.ibb.co.com/pwsH4QX/1.jpg",
+        "title": "Spacious Family Home",
+        "segment_name": "Single Family Homes",
+        "description": "This charming single-family home offers ample space for a growing family. With a large backyard and modern amenities, it's perfect for creating lasting memories.",
+        "price": 350000,
+        "status": "Sale",
+        "area": 2500,
+        "location": "123 Maple Street, Springfield",
+        "facilities": [
+            "living room",
+            "swimming pool",
+            "kitchen"
+        ]
+    },
+    {
+      "id": 17,
+      "img": "https://i.ibb.co.com/Wp3xzjZ/townhouse4.png",
+      "title": "Elegant Townhouse",
+      "segment_name": "Townhouse",
+      "description": "An upscale townhouse with luxury finishes and a private terrace. Perfect for city dwellers.",
+      "price": 340000,
+      "status": "Sale",
+      "Area": "1,700 sq ft",
+      "location": "987 Maple Street, Capital City",
+      "facilities": ["living room", "kitchen"]
+    }
+]    

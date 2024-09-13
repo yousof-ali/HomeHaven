@@ -6,6 +6,7 @@ import Root from "./Root";
 import Home from "../Pages/Home";
 import Estate from "../Pages/Estate";
 import Details from "../Pages/Details";
+import Properties from "../Pages/Properties";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
         {
           path:'/details/:id',
           element:<Details></Details>
+        },
+        {
+          path:'/properties',
+          element:<Properties></Properties>
         }
       ]
     },

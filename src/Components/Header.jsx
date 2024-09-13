@@ -14,6 +14,7 @@ const Header = () => {
     const links = (
         <>
         <li>< NavLink to={'/'}>Home</NavLink></li>
+        <li>< NavLink to={'/properties'}>Properties</NavLink></li>
         <li>< NavLink to={'/update-profile'}>Update Profile</NavLink></li>
         
         <li>< NavLink to={'/update-profile'}>Account</NavLink></li>
