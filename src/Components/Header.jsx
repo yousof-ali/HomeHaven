@@ -10,11 +10,14 @@ import { MdLogin } from "react-icons/md";
 const Header = () => {
 
     const[menu,setmenu] = useState(true);
+    const handleReloade=() =>{
+      location.reload()
+    }
 
     const links = (
         <>
         <li>< NavLink to={'/'}>Home</NavLink></li>
-        <li>< NavLink to={'/properties'}>Properties</NavLink></li>
+        <li onClick={handleReloade}>< NavLink to={`/properties/${0}`}>Properties</NavLink></li>
         <li>< NavLink to={'/update-profile'}>Update Profile</NavLink></li>
         
         <li>< NavLink to={'/update-profile'}>Account</NavLink></li>
@@ -28,14 +31,14 @@ const Header = () => {
         <div className="navbar bg-base-200">
   <div className="navbar-start">
     <div className="dropdown">
-      <div onClick={handleMenu} tabIndex={0} role="button" className="lg:hidden font-semibold mr-2 text-3xl">
+      <div onClick={handleMenu}  role="button" className="lg:hidden font-semibold mr-2 text-3xl">
         {
             menu?<MdOutlineMenu />:<RxCross2/>
         }
       </div>
       <ul
-        tabIndex={0}
-        className={`menu z-10 menu-sm ${menu?'hidden':'block'}  dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow`}>
+        
+        className={`menu ${menu?'hidden':'block'} lg:hidden absolute top-8 z-10  bg-base-100 rounded-box  mt-3 w-52 p-2 shadow`}>
         {links}
       </ul>
     </div>

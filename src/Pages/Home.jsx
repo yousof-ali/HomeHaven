@@ -32,7 +32,7 @@ const Home = () => {
 
 
   const handleClick = (id) =>{
-    navigate(`/all/${id}`)
+    navigate(`/properties/${id}`)
   }
   AOS.init({
     duration: 1200,
@@ -75,7 +75,7 @@ const Home = () => {
                 <p className=" max-w-[80%] lg:max-w-[60%] text-center">
                   These are standalone houses designed for one family.
                 </p>
-                <Link>
+                <Link to={`/properties/${0}`}>
                   <CommonButton className={"mt-4 md:mt-6"}>
                     Explore More <FaChevronRight />
                   </CommonButton>
@@ -101,7 +101,7 @@ const Home = () => {
                   Apartments are ideal for those seeking lower maintenance
                   living and often include .
                 </p>
-                <Link>
+                <Link  to={`/properties/${0}`}>
                   <CommonButton className={"mt-4 md:mt-6"}>
                     Explore More <FaChevronRight />
                   </CommonButton>
@@ -126,7 +126,7 @@ const Home = () => {
                   These are short-term rental properties used for holidays or
                   vacations.
                 </p>
-                <Link>
+                <Link to={`/properties/${0}`}>
                   <CommonButton className={"mt-4 md:mt-6"}>
                     Explore More <FaChevronRight />
                   </CommonButton>
@@ -165,7 +165,7 @@ const Home = () => {
         </div>
         <div className="grid container h-[150vh] md:h-[70vh]   mx-auto gap-4 md:grid-cols-4 md:grid-rows-2">
           <div  onClick={()=>handleClick(1)} className="mx-2 md:mx-0 cursor-pointer relative zoom-container md:col-span-2 ">
-            <img className="w-full" src="./collections5.jpg" alt="" />
+            <img className="w-full h-full" src="./collections5.jpg" alt="" />
 
             <div  className=" absolute  bottom-5 right-14 ">
               <div className="flex items-center gap-3">
@@ -223,16 +223,16 @@ const Home = () => {
 
           
           <div onClick={()=>handleClick(5)} className="mx-2 cursor-pointer md:mx-0 relative zoom-container  md:col-span-2">
-            <img className="w-full" src="./collections1.jpg" alt="" />
+            <img className="w-full h-full" src="./collections1.jpg" alt="" />
 
             <div  className=" absolute  bottom-5 right-14 ">
               <div className="flex items-center gap-3">
-                <h2 className="text-3xl text-white">Apartments</h2>
+                <h2 className="text-3xl text-white">Townhouse</h2>
                 <span className="text-white  text-2xl">
                   <FaChevronCircleRight />
                 </span>
               </div>
-              <p className="text-white">6 Properties</p>
+              <p className="text-white">4 Properties</p>
             </div>
           </div>
           

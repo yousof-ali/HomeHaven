@@ -1,6 +1,6 @@
 [
     {
-        "id": "1",
+        "id": 1,
         "img": "https://i.ibb.co.com/pwsH4QX/1.jpg",
         "title": "Spacious Family Home",
         "segment_name": "Single Family Homes",
@@ -16,7 +16,7 @@
         ]
     },
     {
-        "id": "2",
+        "id": 2,
         "img": "https://i.ibb.co.com/pQjHPTg/2.jpg",
         "title": "Modern Townhouse",
         "segment_name": "Townhouse",
@@ -31,7 +31,7 @@
         ]
     },
     {
-        "id": "3",
+        "id": 3,
         "img": "https://i.ibb.co.com/KrkLGjr/3.webp",
         "title": "Luxury Apartment",
         "segment_name": "Apartments",
@@ -47,7 +47,7 @@
         ]
     },
     {
-        "id": "4",
+        "id": 4,
         "img": "https://i.ibb.co.com/8dTj2C9/4.jpg",
         "title": "Student Housing Complex",
         "segment_name": "Student Housing",
@@ -62,7 +62,7 @@
         ]
     },
     {
-        "id": "5",
+        "id": 5,
         "img": "https://i.ibb.co.com/dmsVNGs/5.jpg",
         "title": "Cozy Vacation Rental",
         "segment_name": "Vacation Rentals",
@@ -78,7 +78,7 @@
         ]
     },
     {
-        "id": "6",
+        "id": 6,
         "img": "https://i.ibb.co.com/BsmhLzX/6.jpg",
         "title": "Elegant Family Home",
         "segment_name": "Single Family Homes",

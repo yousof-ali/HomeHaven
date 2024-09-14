@@ -8,7 +8,7 @@
       "description": "A modern townhouse featuring open-plan living and high ceilings. Perfect for urban living.",
       "price": 320000,
       "status": "Sale",
-      "Area": "1,800 sq ft",
+      "area": 1800 ,
       "location": "234 Birch Road, Lakeside",
       "facilities": ["living room", "kitchen"]
     },
@@ -36,7 +36,7 @@
       "description": "A high-end apartment with top-of-the-line appliances and a private balcony overlooking the city.",
       "price": 2500,
       "status": "Rent",
-      "Area": "1,500 sq ft",
+      "area": 1500 ,
       "location": "456 Cedar Avenue, Downtown",
       "facilities": ["living room", "kitchen", "swimming pool"]
     },
@@ -64,7 +64,7 @@
       "description": "Convenient housing for students with easy access to public transport and essential amenities.",
       "price": 450,
       "status": "Rent",
-      "Area": "750 sq ft",
+      "area":750 ,
       "location": "789 College Road, University Town",
       "facilities": ["living room", "kitchen"]
     },
@@ -91,7 +91,7 @@
       "description": "Enjoy your stay in this beachfront rental with stunning ocean views and direct beach access.",
       "price": 200,
       "status": "Rent",
-      "Area": "1,200 sq ft",
+      "area": 1200,
       "location": "123 Shoreline Drive, Coastal City",
       "facilities": ["living room", "kitchen"]
     },
@@ -103,7 +103,7 @@
       "description": "A well-maintained home with large rooms and a beautiful garden. Great for growing families.",
       "price": 375000,
       "status": "Sale",
-      "Area": "2,200 sq ft",
+      "Area": 2200 ,
       "location": "321 Willow Street, Greenfield",
       "facilities": ["living room", "kitchen", "swimming pool"]
     },
@@ -115,7 +115,7 @@
       "description": "Stylish townhouse with a contemporary design. Features an open floor plan and modern finishes.",
       "price": 295000,
       "status": "Sale",
-      "Area": "1,600 sq ft",
+      "area": 1600,
       "location": "654 Pine Avenue, Maplewood",
       "facilities": ["living room", "kitchen"]
     },
@@ -127,7 +127,7 @@
       "description": "A sleek, modern apartment in the heart of the city. Includes a fitness center and rooftop access.",
       "price": 2200,
       "status": "Rent",
-      "Area": "1,300 sq ft",
+      "area": 1300,
       "location": "789 Main Street, City Center",
       "facilities": ["living room", "kitchen", "swimming pool"]
     },
@@ -155,7 +155,7 @@
       "description": "Spacious rooms with a shared living area and study lounges. Ideal for academic life.",
       "price": 550,
       "status": "Rent",
-      "Area": "850 sq ft",
+      "area": 850 ,
       "location": "456 Scholar Lane, Campus City",
       "facilities": ["living room", "kitchen"]
     },
@@ -167,7 +167,7 @@
       "description": "A charming rental with rustic decor and a large deck. Enjoy nature and tranquility.",
       "price": 180,
       "status": "Rent",
-      "Area": "1,100 sq ft",
+      "area": 1100 ,
       "location": "321 Forest Road, Woodsville",
       "facilities": ["living room", "kitchen"]
     },
@@ -194,7 +194,7 @@
       "description": "A spacious home with a play area and close to schools. Ideal for families with children.",
       "price": 325000,
       "status": "Sale",
-      "Area": "2,100 sq ft",
+      "area": 2100,
       "location": "654 Park Avenue, Pleasantville",
       "facilities": ["living room", "kitchen", "swimming pool"]
     },
@@ -222,7 +222,7 @@
       "description": "An upscale townhouse with luxury finishes and a private terrace. Perfect for city dwellers.",
       "price": 340000,
       "status": "Sale",
-      "Area": "1,700 sq ft",
+      "area": 1700 ,
       "location": "987 Maple Street, Capital City",
       "facilities": ["living room", "kitchen"]
     }

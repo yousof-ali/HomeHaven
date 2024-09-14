@@ -23,10 +23,11 @@ const router = createBrowserRouter([
         },
         {
           path:'/details/:id',
-          element:<Details></Details>
+          element:<Details></Details>,
+          loder:() => fetch('/alldata.json')
         },
         {
-          path:'/properties',
+          path:'/properties/:id',
           element:<Properties></Properties>
         }
       ]
