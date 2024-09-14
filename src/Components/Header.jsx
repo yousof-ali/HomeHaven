@@ -18,6 +18,7 @@ const Header = () => {
         <>
         <li>< NavLink to={'/'}>Home</NavLink></li>
         <li onClick={handleReloade}>< NavLink to={`/properties/${0}`}>Properties</NavLink></li>
+        <li>< NavLink to={'/bookmarks'}>Bookmarks</NavLink></li>
         <li>< NavLink to={'/update-profile'}>Update Profile</NavLink></li>
         
         <li>< NavLink to={'/update-profile'}>Account</NavLink></li>

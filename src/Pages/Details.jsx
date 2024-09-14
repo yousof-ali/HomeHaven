@@ -1,5 +1,7 @@
 import React, {  useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import CommonButton from '../Components/CommonButton';
+import { setItems } from '../utilites/localstorage';
 
 
 const Details = () => {
@@ -20,12 +22,15 @@ const Details = () => {
     const filtered = datas.filter(single => single.id == id)
     console.log(filtered);
     
-    
+    const handleBookmark = (id) =>{
+        setItems(id);
+        console.log(id);
+    }
     
     
     return (
         
-        <div className='flex justify-center items-center' >  
+        <div className='flex justify-center  items-center' >  
                 <div className='container gap-8 mb-6 lg:my-16 my-auto  lg:min-h-[50vh] md:grid md:items-center lg:items-start grid-cols-4 md:px-0 px-2 mx-auto'>
                 <div className='col-span-2'>
                      <img src={filtered[0]?.img} alt="" />
@@ -62,7 +67,9 @@ const Details = () => {
                    <p className='font-light '> { filtered[0]?.location}</p>
                    </span>
                    
-                   <p className='font-semibold' >Details : <span className='font-light'>{  filtered[0]?.description}</span></p>
+                   <p className='font-semibold pb-4' >Details : <span className='font-light'>{  filtered[0]?.description}</span></p>
+
+                   <CommonButton  onClick={()=>handleBookmark(filtered[0]?.id)}>Bookmark</CommonButton>
                 </div>
                
             </div>
