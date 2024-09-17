@@ -5,7 +5,7 @@ import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
     return (
-        <div className="flex items-center justify-center min-h-[80vh] bg-gray-50-50">
+        <div className="flex items-center justify-center py-8 min-h-[80vh] bg-gray-50-50">
         <div className="w-full mx-2 max-w-lg p-8 bg-white shadow-lg rounded-lg border border-gray-200">
           <h2 className="text-2xl font-bold text-yellow-600 mb-6 text-center">Login</h2>
           <form >
@@ -45,7 +45,7 @@ const Login = () => {
             
           </form>
           <p className="mt-4  text-gray-600">
-            No account? <a href="/singUp" className="text-blue-600 hover:underline">Sing Up</a>
+            No account? <a href="/singUp" className="text-blue-600 hover:underline">Sign Up</a>
           </p>
           <div className="divider">Or</div>
           <div className='flex justify-center items-center gap-4'>

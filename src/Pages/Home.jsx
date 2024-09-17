@@ -20,14 +20,10 @@ import "aos/dist/aos.css";
 import { FaChevronCircleRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import SingleCard from "../Components/SingleCard";
-import { auth } from "../Context/AuthContext";
+
 
 
 const Home = () => {
-  const{homeData}= useContext(auth);
-  
-  console.log(homeData);
-  console.log(homeData.length)
   const navigate = useNavigate();
   const[recentData,setRecentData]=useState([]);
 
