@@ -119,7 +119,7 @@ const SingUp = () => {
             </div>
             <div className="mb-6">
               <label htmlFor="password" className="block text-sm font-medium text-gray-600">Password</label>
-             <div className='flex gap-2 justify-center items-center'>
+             <div className='relative'>
              <input
                 type={`${hide?"password":"text"}`}
                 id="password"
@@ -129,7 +129,7 @@ const SingUp = () => {
                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 required
               />
-              <div className='text-2xl mr-3 ' onClick={hidePassword}>
+              <div className='text-2xl mr-3 absolute top-3 right-3 ' onClick={hidePassword}>
                    {
                     hide?<FaEye />:<FaEyeSlash />
                    }
