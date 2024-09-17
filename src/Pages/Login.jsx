@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const{logIn} = useContext(authProvider);
+  const{logIn,googleLogin} = useContext(authProvider);
   const [hide,setHide] = useState(true);
   const [error,setError] = useState('');
   const emailref = useRef();
@@ -43,6 +43,13 @@ const Login = () => {
        .catch(() => {
         setError("Wrong email or password!");
        })
+    }
+
+    const handleGoogleLogin = () =>{
+      googleLogin()
+      .then(() => {
+        navigate('/')
+      })
     }
 
 
@@ -103,7 +110,7 @@ const Login = () => {
           </p>
           <div className="divider">Or</div>
           <div className='flex justify-center items-center gap-4'>
-            <p className='text-3xl p-2 rounded-xl  hover:bg-slate-100'>
+            <p onClick={handleGoogleLogin} className='text-3xl p-2 rounded-xl  hover:bg-slate-100'>
                 <FaGoogle/>
             </p>
             <p className='text-3xl p-2 rounded-xl  hover:bg-slate-100'>

@@ -58,6 +58,7 @@ const Header = () => {
 
     const handleMenu = () =>{
         setmenu(!menu)
+        
     }
     return (
         <div className="navbar bg-base-200">
