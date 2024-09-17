@@ -14,12 +14,16 @@ const setItems = (id) =>{
     if(!isIn){
         oldArray.push(id);
         localStorage.setItem("estate",JSON.stringify(oldArray));
+        return true;
+    }
+    else{
+        return false
     }
 }
 
 const removeItems = (id) =>{
     const array = getItems()
-    const filteredArray = array.filter(ids => ids === id);
+    const filteredArray = array.filter(ids => ids != id);
     localStorage.setItem("estate",JSON.stringify(filteredArray));
 
 }

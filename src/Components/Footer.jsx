@@ -61,7 +61,7 @@ const Footer = () => {
                     </div>
                    </div>
                    <div className='divider'></div>
-                   <p className='font-bold text-center mt-4 md:mt-8'>&copy; 2024 Your Haven. All rights reserved.</p>
+                   <p className=' text-center mt-4 md:mt-8'>&copy; 2024 Your Haven. All rights reserved.</p>
             </div>
         </div>
     );

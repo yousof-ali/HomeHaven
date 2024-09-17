@@ -22,6 +22,8 @@ const Header = () => {
         <li>< NavLink to={'/update-profile'}>Update Profile</NavLink></li>
         
         <li>< NavLink to={'/update-profile'}>Account</NavLink></li>
+        <li>< NavLink to={'/login'}>Login</NavLink></li>
+        <li>< NavLink to={'/singup'}>SingUp</NavLink></li>
         </>
     )
 

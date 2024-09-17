@@ -6,6 +6,7 @@ import { FaChevronUp } from "react-icons/fa";
 import CommonButton from "../Components/CommonButton";
 import { NavLink, useParams } from "react-router-dom";
 
+
 const Properties = () => {
   const [alldata, setallData] = useState([]);
   const [sorted, setSorted] = useState();
@@ -94,6 +95,7 @@ const Properties = () => {
 
   return (
     <div className="py-8 md:py-12 px-2  max-w-[2000px] mx-auto bg-slate-200">
+      
       <div>
         <h2 className="text-3xl font-bold font-Josefin text-yellow-600 text-center">
           Search Properties

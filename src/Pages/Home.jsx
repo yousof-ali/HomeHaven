@@ -22,6 +22,7 @@ import { useNavigate } from "react-router-dom";
 import SingleCard from "../Components/SingleCard";
 import { auth } from "../Context/AuthContext";
 
+
 const Home = () => {
   const{homeData}= useContext(auth);
   
@@ -29,6 +30,14 @@ const Home = () => {
   console.log(homeData.length)
   const navigate = useNavigate();
   const[recentData,setRecentData]=useState([]);
+
+  
+  function Example() {
+    useEffect(() => {
+      document.title = 'My Page Title';
+    }, []);
+  }
+
 
 
   const handleClick = (id) =>{

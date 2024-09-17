@@ -8,11 +8,14 @@ import Estate from "../Pages/Estate";
 import Details from "../Pages/Details";
 import Properties from "../Pages/Properties";
 import Bookmarks from "../Pages/Bookmarks";
+import ErrorPage from "../Pages/ErrorPage";
+import SingUp from "../Pages/SingUp";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Root></Root>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path:'/',
@@ -35,6 +38,10 @@ const router = createBrowserRouter([
           path:'/bookmarks',
           element:<Bookmarks></Bookmarks>,
           loader:() => fetch('/alldata.json')
+        },
+        {
+          path:'/singUp',
+          element:<SingUp></SingUp>
         }
       ]
     },
