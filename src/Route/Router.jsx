@@ -10,6 +10,7 @@ import Properties from "../Pages/Properties";
 import Bookmarks from "../Pages/Bookmarks";
 import ErrorPage from "../Pages/ErrorPage";
 import SingUp from "../Pages/SingUp";
+import Login from "../Pages/Login";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
         {
           path:'/singUp',
           element:<SingUp></SingUp>
+        },
+        {
+          path:'/login',
+          element:<Login></Login>
         }
       ]
     },
