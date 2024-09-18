@@ -8,7 +8,6 @@ import { removeItems } from "../utilites/localstorage";
 
 const SingleBookmark = ({setBookmarks, data,bookmarks }) => {
   const { id, img, title, segment_name } = data;
-  console.log(id);
   AOS.init({
     duration: 1200,
     easing: "ease-in-out",
@@ -18,9 +17,8 @@ const SingleBookmark = ({setBookmarks, data,bookmarks }) => {
   const handleRemove = (id) => {
      removeItems(id);
     const filtered = bookmarks.filter(single => single.id !== id);
-    console.log(filtered);
      setBookmarks(filtered);
-  }
+  };
 
   return (
     <div

@@ -18,12 +18,12 @@ const Bookmarks = () => {
         if (filteedData) {
           data.push(filteedData);
         }
-      }
-    }
+      };
+    };
     setBookmarks(data);
   }, []);
 
-  console.log(bookmarks);
+ 
 
   return (
     <div className="min-h-[70vh]">

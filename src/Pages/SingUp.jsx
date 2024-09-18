@@ -18,7 +18,7 @@ const SingUp = () => {
     
     const [hide,setHide] = useState(true);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleSingUp = (e) =>{
         e.preventDefault();
@@ -29,8 +29,6 @@ const SingUp = () => {
         const name = form.name.value
         const photo = form.photo.value
         const password = form.password.value
-
-        console.log(name,email,photo,password);
         
         if(password.length<6){
           setError('password must to be 6 character');
@@ -47,7 +45,6 @@ const SingUp = () => {
 
         createUser(email,password)
         .then(result => {
-          console.log(result.user);
           updateProfile(result.user, {
             displayName:name,photoURL:photo
           })
@@ -68,8 +65,6 @@ const SingUp = () => {
           setError(error.message)
         })
     }
-
-    console.log(error)
 
     const hidePassword = () =>{
         setHide(!hide);

@@ -11,8 +11,7 @@ import { Helmet } from "react-helmet-async";
 const Properties = () => {
   const [alldata, setallData] = useState([]);
   const [sorted, setSorted] = useState();
-  const {id} = useParams()
-  console.log(alldata);
+  const {id} = useParams();
   const [defalt, setDefault] = useState();
   const [forstyle,setStyle] = useState("all");
 
@@ -28,31 +27,31 @@ const Properties = () => {
           setDefault(data);
         }
         else if(id==1){
-          const filtered = data.filter( single => single.segment_name == "Student Housing" )
+          const filtered = data.filter( single => single.segment_name == "Student Housing" );
           setallData(filtered);
           setSorted(filtered);
           setDefault(filtered);
         }
         else if(id==2){
-          const filtered = data.filter(single => single.segment_name == "Vacation Rentals")
+          const filtered = data.filter(single => single.segment_name == "Vacation Rentals");
           setallData(filtered);
           setSorted(filtered);
           setDefault(filtered);
         }
         else if(id==3){
-          const filtered = data.filter(single => single.segment_name == "Student Housing")
+          const filtered = data.filter(single => single.segment_name == "Townhouse");
           setallData(filtered);
           setSorted(filtered);
           setDefault(filtered);
         }
         else if(id==4){
-          const filtered = data.filter(single => single.segment_name == "Single Family Homes")
+          const filtered = data.filter(single => single.segment_name == "Single Family Homes");
           setallData(filtered);
           setSorted(filtered);
           setDefault(filtered);
         }
         else if(id==5){
-          const filtered = data.filter(single => single.segment_name == "Townhouse")
+          const filtered = data.filter(single => single.segment_name == "Apartment");
           setallData(filtered);
           setSorted(filtered);
           setDefault(filtered);
@@ -69,17 +68,17 @@ const Properties = () => {
     console.log(sortBy);
     if (sortBy === "all") {
       setallData(defalt);
-      setStyle("all")
+      setStyle("all");
     } else if (sortBy === "hp") {
       const filtered = sorted.sort((a, b) => b.price - a.price);
       console.log(filtered);
       setallData(filtered);
-      setStyle("hp")
+      setStyle("hp");
       console.log(alldata);
     } else if (sortBy === "sale") {
       const filtered = sorted.filter((single) => single.status == "Sale");
       setallData(filtered);
-      setStyle("sale")
+      setStyle("sale");
       
     } else if (sortBy === "rent") {
       const filtered = sorted.filter((single) => single.status == "Rent");

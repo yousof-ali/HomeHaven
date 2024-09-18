@@ -12,6 +12,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import SingUp from "../Pages/SingUp";
 import Login from "../Pages/Login";
 import UpdateProfile from "../Pages/UpdateProfile";
+import Account from "../Pages/Account";
 
 const router = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
         {
           path:'/update-profile',
           element:<UpdateProfile></UpdateProfile>
+        },
+        {
+          path:'/account',
+          element:<Account></Account>
         }
       ]
     },

@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 
 const UpdateProfile = () => {
     const{user,updateNamePhoto} = useContext(authProvider);
-    console.log(user)
+    
     const [error,setError] = useState("");
 
     const handleSingUp = (e) => {
@@ -25,10 +25,10 @@ const UpdateProfile = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
-        })
+        });
         
         
-    }
+    };
     return (
         <div className="flex py-8 items-center justify-center min-h-[80vh] bg-gray-50">
             <Helmet>

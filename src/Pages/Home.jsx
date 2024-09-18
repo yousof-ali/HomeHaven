@@ -34,7 +34,7 @@ const Home = () => {
 
 
   const handleClick = (id) =>{
-    navigate(`/properties/${id}`)
+    navigate(`/properties/${id}`);
   }
   AOS.init({
     duration: 1200,
@@ -46,11 +46,11 @@ const Home = () => {
     fetch('/homedata.json')
     .then(res => res.json())
     .then(data => {
-      setRecentData(data)
+      setRecentData(data);
     })
-  },[])
+  },[]);
 
-  console.log(recentData.length)
+ 
 
   return (
     <div>
@@ -157,7 +157,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="py-8 md:py-12">
+      <div className="py-8  md:py-12">
         <div className="mb-4">
           <h2 className="text-3xl text-yellow-600 font-Josefin font-bold text-center">
             Explore More{" "}
@@ -173,12 +173,12 @@ const Home = () => {
 
             <div  className=" absolute  bottom-5 right-14 ">
               <div className="flex items-center gap-3">
-                <h2 className="text-3xl text-white">Student</h2>
+                <h2 className="text-3xl text-white">Student Housing</h2>
                 <span className="text-white  text-2xl">
                   <FaChevronCircleRight />
                 </span>
               </div>
-              <p className="text-white">6 Properties</p>
+              <p className="text-white">3 Properties</p>
             </div>
           </div>
 
@@ -192,7 +192,7 @@ const Home = () => {
                   <FaChevronCircleRight />
                 </span>
               </div>
-              <p className="text-white">7 Properties</p>
+              <p className="text-white">3 Properties</p>
             </div>
           </div>
 
@@ -201,12 +201,12 @@ const Home = () => {
 
             <div className=" absolute  bottom-5 right-14 md:right-2 ">
               <div className="flex items-center gap-3">
-                <h2 className="text-3xl text-white">Student Housing</h2>
+                <h2 className="text-3xl text-white">Townhouse</h2>
                 <span className="text-white  text-2xl">
                   <FaChevronCircleRight />
                 </span>
               </div>
-              <p className="text-white">5 Properties</p>
+              <p className="text-white">4 Properties</p>
             </div>
           </div>
          
@@ -220,7 +220,7 @@ const Home = () => {
                   <FaChevronCircleRight />
                 </span>
               </div>
-              <p className="text-white">7 Properties</p>
+              <p className="text-white">4 Properties</p>
             </div>
           </div>
          
@@ -231,12 +231,12 @@ const Home = () => {
 
             <div  className=" absolute  bottom-5 right-14 ">
               <div className="flex items-center gap-3">
-                <h2 className="text-3xl text-white">Townhouse</h2>
+                <h2 className="text-3xl text-white">Apartments</h2>
                 <span className="text-white  text-2xl">
                   <FaChevronCircleRight />
                 </span>
               </div>
-              <p className="text-white">4 Properties</p>
+              <p className="text-white">3 Properties</p>
             </div>
           </div>
           

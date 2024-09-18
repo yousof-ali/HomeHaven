@@ -19,9 +19,9 @@ const Header = () => {
 
     const[menu,setmenu] = useState(true);
     const handleReloade=() =>{
-      location.reload()
+      location.reload();
     }
-    console.log(user)
+    
     const handleLogOut = () =>{
       Swal.fire({
         title: "Log Out?",
@@ -33,15 +33,15 @@ const Header = () => {
         confirmButtonText: "Yes, log Out!"
       }).then((result) => {
          if (result.isConfirmed) {
-          logOut()
+          logOut();
           Swal.fire({
             title: "Log Out!",
             text: "You log out successfully!.",
             icon: "success"
           });
-        }
+        };
       });
-    }
+    };
 
     const links = (
         <>
@@ -57,7 +57,7 @@ const Header = () => {
     )
 
     const handleMenu = () =>{
-        setmenu(!menu)
+        setmenu(!menu);
         
     }
     return (
@@ -91,8 +91,8 @@ const Header = () => {
         <>
         <div className='w-8 h-8 mr-2 lg:mr-4 outline rounded-full'>
           {user.photoURL ?
-           (<img title={user.displayName} alt='user' className='rounded-full' src={user.photoURL}
-            />):(<img title={user.displayName} alt='user' className='rounded-full' src='/default-user.jpg'
+           (<img title={user.displayName} alt='user' className='rounded-full h-8 w-8' src={user.photoURL}
+            />):(<img title={user.displayName} alt='user' className='rounded-full h-8 w-8' src='/default-user.jpg'
               />)}
         </div>
         </>

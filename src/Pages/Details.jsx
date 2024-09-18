@@ -10,7 +10,7 @@ import { Helmet } from 'react-helmet-async';
 
 const Details = () => {
    
-    const { id } = useParams()
+    const { id } = useParams();
     const [datas,setDatas] = useState([]);
    
     
@@ -18,29 +18,22 @@ const Details = () => {
          fetch('/alldata.json')
          .then(res => res.json())
          .then(alldata => {
-            console.log(alldata);
             setDatas(alldata);
          })
     },[]);
 
-
-    
-
-    const filtered = datas.filter(single => single.id == id)
-    console.log(filtered);
-    
+    const filtered = datas.filter(single => single.id == id);
+       
     const handleBookmark = (id) =>{
         const confirm = setItems(id);
-        console.log(confirm);
         if (confirm){
-           toast("Bookmarked !")
+           toast("Bookmarked !");
 
         }
         else {
-            toast("Already bookmarked")
+            toast("Already bookmarked");
         }
     }
-    
     
     return (
         
