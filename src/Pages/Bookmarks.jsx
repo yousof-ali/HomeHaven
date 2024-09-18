@@ -26,12 +26,12 @@ const Bookmarks = () => {
  
 
   return (
-    <div className="min-h-[70vh]">
+    <div className="min-h-[70vh] bg-slate-200">
       <Helmet>
           <title>Haven | Bookmarks</title>
         </Helmet>
       
-      <h2 className="text-2xl font-Josefin font-bold text-center text-yellow-600 mt-6">
+      <h2 className="text-2xl font-Josefin font-bold text-center text-yellow-600 pt-6">
         Bookmarks
       </h2>
       {bookmarks.length < 1 && (

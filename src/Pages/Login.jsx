@@ -7,7 +7,7 @@ import { FaEyeSlash } from "react-icons/fa6";
 import { authProvider } from '../Context/AuthContext';
 import { MdErrorOutline } from "react-icons/md";
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
@@ -16,6 +16,7 @@ const Login = () => {
   const [error,setError] = useState('');
   const emailref = useRef();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const hidePassword = () =>{
     setHide(!hide);
@@ -38,7 +39,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500
         });
-        navigate('/');
+        navigate(location?.state ? location.state : '/');
        })
        .catch(() => {
         setError("Wrong email or password!");
@@ -48,7 +49,7 @@ const Login = () => {
     const handleGoogleLogin = () =>{
       googleLogin()
       .then(() => {
-        navigate('/');
+        navigate(location?.state ? location.state : '/');
       })
       
     }
@@ -57,7 +58,7 @@ const Login = () => {
     const handleGithubLogin = () =>{
       gitHubLogin()
       .then(()=>{
-        navigate('/');
+        navigate(location?.state ? location.state : '/');
       })
       
     }

@@ -3,6 +3,7 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
 import Root from "./Root";
+import PrivateRouter from "./PrivateRouter"
 import Home from "../Pages/Home";
 
 import Details from "../Pages/Details";
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
         
         {
           path:'/details/:id',
-          element:<Details></Details>,
+          element:<PrivateRouter> <Details></Details></PrivateRouter> ,
           loder:() => fetch('/alldata.json')
         },
         {
@@ -50,12 +51,13 @@ const router = createBrowserRouter([
         },
         {
           path:'/update-profile',
-          element:<UpdateProfile></UpdateProfile>
+          element:<PrivateRouter><UpdateProfile></UpdateProfile></PrivateRouter>
         },
         {
           path:'/account',
-          element:<Account></Account>
-        }
+          element:<PrivateRouter><Account></Account></PrivateRouter> 
+        },
+        
       ]
     },
   ]);
