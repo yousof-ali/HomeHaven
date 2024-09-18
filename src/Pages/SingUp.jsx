@@ -113,7 +113,7 @@ const SingUp = () => {
                 placeholder='Photo URL'
                
                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                required
+                
               />
             </div>
             <div className="mb-6">
