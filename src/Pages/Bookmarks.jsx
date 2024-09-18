@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getItems } from "../utilites/localstorage";
 import { useLoaderData } from "react-router-dom";
-import { BiColor } from "react-icons/bi";
 import SingleBookmark from "../Components/SingleBookmark";
+import { Helmet } from "react-helmet-async";
 
 
 const Bookmarks = () => {
@@ -27,6 +27,9 @@ const Bookmarks = () => {
 
   return (
     <div className="min-h-[70vh]">
+      <Helmet>
+          <title>Haven | Bookmarks</title>
+        </Helmet>
       
       <h2 className="text-2xl font-Josefin font-bold text-center text-yellow-600 mt-6">
         Bookmarks

@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Estate = () => {
+const Account = () => {
     return (
         <div>
-            helloo
+            
         </div>
     );
 };
 
-export default Estate;
+export default Account;

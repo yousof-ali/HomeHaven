@@ -7,6 +7,7 @@ import { MdErrorOutline } from "react-icons/md";
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { updateProfile } from 'firebase/auth';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -77,6 +78,9 @@ const SingUp = () => {
 
     return (
         <div className="flex py-8 items-center justify-center min-h-[80vh] bg-gray-50">
+          <Helmet>
+          <title>Haven | Sign-up</title>
+        </Helmet>
         <div className="w-full mx-2 max-w-lg p-8 bg-white shadow-lg rounded-lg border border-gray-200">
           <h2 className="text-2xl font-bold text-yellow-600 mb-6 text-center">Create Your Account</h2>
           <form onSubmit={handleSingUp}>

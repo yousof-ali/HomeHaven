@@ -1,10 +1,11 @@
-import { data } from "autoprefixer";
+
 import React, { useEffect, useState } from "react";
 import SingleCard from "../Components/SingleCard";
 import { FaChevronDown } from "react-icons/fa";
-import { FaChevronUp } from "react-icons/fa";
+
 import CommonButton from "../Components/CommonButton";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const Properties = () => {
@@ -95,7 +96,9 @@ const Properties = () => {
 
   return (
     <div className="py-8 md:py-12 px-2  max-w-[2000px] mx-auto bg-slate-200">
-      
+      <Helmet>
+          <title>Haven | Properties</title>
+        </Helmet>
       <div>
         <h2 className="text-3xl font-bold font-Josefin text-yellow-600 text-center">
           Search Properties

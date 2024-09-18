@@ -8,6 +8,7 @@ import { authProvider } from '../Context/AuthContext';
 import { MdErrorOutline } from "react-icons/md";
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
   const{logIn,googleLogin,gitHubLogin} = useContext(authProvider);
@@ -65,6 +66,9 @@ const Login = () => {
 
     return (
         <div className="flex items-center justify-center py-8 min-h-[80vh] bg-gray-50-50">
+          <Helmet>
+          <title>Haven | Login</title>
+        </Helmet>
         <div className="w-full mx-2 max-w-lg p-8 bg-white shadow-lg rounded-lg border border-gray-200">
           <h2 className="text-2xl font-bold text-yellow-600 mb-6 text-center">Login</h2>
           <form onSubmit={handleLogin} >

@@ -20,6 +20,7 @@ import "aos/dist/aos.css";
 import { FaChevronCircleRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import SingleCard from "../Components/SingleCard";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -28,11 +29,7 @@ const Home = () => {
   const[recentData,setRecentData]=useState([]);
 
   
-  function Example() {
-    useEffect(() => {
-      document.title = 'My Page Title';
-    }, []);
-  }
+  
 
 
 
@@ -58,6 +55,9 @@ const Home = () => {
   return (
     <div>
       <div className="max-w-[2000px] mx-auto">
+        <Helmet>
+          <title>Haven | Home</title>
+        </Helmet>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
           slidesPerView={1}

@@ -4,6 +4,7 @@ import CommonButton from '../Components/CommonButton';
 import { getItems, setItems } from '../utilites/localstorage';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -44,6 +45,9 @@ const Details = () => {
     return (
         
         <div className='flex justify-center  items-center' >  
+        <Helmet>
+          <title>Haven | Properties | Details</title>
+        </Helmet>
         
                 <div className='container gap-8 mb-6 lg:my-16 my-auto  lg:min-h-[50vh] md:grid md:items-center lg:items-start grid-cols-4 md:px-0 px-2 mx-auto'>
                 <div className='col-span-2'>

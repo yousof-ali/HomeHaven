@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import CommonButton from '../Components/CommonButton';
 import { authProvider } from '../Context/AuthContext';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const UpdateProfile = () => {
     const{user,updateNamePhoto} = useContext(authProvider);
@@ -30,6 +31,9 @@ const UpdateProfile = () => {
     }
     return (
         <div className="flex py-8 items-center justify-center min-h-[80vh] bg-gray-50">
+            <Helmet>
+          <title>Haven | Update-Profile</title>
+        </Helmet>
         <div className="w-full mx-2 max-w-lg p-8 bg-white shadow-lg rounded-lg border border-gray-200">
           <h2 className="text-2xl font-bold text-yellow-600 mb-6 text-center">Update Profile</h2>
 
