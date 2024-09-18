@@ -11,6 +11,7 @@ import Bookmarks from "../Pages/Bookmarks";
 import ErrorPage from "../Pages/ErrorPage";
 import SingUp from "../Pages/SingUp";
 import Login from "../Pages/Login";
+import UpdateProfile from "../Pages/UpdateProfile";
 
 const router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
         {
           path:'/login',
           element:<Login></Login>
+        },
+        {
+          path:'/update-profile',
+          element:<UpdateProfile></UpdateProfile>
         }
       ]
     },

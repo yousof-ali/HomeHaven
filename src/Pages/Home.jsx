@@ -61,7 +61,6 @@ const Home = () => {
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
           slidesPerView={1}
-          navigation
           pagination={{ clickable: true }}
           autoplay={{ delay: 3000 }}
         >

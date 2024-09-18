@@ -50,6 +50,7 @@ const Login = () => {
       .then(() => {
         navigate('/');
       })
+      
     }
 
 
@@ -58,6 +59,7 @@ const Login = () => {
       .then(()=>{
         navigate('/');
       })
+      
     }
 
 
