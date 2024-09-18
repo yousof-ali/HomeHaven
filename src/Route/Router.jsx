@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/bookmarks',
-          element:<Bookmarks></Bookmarks>,
+          element:<PrivateRouter><Bookmarks></Bookmarks></PrivateRouter>,
           loader:() => fetch('/alldata.json')
         },
         {

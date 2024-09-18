@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import './Header.css'
 import { MdOutlineMenu } from "react-icons/md";import { RxCross2 } from "react-icons/rx";
 import CommonButton from './CommonButton';
@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 const Header = () => {
     
   const{user,logOut} = useContext(authProvider);
+  const navigate = useNavigate();
   
   // const {displayName,photoURL
   // } = user
@@ -39,6 +40,7 @@ const Header = () => {
             text: "You log out successfully!.",
             icon: "success"
           });
+          navigate('/')
         };
       });
     };
