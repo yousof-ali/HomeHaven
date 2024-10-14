@@ -21,6 +21,7 @@ import { FaChevronCircleRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import SingleCard from "../Components/SingleCard";
 import { Helmet } from "react-helmet-async";
+import Customer from "./Shared/Customer";
 
 
 
@@ -70,14 +71,14 @@ const Home = () => {
               src="/i.webp"
               alt=""
             />
-            <div className="absolute  top-0 bg-opacity-40 bg-black w-full h-full">
-              <div className="flex w-full text-white flex-col h-full items-center justify-center">
-                <h4 className="font-Josefin">Best Way to find your</h4>
-                <h1 className="text-4xl text-yellow-600 font-Josefin  font-bold">
+            <div className="absolute  top-0 bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)] w-full h-full">
+              <div className="flex w-full ml-4 md:ml-8 text-white flex-col h-full  justify-center">
+                <h4 className="font-Josefin mb-4 md:text-xl">Best Way to find your</h4>
+                <h1 className="text-4xl md:text-6xl text-yellow-600 font-Josefin  font-bold">
                   Family Homes
                 </h1>
-                <p className=" max-w-[80%] lg:max-w-[60%] text-center">
-                  These are standalone houses designed for one family.
+                <p className="w-[80%] md:w-1/2">
+                  These are standalone houses designed for one family.Search over 2000 properties to rent from the top agents in the country
                 </p>
                 <Link to={`/properties/${0}`}>
                   <CommonButton className={"mt-4 md:mt-6"}>
@@ -93,15 +94,15 @@ const Home = () => {
               src="/home2.jpg"
               alt=""
             />
-            <div className="absolute  top-0 bg-opacity-40 bg-black w-full h-full">
-              <div className="flex text-white w-full flex-col h-full items-center justify-center">
-                <h4 className="font-Josefin">Best Way to find your</h4>
+            <div className="absolute  top-0 bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)] w-full h-full">
+              <div className="flex text-white w-full flex-col h-full ml-4 md:ml-8 justify-center">
+                <h4 className="font-Josefin mb-4 md:text-xl">Best Way to find your</h4>
 
-                <h1 className="text-4xl text-yellow-600 font-Josefin  font-bold">
+                <h1 className="text-4xl md:text-6xl text-yellow-600 font-Josefin  font-bold">
                   {" "}
                   Dream Apartments
                 </h1>
-                <p className=" max-w-[80%] lg:max-w-[60%] text-center">
+                <p className=" w-[80%] md:w-1/2">
                   Apartments are ideal for those seeking lower maintenance
                   living and often include .
                 </p>
@@ -119,14 +120,14 @@ const Home = () => {
               src="./home1.jpg"
               alt=""
             />
-            <div className="absolute text-white  top-0 bg-opacity-40 bg-black w-full h-full">
-              <div className="flex w-full flex-col h-full items-center justify-center">
-                <h4 className="font-Josefin ">Best Way to find your</h4>
-                <h1 className="text-4xl text-yellow-600 font-Josefin  font-bold">
+            <div className="absolute text-white  top-0 bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)] w-full h-full">
+              <div className="flex w-full flex-col h-full ml-4 md:ml-8  justify-center">
+                <h4 className="font-Josefin mb-4 md:text-xl ">Best Way to find your</h4>
+                <h1 className="text-4xl md:text-6xl text-yellow-600 font-Josefin  font-bold">
                   {" "}
                   Vacation Rentals
                 </h1>
-                <p className=" max-w-[80%] lg:max-w-[60%] text-center">
+                <p className=" w-[80%] md:w-1/2">
                   These are short-term rental properties used for holidays or
                   vacations.
                 </p>
@@ -142,7 +143,7 @@ const Home = () => {
       </div>
       <div className="py-8 md:py-12 px-2  max-w-[2000px] mx-auto bg-slate-100">
         <div className="mb-4">
-          <h2 className="text-3xl text-yellow-500 font-Josefin font-bold text-center">
+          <h2 className="text-3xl text-yellow-600 font-Josefin font-bold text-center">
            Recent Estate{" "}
           </h2>
           <p className="text-center">
@@ -389,6 +390,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Customer></Customer>
     </div>
   );
 };

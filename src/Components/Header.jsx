@@ -67,7 +67,7 @@ const Header = () => {
         
     }
     return (
-        <div className="navbar bg-base-200">
+        <div className="navbar max-w-[2000px] mx-auto bg-base-200">
   <div className="navbar-start">
     <div className="dropdown">
       <div onClick={handleMenu}  role="button" className="lg:hidden font-semibold mr-2 text-3xl">
