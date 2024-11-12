@@ -129,10 +129,10 @@ const Home = () => {
      
       <ExploreMore></ExploreMore>
 
-      <div className="my-12">
-        <div className=" md:flex items-center container mx-auto gap-4 lg:gap-12">
+      <div className="min-h-[70vh] mt-8">
+        <div className=" flex md:flex-row flex-col items-center container mx-auto gap-4 lg:gap-12">
           <div
-            className=" flex-1 py-8 "
+            className=" flex-1 py-12 pb-16"
             style={{
               backgroundImage: "url(https://i.ibb.co.com/J2hn7ff/bac.jpg)",
               backgroundPosition: "center",
@@ -140,14 +140,24 @@ const Home = () => {
               backgroundSize: "cover",
             }}
           >
-            <div className=" flex md:justify-end justify-center lg:mr-8">
-              <div className="hero-content  flex-col ">
+            <div>
+              <div className="hero-content relative  flex-col ">
                 <div className="text-center lg:text-left">
                   <h1 className="text-3xl font-bold font-Josefin text-yellow-600">
-                    Real Estate Inquiry Form
+                    Sell Your Proparty
                   </h1>
                 </div>
-                <div
+                <div className="relative">
+                  <img data-aos='fade-down-right' className="w-3/5 border-4  rounded-xl" src={'https://i.ibb.co.com/MPmby3K/home4.jpg'} alt="" />
+                  <div className="">
+                    <img data-aos='fade-down-left' className="w-2/4 absolute top-20 lg:top-32 right-0 border-4 border-yellow-600 rounded-xl" src={'https://i.ibb.co.com/KqKPPhG/apartment.jpg'} alt="" />
+                  </div>
+                </div>
+                <div className="">
+                <Link className="absolute left-5 -bottom-12"><CommonButton>Sell & Rent</CommonButton></Link>
+                </div>
+                
+                {/* <div
                   data-aos="fade-down-right"
                   className=" rounded bg-base-100 w-full max-w-sm shrink-0 "
                 >
@@ -210,9 +220,10 @@ const Home = () => {
                       <CommonButton>Submit</CommonButton>
                     </div>
                   </form>
-                </div>
+                </div> */}
               </div>
             </div>
+            
           </div>
           <div className="flex-1 mx-2 md:mx-0 my-10 ">
             <div className="mb-10">

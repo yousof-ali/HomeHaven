@@ -60,7 +60,7 @@ const Properties = () => {
         
       });
   }, []);
-  
+
   
   useEffect(() => {
     fetch(`http://localhost:5000/properties?sortBy=${sortBy}`)
@@ -109,7 +109,7 @@ const Properties = () => {
 
 
   return (
-    <div className="py-8 md:py-12 px-2  max-w-[2000px] mx-auto bg-slate-200">
+    <div className="py-8 md:py-12 px-2 min-h-[80vh]  max-w-[2000px] mx-auto bg-slate-200">
       <Helmet>
           <title>Haven | Properties</title>
         </Helmet>

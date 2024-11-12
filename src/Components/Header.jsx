@@ -46,12 +46,11 @@ const Header = () => {
     const links = (
         <>
         <li>< NavLink to={'/'}>Home</NavLink></li>
-        <li>< NavLink to={'/properties'}>Properties</NavLink></li>
+        <li>< NavLink to={`/properties`}>Properties</NavLink></li>
         {
           user?<>
           <li>< NavLink to={'/bookmarks'}>Bookmarks</NavLink></li>
-        <li>< NavLink to={'/update-profile'}>Update Profile</NavLink></li>
-        <li>< NavLink to={'/account'}>Account</NavLink></li>
+        <li>< NavLink to={'/account'}>My Account</NavLink></li>
           </>:<>
           <li>< NavLink to={'/login'}>Login</NavLink></li>
         <li>< NavLink to={'/singup'}>Sign Up</NavLink></li>
@@ -93,12 +92,14 @@ const Header = () => {
     {
       user && (
         <>
-        <div className='w-8 h-8 mr-2 lg:mr-4 outline rounded-full'>
+       <Link to={'/account'}>
+       <div className='w-8 h-8 mr-2 lg:mr-4 outline rounded-full'>
           {user.photoURL ?
            (<img title={user.displayName} alt='user' className='rounded-full h-8 w-8' src={user.photoURL}
             />):(<img title={user.displayName} alt='user' className='rounded-full h-8 w-8' src='/default-user.jpg'
               />)}
         </div>
+       </Link>
         </>
       )
     }

@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { authProvider } from "../Context/AuthContext";
+import CommonButton from "../Components/CommonButton";
+import { Link } from "react-router-dom";
 
 const Account = () => {
     const {user} = useContext(authProvider);
@@ -11,7 +13,7 @@ const Account = () => {
             
               <div className="flex flex-col gap-2 justify-center items-center">
                 <div>
-                    <img className="w-16 h-16 border rounded-full" src={user?.photoURL} alt="" />
+                    <img className="w-16 h-16 border-yellow-600 rounded-full border-2" src={user?.photoURL} alt="" />
                 </div>
                 <h2 className="text-md text-gray-500 font-semibold">{user?.displayName}</h2>
               </div>
@@ -21,6 +23,7 @@ const Account = () => {
                  <p><span className="font-bold">Account Create At :</span><span className="text-gray-500"> {user?.metadata?.creationTime}</span></p>
                  <p><span className="font-bold">Last Login At :</span><span className="text-gray-500"> {user?.metadata?.lastSignInTime}</span></p>
               </div>
+              <Link to={'/update-profile'} className="flex justify-end mt-8"><CommonButton>Update Profile</CommonButton></Link>
         </div>
     </div>
   );

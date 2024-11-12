@@ -14,11 +14,11 @@ const Footer = () => {
                         <img className='w-14' src="/logo.png" alt="" />
                         <h2 className='text-2xl font-Josefin text-yellow-600'>Haven</h2>
                     </div>
-                    <div className='text-2xl flex gap-4'>
-                        <span><FaFacebook /></span>
-                        <span><FaTwitter /></span>
-                        <span><FaInstagram /></span>
-                        <span><FaYoutube /></span>
+                    <div className='text-2xl flex gap-6'>
+                        <span><Link className='text-blue-600' to={'https://www.facebook.com'}><FaFacebook /></Link></span>
+                        <span><Link className='text-[#1DA1F2]' to={'https://www.twitter.com'}><FaTwitter /></Link></span>
+                        <span><Link className='text-pink-600' to={'https://www.instagram.com'}><FaInstagram /></Link></span>
+                        <span><Link className='text-red-600' to={'https://www.youtube.com'}><FaYoutube /></Link></span>
                     </div>
                    </div>
                    <div className="divider "></div>
@@ -61,7 +61,7 @@ const Footer = () => {
                     </div>
                    </div>
                    <div className='divider'></div>
-                   <p className=' text-center mt-4 md:mt-8'>&copy; 2024 Your Haven. All rights reserved.</p>
+                   <p className=' text-center mt-4 md:mt-8'>&copy; 2024 Haven. All rights reserved.</p>
             </div>
         </div>
     );

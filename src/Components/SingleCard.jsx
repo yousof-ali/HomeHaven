@@ -22,7 +22,7 @@ const SingleCard = ({singledata}) => {
         
         <h2 className="card-title text-yellow-600">{title}</h2>
         
-        <p className="pt-2"><span className="font-bold ">Price:</span> {price}</p>
+        <p className="pt-2"><span className="font-bold ">Price:</span> {price} $</p>
         <div className="card-actions justify-end">
           <Link to={`/details/${_id}`}><CommonButton>Details</CommonButton></Link>
         </div>

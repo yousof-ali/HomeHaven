@@ -124,10 +124,10 @@ const Login = () => {
           </p>
           <div className="divider">Or</div>
           <div className='flex justify-center items-center gap-4'>
-            <p onClick={handleGoogleLogin} className='text-3xl p-2 rounded-xl  hover:bg-slate-100'>
+            <p onClick={handleGoogleLogin} className='text-3xl p-2 cursor-pointer rounded-xl  hover:bg-slate-100'>
                 <FaGoogle/>
             </p>
-            <p onClick={handleGithubLogin} className='text-3xl p-2 rounded-xl  hover:bg-slate-100'>
+            <p onClick={handleGithubLogin} className='text-3xl p-2 cursor-pointer rounded-xl  hover:bg-slate-100'>
                 <FaGithub/>
             </p>
           </div>

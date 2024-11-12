@@ -7,7 +7,7 @@ const ExploreMore = () => {
     const navigate = useNavigate();
   
     const handleClick = (name) =>{
-      navigate(`/properties/${name}`);
+      navigate(`/property/${name}`);
     }
 
   return (
