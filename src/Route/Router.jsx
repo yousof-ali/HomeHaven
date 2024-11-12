@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         {
           path:'/details/:id',
           element:<PrivateRouter> <Details></Details></PrivateRouter> ,
-          loder:() => fetch('/alldata.json')
+          loder:({params}) => fetch(`http://localhost:5000/details/${params.id}`)
         },
         {
           path:'/properties/:id',

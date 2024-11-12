@@ -17,41 +17,24 @@ import { PiUsersThree } from "react-icons/pi";
 import { TbDatabaseDollar } from "react-icons/tb";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FaChevronCircleRight } from "react-icons/fa";
+
 import { useNavigate } from "react-router-dom";
 import SingleCard from "../Components/SingleCard";
 import { Helmet } from "react-helmet-async";
 import Customer from "./Shared/Customer";
+import RecentEstate from "./Shared/RecentEstate";
+import ExploreMore from "./Shared/ExploreMore";
 
 
 
 const Home = () => {
-  const navigate = useNavigate();
-  const[recentData,setRecentData]=useState([]);
-
-  
-  
-
-
-
-  const handleClick = (id) =>{
-    navigate(`/properties/${id}`);
-  }
+ 
   AOS.init({
     duration: 1200,
     easing: "ease-in-out",
     once: true,
   });
 
-  useEffect(() =>{
-    fetch('/homedata.json')
-    .then(res => res.json())
-    .then(data => {
-      setRecentData(data);
-    })
-  },[]);
-
- 
 
   return (
     <div>
@@ -141,108 +124,10 @@ const Home = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="py-8 md:py-12 px-2  max-w-[2000px] mx-auto bg-slate-100">
-        <div className="mb-4">
-          <h2 className="text-3xl text-yellow-600 font-Josefin font-bold text-center">
-           Recent Estate{" "}
-          </h2>
-          <p className="text-center">
-            Search over 2000 properties to rent from the top agents in the
-            country
-          </p>
-        </div>
-        <div className="container grid grid-cols- 1 md:grid-cols-2 lg:grid-cols-4 gap-6  items-center justify-center mx-auto">
-          {
-            recentData.map(singledata => <SingleCard key={singledata.id} singledata={singledata}></SingleCard>)
-          }
-        </div>
-      </div>
-
-      <div className="py-8  md:py-12">
-        <div className="mb-4">
-          <h2 className="text-3xl text-yellow-600 font-Josefin font-bold text-center">
-            Explore More{" "}
-          </h2>
-          <p className="text-center">
-            Explore all the different types of apartments so you can choose the
-            best option for you
-          </p>
-        </div>
-        <div className="grid container h-[150vh] md:h-[70vh]   mx-auto gap-4 md:grid-cols-4 md:grid-rows-2">
-          <div  onClick={()=>handleClick(1)} className="mx-2 md:mx-0 cursor-pointer relative zoom-container md:col-span-2 ">
-            <img className="w-full h-full" src="./collections5.jpg" alt="" />
-
-            <div  className=" absolute  bottom-5 right-14 ">
-              <div className="flex items-center gap-3">
-                <h2 className="text-3xl text-white">Student Housing</h2>
-                <span className="text-white  text-2xl">
-                  <FaChevronCircleRight />
-                </span>
-              </div>
-              <p className="text-white">3 Properties</p>
-            </div>
-          </div>
-
-          <div  onClick={()=>handleClick(2)} className=" mx-2 md:mx-0 cursor-pointer relative zoom-container  ">
-            <img className="w-full h-full" src="./collections4.jpg" alt="" />
-
-            <div className=" absolute  bottom-5 right-14 md:right-2 ">
-              <div className="flex items-center gap-3">
-                <h2 className="text-3xl text-white">Vacation Rentals</h2>
-                <span className="text-white  text-2xl">
-                  <FaChevronCircleRight />
-                </span>
-              </div>
-              <p className="text-white">3 Properties</p>
-            </div>
-          </div>
-
-          <div   onClick={()=>handleClick(3)} className=" mx-2 cursor-pointer md:mx-0 relative zoom-container md:row-span-2">
-            <img className="w-full h-full" src="./collections3.jpg" alt="" />
-
-            <div className=" absolute  bottom-5 right-14 md:right-2 ">
-              <div className="flex items-center gap-3">
-                <h2 className="text-3xl text-white">Townhouse</h2>
-                <span className="text-white  text-2xl">
-                  <FaChevronCircleRight />
-                </span>
-              </div>
-              <p className="text-white">4 Properties</p>
-            </div>
-          </div>
-         
-         <div onClick={()=>handleClick(4)} className=" mx-2 md:mx-0 cursor-pointer relative  zoom-container  ">
-            <img className="w-full h-full" src="./collections2.jpg" alt="" />
-
-            <div className=" absolute  bottom-5 right-14 md:right-2 ">
-              <div className="flex items-center gap-3">
-                <h2 className="text-3xl text-white">Family House</h2>
-                <span className="text-white  text-2xl">
-                  <FaChevronCircleRight />
-                </span>
-              </div>
-              <p className="text-white">4 Properties</p>
-            </div>
-          </div>
-         
-
-          
-          <div onClick={()=>handleClick(5)} className="mx-2 cursor-pointer md:mx-0 relative zoom-container  md:col-span-2">
-            <img className="w-full h-full" src="./collections1.jpg" alt="" />
-
-            <div  className=" absolute  bottom-5 right-14 ">
-              <div className="flex items-center gap-3">
-                <h2 className="text-3xl text-white">Apartments</h2>
-                <span className="text-white  text-2xl">
-                  <FaChevronCircleRight />
-                </span>
-              </div>
-              <p className="text-white">3 Properties</p>
-            </div>
-          </div>
-          
-        </div>
-      </div>
+      
+      <RecentEstate></RecentEstate>
+     
+      <ExploreMore></ExploreMore>
 
       <div className="my-12">
         <div className=" md:flex items-center container mx-auto gap-4 lg:gap-12">

@@ -17,52 +17,57 @@ const Properties = () => {
 
 
   useEffect(() => {
-    fetch("/alldata.json")
+    fetch("http://localhost:5000/homes")
       .then((res) => res.json())
       .then((data) => {
-        if(id==0){
+        setallData(data);
+        // if(id==0){
           
-          setallData(data);
-          setSorted(data);
-          setDefault(data);
-        }
-        else if(id==1){
-          const filtered = data.filter( single => single.segment_name == "Student Housing" );
-          setallData(filtered);
-          setSorted(filtered);
-          setDefault(filtered);
-        }
-        else if(id==2){
-          const filtered = data.filter(single => single.segment_name == "Vacation Rentals");
-          setallData(filtered);
-          setSorted(filtered);
-          setDefault(filtered);
-        }
-        else if(id==3){
-          const filtered = data.filter(single => single.segment_name == "Townhouse");
-          setallData(filtered);
-          setSorted(filtered);
-          setDefault(filtered);
-        }
-        else if(id==4){
-          const filtered = data.filter(single => single.segment_name == "Single Family Homes");
-          setallData(filtered);
-          setSorted(filtered);
-          setDefault(filtered);
-        }
-        else if(id==5){
-          const filtered = data.filter(single => single.segment_name == "Apartment");
-          setallData(filtered);
-          setSorted(filtered);
-          setDefault(filtered);
-        }else{
-          setallData(data);
-          setSorted(data);
-          setDefault(data);
-        }
+        //   setallData(data);
+        //   setSorted(data);
+        //   setDefault(data);
+        // }
+        // else if(id==1){
+        //   const filtered = data.filter( single => single.segment_name == "Student Housing" );
+        //   setallData(filtered);
+        //   setSorted(filtered);
+        //   setDefault(filtered);
+        // }
+        // else if(id==2){
+        //   const filtered = data.filter(single => single.segment_name == "Vacation Rentals");
+        //   setallData(filtered);
+        //   setSorted(filtered);
+        //   setDefault(filtered);
+        // }
+        // else if(id==3){
+        //   const filtered = data.filter(single => single.segment_name == "Townhouse");
+        //   setallData(filtered);
+        //   setSorted(filtered);
+        //   setDefault(filtered);
+        // }
+        // else if(id==4){
+        //   const filtered = data.filter(single => single.segment_name == "Single Family Homes");
+        //   setallData(filtered);
+        //   setSorted(filtered);
+        //   setDefault(filtered);
+        // }
+        // else if(id==5){
+        //   const filtered = data.filter(single => single.segment_name == "Apartment");
+        //   setallData(filtered);
+        //   setSorted(filtered);
+        //   setDefault(filtered);
+        // }else{
+        //   setallData(data);
+        //   setSorted(data);
+        //   setDefault(data);
+        // }
         
       });
   }, []);
+
+  useEffect(() => {
+    fetch(`http://localhost`)
+  } ,[])
   
   const handleSort = (sortBy) => {
     console.log(sortBy);

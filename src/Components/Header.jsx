@@ -19,9 +19,7 @@ const Header = () => {
   // } = user
 
     const[menu,setmenu] = useState(true);
-    const handleReloade=() =>{
-      location.reload();
-    }
+    
     
     const handleLogOut = () =>{
       Swal.fire({
@@ -48,7 +46,7 @@ const Header = () => {
     const links = (
         <>
         <li>< NavLink to={'/'}>Home</NavLink></li>
-        <li onClick={handleReloade}>< NavLink to={`/properties/${0}`}>Properties</NavLink></li>
+        <li>< NavLink to={`/properties/${'all'}`}>Properties</NavLink></li>
         {
           user?<>
           <li>< NavLink to={'/bookmarks'}>Bookmarks</NavLink></li>

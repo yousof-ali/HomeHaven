@@ -11,18 +11,20 @@ import { Helmet } from 'react-helmet-async';
 const Details = () => {
    
     const { id } = useParams();
-    const [datas,setDatas] = useState([]);
-   
+    const [data,setData] = useState({});
     
-    useEffect(() => {
-         fetch('/alldata.json')
-         .then(res => res.json())
-         .then(alldata => {
-            setDatas(alldata);
-         })
-    },[]);
-
-    const filtered = datas.filter(single => single.id == id);
+   useEffect(() => {
+    fetch(`http://localhost:5000/details/${id}`)
+    .then(res => res.json())
+    .then(result => {
+        setData(result);
+    })
+    .catch((error) => {
+        console.log(error);
+   });
+   },[]);
+    
+    
        
     const handleBookmark = (id) =>{
         const confirm = setItems(id);
@@ -44,43 +46,43 @@ const Details = () => {
         
                 <div className='container gap-8 mb-6 lg:my-16 my-auto  lg:min-h-[50vh] md:grid md:items-center lg:items-start grid-cols-4 md:px-0 px-2 mx-auto'>
                 <div className='col-span-2'>
-                     <img src={filtered[0]?.img} alt="" />
+                     <img src={data?.img} alt="" />
                 </div>
                 <div className='col-span-2 mt-4 lg:mt:0 space-y-1'>
                     <h2 className='text-3xl font-bold text-yellow-600 '>Details</h2>
                    <span className='flex gap-2 items-center'>
                    <p className='font-semibold' >Segment Name : </p>
-                   <p className='font-semibold'> {filtered[0]?.segment_name }</p>
+                   <p className='font-semibold'> {data?.segment_name }</p>
                    </span>
                    <span className='flex gap-2 items-center'>
                    <p className='font-semibold' >Title : </p>
-                   <p className='font-bold '> { filtered[0]?.title}</p>
+                   <p className='font-bold '> { data?.title}</p>
                    </span>
                    <span className='flex gap-2 items-center'>
                    <p className='font-semibold'  >Facilities : </p>
-                   <p className='font-light '> { filtered[0]?.facilities.join(',')}</p>
+                   <p className='font-light '> { data?.facilities?.join(',')}</p>
                    </span>
                    <span className='flex gap-2 items-center'>
                    <p className='font-semibold' >Area : </p>
-                   <p className='font-light '> {filtered[0]?.area} (sq ft) </p>
+                   <p className='font-light '> {data?.area} (sq ft) </p>
                    </span>
                    <span className='flex gap-2 items-center'>
                    <p className='font-semibold'  >Status : </p>
-                   <p className='font-light '> {filtered[0]?.status}</p>
+                   <p className='font-light '> {data?.status}</p>
                    </span>
                    
                    <span className='flex gap-2 items-center'>
                    <p className='font-semibold' >Price : </p>
-                   <p className='font-light '> {filtered[0]?.price}</p>
+                   <p className='font-light '> {data?.price}$</p>
                    </span>
                    <span className='flex gap-2 items-center'>
                    <p className='font-semibold' >Location : </p>
-                   <p className='font-light '> { filtered[0]?.location}</p>
+                   <p className='font-light '> { data?.location}</p>
                    </span>
                    
-                   <p className='font-semibold pb-4' >Details : <span className='font-light'>{  filtered[0]?.description}</span></p>
+                   <p className='font-semibold pb-4' >Details : <span className='font-light'>{  data?.description}</span></p>
 
-                   <CommonButton  onClick={()=>handleBookmark(filtered[0]?.id)}>Bookmark</CommonButton>
+                   <CommonButton  onClick={()=>handleBookmark(data?._id)}>Bookmark</CommonButton>
                    <ToastContainer />
                 </div>
                

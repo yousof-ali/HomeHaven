@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 const SingleCard = ({singledata}) => {
-  const{id,img,title,segment_name,status,price}=singledata
+  const{_id,img,title,segment_name,status,price}=singledata
   return (
     <div className="card mx-4 md:mx-0 bg-base-100 shadow-md  ">
       <figure>
@@ -24,7 +24,7 @@ const SingleCard = ({singledata}) => {
         
         <p className="pt-2"><span className="font-bold ">Price:</span> {price}</p>
         <div className="card-actions justify-end">
-          <Link to={`/details/${id}`}><CommonButton>Details</CommonButton></Link>
+          <Link to={`/details/${_id}`}><CommonButton>Details</CommonButton></Link>
         </div>
       </div>
     </div>
