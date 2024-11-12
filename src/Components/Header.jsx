@@ -46,7 +46,7 @@ const Header = () => {
     const links = (
         <>
         <li>< NavLink to={'/'}>Home</NavLink></li>
-        <li>< NavLink to={`/properties/${'all'}`}>Properties</NavLink></li>
+        <li>< NavLink to={'/properties'}>Properties</NavLink></li>
         {
           user?<>
           <li>< NavLink to={'/bookmarks'}>Bookmarks</NavLink></li>

@@ -14,6 +14,7 @@ import SingUp from "../Pages/SingUp";
 import Login from "../Pages/Login";
 import UpdateProfile from "../Pages/UpdateProfile";
 import Account from "../Pages/Account";
+import Segment from "../Pages/Segment";
 
 const router = createBrowserRouter([
     {
@@ -33,8 +34,12 @@ const router = createBrowserRouter([
           loder:({params}) => fetch(`http://localhost:5000/details/${params.id}`)
         },
         {
-          path:'/properties/:id',
+          path:'/properties',
           element:<Properties></Properties>
+        },
+        {
+          path:'/properties:id',
+          element:<Segment></Segment>
         },
         {
           path:'/bookmarks',

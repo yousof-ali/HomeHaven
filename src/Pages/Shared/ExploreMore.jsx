@@ -6,8 +6,8 @@ const ExploreMore = () => {
 
     const navigate = useNavigate();
   
-    const handleClick = (id) =>{
-      navigate(`/properties/${id}`);
+    const handleClick = (name) =>{
+      navigate(`/properties/${name}`);
     }
 
   return (
@@ -23,7 +23,7 @@ const ExploreMore = () => {
       </div>
       <div className="grid container h-[150vh] md:h-[70vh]   mx-auto gap-4 md:grid-cols-4 md:grid-rows-2">
         <div
-          onClick={() => handleClick(1)}
+          onClick={() => handleClick("student-housing")}
           className="mx-2 md:mx-0 cursor-pointer relative zoom-container md:col-span-2 "
         >
           <img className="w-full h-full" src="./collections5.jpg" alt="" />
@@ -40,7 +40,7 @@ const ExploreMore = () => {
         </div>
 
         <div
-          onClick={() => handleClick(2)}
+          onClick={() => handleClick('vacation-rentals')}
           className=" mx-2 md:mx-0 cursor-pointer relative zoom-container  "
         >
           <img className="w-full h-full" src="./collections4.jpg" alt="" />
@@ -57,7 +57,7 @@ const ExploreMore = () => {
         </div>
 
         <div
-          onClick={() => handleClick(3)}
+          onClick={() => handleClick('townhouse')}
           className=" mx-2 cursor-pointer md:mx-0 relative zoom-container md:row-span-2"
         >
           <img className="w-full h-full" src="./collections3.jpg" alt="" />
@@ -74,7 +74,7 @@ const ExploreMore = () => {
         </div>
 
         <div
-          onClick={() => handleClick(4)}
+          onClick={() => handleClick('family-house')}
           className=" mx-2 md:mx-0 cursor-pointer relative  zoom-container  "
         >
           <img className="w-full h-full" src="./collections2.jpg" alt="" />
@@ -91,7 +91,7 @@ const ExploreMore = () => {
         </div>
 
         <div
-          onClick={() => handleClick(5)}
+          onClick={() => handleClick('apartments')}
           className="mx-2 cursor-pointer md:mx-0 relative zoom-container  md:col-span-2"
         >
           <img className="w-full h-full" src="./collections1.jpg" alt="" />

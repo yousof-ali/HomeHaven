@@ -2,18 +2,14 @@
 import React, { useEffect, useState } from "react";
 import SingleCard from "../Components/SingleCard";
 import { FaChevronDown } from "react-icons/fa";
-
 import CommonButton from "../Components/CommonButton";
-import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+
 
 
 const Properties = () => {
   const [alldata, setallData] = useState([]);
-  const [sorted, setSorted] = useState();
-  const {id} = useParams();
-  const [defalt, setDefault] = useState();
-  const [forstyle,setStyle] = useState("all");
+  const [sortBy,setSortBy] = useState("all");
 
 
   useEffect(() => {
@@ -64,38 +60,52 @@ const Properties = () => {
         
       });
   }, []);
-
-  useEffect(() => {
-    fetch(`http://localhost`)
-  } ,[])
   
-  const handleSort = (sortBy) => {
-    console.log(sortBy);
-    if (sortBy === "all") {
-      setallData(defalt);
-      setStyle("all");
-    } else if (sortBy === "hp") {
-      const filtered = sorted.sort((a, b) => b.price - a.price);
-      console.log(filtered);
-      setallData(filtered);
-      setStyle("hp");
-      console.log(alldata);
-    } else if (sortBy === "sale") {
-      const filtered = sorted.filter((single) => single.status == "Sale");
-      setallData(filtered);
-      setStyle("sale");
+  
+  useEffect(() => {
+    fetch(`http://localhost:5000/properties?sortBy=${sortBy}`)
+      .then(res => res.json())
+      .then(result => {
+        setallData(result)
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
+  }, [sortBy]);
+  
+
+  const handleSort = (option) => {
+    setSortBy(option);
+  }
+  
+  
+  // const handleSort = (sortBy) => {
+  //   console.log(sortBy);
+  //   if (sortBy === "all") {
+  //     setallData(defalt);
+  //     setStyle("all");
+  //   } else if (sortBy === "hp") {
+  //     const filtered = sorted.sort((a, b) => b.price - a.price);
+  //     console.log(filtered);
+  //     setallData(filtered);
+  //     setStyle("hp");
+  //     console.log(alldata);
+  //   } else if (sortBy === "sale") {
+  //     const filtered = sorted.filter((single) => single.status == "Sale");
+  //     setallData(filtered);
+  //     setStyle("sale");
       
-    } else if (sortBy === "rent") {
-      const filtered = sorted.filter((single) => single.status == "Rent");
-      setallData(filtered);
-      setStyle("rent");
+  //   } else if (sortBy === "rent") {
+  //     const filtered = sorted.filter((single) => single.status == "Rent");
+  //     setallData(filtered);
+  //     setStyle("rent");
       
-    }else if(sortBy === "lp"){
-      const filtered = sorted.sort((a,b) => a.price - b.price);
-      setallData(filtered);
-      setStyle("lp");
-    }
-  };
+  //   }else if(sortBy === "lp"){
+  //     const filtered = sorted.sort((a,b) => a.price - b.price);
+  //     setallData(filtered);
+  //     setStyle("lp");
+  //   }
+  // };
 
 
   return (
@@ -119,19 +129,19 @@ const Properties = () => {
             tabIndex={0}
             className="menu dropdown-content right-1 bg-base-100 rounded-box absolute z-[1] w-52 p-2 shadow"
           >
-            <li className={`${forstyle=="all"&&"bg-yellow-600 text-white rounded"}`}>
+            <li className={`${sortBy=="all"&&"bg-yellow-600 text-white rounded"}`}>
               <a onClick={() => handleSort("all")}>All</a>
             </li>
-            <li className={`${forstyle=="hp"&&"bg-yellow-600 text-white rounded"}`}>
+            <li className={`${sortBy=="hp"&&"bg-yellow-600 text-white rounded"}`}>
               <a onClick={() => handleSort("hp")}>High price</a>
             </li>
-            <li className={`${forstyle=="lp"&&"bg-yellow-600 text-white rounded"}`}>
+            <li className={`${sortBy=="lp"&&"bg-yellow-600 text-white rounded"}`}>
               <a onClick={() => handleSort("lp")}>Low price</a>
             </li>
-            <li className={`${forstyle=="sale"&&"bg-yellow-600 text-white rounded"}`}>
+            <li className={`${sortBy=="sale"&&"bg-yellow-600 text-white rounded"}`}>
               <a onClick={() => handleSort("sale")}>Sale</a>
             </li>
-            <li className={`${forstyle=="rent"&&"bg-yellow-600 text-white rounded"}`}>
+            <li className={`${sortBy=="rent"&&"bg-yellow-600 text-white rounded"}`}>
               <a onClick={() => handleSort("rent")}>Rent</a>
             </li>
           </ul>
