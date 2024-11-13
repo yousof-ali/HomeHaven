@@ -32,6 +32,14 @@ const Details = () => {
     }
   };
 
+  useEffect(() => {
+    const id = 'akdgkd'
+    const localstorage = getItems();
+    const myarr = ['ldkg','aldkg',]
+    const filter = myarr.find(ids => ids == id)
+    console.log(filter);
+  },[])
+
   const handleOrder = (e) => {
     e.preventDefault();
     const from = e.target 

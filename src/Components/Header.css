@@ -18,3 +18,8 @@ li .active{
 .zoom-container:hover img {
     transform: scale(1.1);
 }
+
+.dasboard-ul li .active{
+    color: white !important;
+    background-color:black !important ;
+}

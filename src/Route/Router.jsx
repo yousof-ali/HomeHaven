@@ -15,6 +15,11 @@ import Login from "../Pages/Login";
 import UpdateProfile from "../Pages/UpdateProfile";
 import Account from "../Pages/Account";
 import Segment from "../Pages/Segment";
+import Dashboard from "../Pages/Dashboard";
+import Users from "../Pages/Shared/Users";
+import AllEstate from "../Pages/AllEstate";
+import PendingRequest from "../Pages/Shared/PendingRequest";
+import Order from "../Pages/Shared/Order";
 
 const router = createBrowserRouter([
     {
@@ -44,7 +49,7 @@ const router = createBrowserRouter([
         {
           path:'/bookmarks',
           element:<PrivateRouter><Bookmarks></Bookmarks></PrivateRouter>,
-          loader:() => fetch('/alldata.json')
+          // loader:() => fetch('http://localhost:5000/homes')
         },
         {
           path:'/singUp',
@@ -62,6 +67,31 @@ const router = createBrowserRouter([
           path:'/account',
           element:<PrivateRouter><Account></Account></PrivateRouter> 
         },
+        {
+          path:'/dashboard',
+          element:<PrivateRouter><Dashboard></Dashboard></PrivateRouter>,
+          children:[
+            {
+              path:'all-user',
+              element:<Users></Users>
+            },
+            {
+              path:'all-estate',
+              element:<AllEstate></AllEstate>
+            },
+            {
+              path:'pending-request',
+              element:<PendingRequest></PendingRequest>
+            }
+            ,
+            {
+              path:'order',
+              element:<Order></Order>
+            }
+
+          ],
+         
+        }
         
       ]
     },

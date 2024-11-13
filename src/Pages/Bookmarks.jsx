@@ -6,7 +6,6 @@ import { Helmet } from "react-helmet-async";
 
 
 const Bookmarks = () => {
-  const alldata = useLoaderData();
   const [bookmarks, setBookmarks] = useState([]);
 
   useEffect(() => {
@@ -14,16 +13,17 @@ const Bookmarks = () => {
     const data = [];
     if (localstorage.length > 0) {
       for (const i of localstorage) {
-        const filteedData = alldata.find((single) => single.id == i);
-        if (filteedData) {
-          data.push(filteedData);
-        }
+        console.log(i);
+        fetch(`http://localhost:5000/details/${i}`)
+        .then(res => res.json())
+        .then(result => {
+          data.push(result);
+        })
       };
     };
     setBookmarks(data);
   }, []);
 
- 
 
   return (
     <div className="min-h-[70vh] bg-slate-200">
@@ -40,7 +40,7 @@ const Bookmarks = () => {
         </h3>
       )}
       <div className="container grid my-8 grid-cols-1 gap-4 lg:gap-6 lg:grid-cols-2 mx-auto px-2">
-        {bookmarks.map((single, indx) => (
+        {bookmarks?.map((single, indx) => (
           <SingleBookmark
             bookmarks={bookmarks}
             setBookmarks={setBookmarks}
