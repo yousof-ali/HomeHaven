@@ -6,11 +6,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import { authProvider } from "../Context/AuthContext";
+import Swal from "sweetalert2";
 
 const Details = () => {
   const { id } = useParams();
   const [data, setData] = useState({});
   const { user } = useContext(authProvider);
+  const[btn,setbtn] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:5000/details/${id}`)
@@ -23,21 +25,56 @@ const Details = () => {
       });
   }, []);
 
+
   const handleBookmark = (id) => {
-    const confirm = setItems(id);
-    if (confirm) {
-      toast("Bookmarked !");
-    } else {
-      toast("Already bookmarked");
-    }
+    const email = user?.email
+    const bookmarkId = id
+    const img = data?.img
+    const title = data?.title
+    const segment_name = data?.segment_name;
+    const bookmark = {email,bookmarkId,img,title,segment_name};
+    console.log(bookmark); 
+
+    fetch('http://localhost:5000/bookmarks',{
+      method:'POST',
+      headers:{
+        'content-type':'application/json'
+      },
+      body:JSON.stringify(bookmark)
+      
+    })
+    .then(res => res.json())
+    .then(result => {
+      if(result.insertedId){
+        Swal.fire({
+          icon:'success',
+          title:'Bookmarked',
+          showConfirmButton:false,
+          timer:1500
+        })
+        setbtn(false);
+      }else{
+        if(result.status == 'bookmarked'){
+          setbtn(false);
+        }
+        
+      }
+      console.log(result);
+    })
+    .catch((error) => {
+      console.log(error.message);
+    })
+    
   };
 
   useEffect(() => {
-    const id = 'akdgkd'
+    const ids = id
     const localstorage = getItems();
-    const myarr = ['ldkg','aldkg',]
-    const filter = myarr.find(ids => ids == id)
-    console.log(filter);
+    const filter = localstorage.find(single => single == ids);
+    if(!filter){
+      setbtn(true);
+    }
+
   },[])
 
   const handleOrder = (e) => {
@@ -96,9 +133,13 @@ const Details = () => {
             Details : <span className="font-light">{data?.description}</span>
           </p>
 
-          <CommonButton onClick={() => handleBookmark(data?._id)}>
+          {
+            btn?<CommonButton className={'block'} onClick={() => handleBookmark(data?._id)}>
             Bookmark
-          </CommonButton>
+          </CommonButton>:<button className="p-4 bg-gray-300 flex  rounded text-black font-bold">Bookmarked</button>
+          }
+
+          
           <ToastContainer />
         </div>
         <div className="col-span-2 md:mt-0  space-y-1 ">

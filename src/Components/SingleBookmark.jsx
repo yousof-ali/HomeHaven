@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CommonButton from "./CommonButton";
 import { Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 import { removeItems } from "../utilites/localstorage";
 
 const SingleBookmark = ({setBookmarks, data,bookmarks }) => {
-  const { id, img, title, segment_name } = data;
+  const {_id, bookmarkId, img, title, segment_name } = data;
   AOS.init({
     duration: 1200,
     easing: "ease-in-out",
@@ -15,9 +15,24 @@ const SingleBookmark = ({setBookmarks, data,bookmarks }) => {
   });
 
   const handleRemove = (id) => {
-     removeItems(id);
-    const filtered = bookmarks.filter(single => single.id !== id);
-     setBookmarks(filtered);
+    console.log(id);
+     
+      fetch(`http://localhost:5000/delete-bookmark/${id}`,{
+        method:"DELETE"
+      })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result);
+        if(result.deletedCount>0){
+          const filter = bookmarks.filter(single => single._id !== id);
+          console.log(filter);
+          setBookmarks(filter);
+        }
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
+    
   };
 
   return (
@@ -33,10 +48,10 @@ const SingleBookmark = ({setBookmarks, data,bookmarks }) => {
         <h2 className="">{title}</h2>
       </div>
       <div className=" col-span-2 flex justify-end gap-2 md:gap-4">
-        <div onClick={()=>handleRemove(id)}>
+        <div onClick={()=>handleRemove(_id)}>
           <CommonButton>x</CommonButton>
         </div>
-        <Link to={`/details/${id}`}>
+        <Link to={`/details/${bookmarkId}`}>
           {" "}
           <CommonButton>
             <FaEye />
