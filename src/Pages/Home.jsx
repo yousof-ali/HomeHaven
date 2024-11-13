@@ -63,7 +63,7 @@ const Home = () => {
                 <p className="w-[80%] md:w-1/2">
                   These are standalone houses designed for one family.Search over 2000 properties to rent from the top agents in the country
                 </p>
-                <Link to={`/properties/${0}`}>
+                <Link to={`/property/${'family-house'}`}>
                   <CommonButton className={"mt-4 md:mt-6"}>
                     Explore More <FaChevronRight />
                   </CommonButton>
@@ -89,7 +89,7 @@ const Home = () => {
                   Apartments are ideal for those seeking lower maintenance
                   living and often include .
                 </p>
-                <Link  to={`/properties/${0}`}>
+                <Link  to={`/property/${'apartments'}`}>
                   <CommonButton className={"mt-4 md:mt-6"}>
                     Explore More <FaChevronRight />
                   </CommonButton>
@@ -114,7 +114,7 @@ const Home = () => {
                   These are short-term rental properties used for holidays or
                   vacations.
                 </p>
-                <Link to={`/properties/${0}`}>
+                <Link to={`/property/${'vacation-rentals'}`}>
                   <CommonButton className={"mt-4 md:mt-6"}>
                     Explore More <FaChevronRight />
                   </CommonButton>

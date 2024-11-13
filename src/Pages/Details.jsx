@@ -1,95 +1,178 @@
-import React, {  useEffect, useState } from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
-import CommonButton from '../Components/CommonButton';
-import { getItems, setItems } from '../utilites/localstorage';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Helmet } from 'react-helmet-async';
-
-
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+import CommonButton from "../Components/CommonButton";
+import { getItems, setItems } from "../utilites/localstorage";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet-async";
+import { authProvider } from "../Context/AuthContext";
 
 const Details = () => {
-   
-    const { id } = useParams();
-    const [data,setData] = useState({});
-    
-   useEffect(() => {
+  const { id } = useParams();
+  const [data, setData] = useState({});
+  const { user } = useContext(authProvider);
+
+  useEffect(() => {
     fetch(`http://localhost:5000/details/${id}`)
-    .then(res => res.json())
-    .then(result => {
+      .then((res) => res.json())
+      .then((result) => {
         setData(result);
-    })
-    .catch((error) => {
+      })
+      .catch((error) => {
         console.log(error);
-   });
-   },[]);
-    
-    
-       
-    const handleBookmark = (id) =>{
-        const confirm = setItems(id);
-        if (confirm){
-           toast("Bookmarked !");
+      });
+  }, []);
 
-        }
-        else {
-            toast("Already bookmarked");
-        }
+  const handleBookmark = (id) => {
+    const confirm = setItems(id);
+    if (confirm) {
+      toast("Bookmarked !");
+    } else {
+      toast("Already bookmarked");
     }
-    
-    return (
-        
-        <div className='flex justify-center  items-center' >  
-        <Helmet>
-          <title>Haven | Properties | Details</title>
-        </Helmet>
-        
-                <div className='container gap-8 mb-6 lg:my-16 my-auto  lg:min-h-[50vh] md:grid md:items-center lg:items-start grid-cols-4 md:px-0 px-2 mx-auto'>
-                <div className='col-span-2'>
-                     <img src={data?.img} alt="" />
-                </div>
-                <div className='col-span-2 mt-4 lg:mt:0 space-y-1'>
-                    <h2 className='text-3xl font-bold text-yellow-600 '>Details</h2>
-                   <span className='flex gap-2 items-center'>
-                   <p className='font-semibold' >Segment Name : </p>
-                   <p className='font-semibold'> {data?.segment_name }</p>
-                   </span>
-                   <span className='flex gap-2 items-center'>
-                   <p className='font-semibold' >Title : </p>
-                   <p className='font-bold '> { data?.title}</p>
-                   </span>
-                   <span className='flex gap-2 items-center'>
-                   <p className='font-semibold'  >Facilities : </p>
-                   <p className='font-light '> { data?.facilities?.join(',')}</p>
-                   </span>
-                   <span className='flex gap-2 items-center'>
-                   <p className='font-semibold' >Area : </p>
-                   <p className='font-light '> {data?.area} (sq ft) </p>
-                   </span>
-                   <span className='flex gap-2 items-center'>
-                   <p className='font-semibold'  >Status : </p>
-                   <p className='font-light '> {data?.status}</p>
-                   </span>
-                   
-                   <span className='flex gap-2 items-center'>
-                   <p className='font-semibold' >Price : </p>
-                   <p className='font-light '> {data?.price}$</p>
-                   </span>
-                   <span className='flex gap-2 items-center'>
-                   <p className='font-semibold' >Location : </p>
-                   <p className='font-light '> { data?.location}</p>
-                   </span>
-                   
-                   <p className='font-semibold pb-4' >Details : <span className='font-light'>{  data?.description}</span></p>
+  };
 
-                   <CommonButton  onClick={()=>handleBookmark(data?._id)}>Bookmark</CommonButton>
-                   <ToastContainer />
-                </div>
-               
-            </div>
-            
+  const handleOrder = (e) => {
+    e.preventDefault();
+    const from = e.target 
+    const name =  from.name.value
+    const email = user?.email 
+    const order = {name,email,productId:id}
+    
+    console.log(order);
+  }
+
+  return (
+    <div className="flex justify-center  items-center">
+      <Helmet>
+        <title>Haven | Properties | Details</title>
+      </Helmet>
+
+      <div className="container  gap-8 mb-6 lg:my-16 my-auto  lg:min-h-[50vh] md:grid md:items-center lg:items-start grid-cols-5 md:px-0 px-2 mx-auto">
+        <div className="col-span-3 ">
+          <img src={data?.img} alt="" />
+          <h2 className="text-3xl my-4 font-bold font-Josefin text-yellow-600 ">
+            Details
+          </h2>
+          <span className="flex gap-2 items-center">
+            <p className="font-semibold">Segment Name : </p>
+            <p className="font-semibold"> {data?.segment_name}</p>
+          </span>
+          <span className="flex gap-2 items-center">
+            <p className="font-semibold">Title : </p>
+            <p className="font-bold "> {data?.title}</p>
+          </span>
+          <span className="flex gap-2 items-center">
+            <p className="font-semibold">Facilities : </p>
+            <p className="font-light "> {data?.facilities?.join(",")}</p>
+          </span>
+          <span className="flex gap-2 items-center">
+            <p className="font-semibold">Area : </p>
+            <p className="font-light "> {data?.area} (sq ft) </p>
+          </span>
+          <span className="flex gap-2 items-center">
+            <p className="font-semibold">Status : </p>
+            <p className="font-light "> {data?.status}</p>
+          </span>
+
+          <span className="flex gap-2 items-center">
+            <p className="font-semibold">Price : </p>
+            <p className="font-light "> {data?.price}$</p>
+          </span>
+          <span className="flex gap-2 items-center">
+            <p className="font-semibold">Location : </p>
+            <p className="font-light "> {data?.location}</p>
+          </span>
+
+          <p className="font-semibold pb-4">
+            Details : <span className="font-light">{data?.description}</span>
+          </p>
+
+          <CommonButton onClick={() => handleBookmark(data?._id)}>
+            Bookmark
+          </CommonButton>
+          <ToastContainer />
         </div>
-    );
+        <div className="col-span-2 md:mt-0  space-y-1 ">
+          <div className="mb-12">
+            <h2 className="text-3xl lg:mt-0  my-4 font-bold text-yellow-600 font-Josefin">
+              Explore More
+            </h2>
+            <div className="space-y-4 lg:w-3/4">
+              <li className="list-none boeder cursor-pointer hover:shadow-md hover:border-yellow-600 border-2 hover:rounded-xl border-purple-700">
+                <Link to={`/property/${"family-house"}`}>Family Homes</Link>
+              </li>
+              <li className="list-none boeder  cursor-pointer hover:shadow-md hover:border-yellow-600 border-2 hover:rounded-xl border-purple-700">
+                <Link to={`/property/${"apartments"}`}>Apartments</Link>
+              </li>
+              <li className="list-none boeder  cursor-pointer hover:shadow-md hover:border-yellow-600 border-2 hover:rounded-xl border-purple-700">
+                <Link to={`/property/${"student-housing"}`}>
+                  Student Housing
+                </Link>
+              </li>
+              <li className="list-none  cursor-pointer hover:shadow-md hover:border-yellow-600 boeder border-2 hover:rounded-xl border-purple-700">
+                <Link to={`/property/${"vacation-rentals"}`}>
+                  Vacation-rentals
+                </Link>
+              </li>
+              <li className="list-none  cursor-pointer hover:shadow-md hover:border-yellow-600 boeder border-2 hover:rounded-xl border-purple-700">
+                <Link to={`/property/${"townhouse"}`}>Townhouse</Link>
+              </li>
+            </div>
+          </div>
+          <div className="border mt-4 rounded-md md:p-4 p-2 bg-slate-100 ">
+            <div className="flex  items-center">
+              <img src="/logo.png" className="w-20" alt="" />
+              <h2 className="text-2xl font-bold font-Josefin text-yellow-500">
+                Haven
+              </h2>
+            </div>
+            <h2 className="text-xl mx-auto lg:w-3/4 text-purple-700  font-bold mt-6">
+              Do You Want to{" "}
+              <span className="text-yellow-600">{data?.status}</span> it ?
+            </h2>
+            <form onSubmit={handleOrder}>
+              <div className="form-control mx-auto lg:w-3/4">
+                <label className="label">
+                  <span className="label-text ">Name</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  name="name"
+                  defaultValue={`${user?.displayName}`}
+                  className="border p-2 rounded border-black outline-yellow-500"
+                  required
+                />
+              </div>
+              <div className="form-control mx-auto lg:w-3/4">
+                <label className="label">
+                  <span className="label-text ">Email</span>
+                </label>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="Email"
+                  defaultValue={`${user?.email}`}
+                  className="border p-2 rounded border-black outline-yellow-500"
+                  required
+                />
+              </div>
+              <div className="flex justify-end items-center gap-4 my-4">
+                <p className="text-lg">
+                  <span>Price : </span>{" "}
+                  <span className="font-bold">{data?.price}$</span>
+                </p>
+                <CommonButton>
+                  {data?.status}
+                </CommonButton>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Details;
