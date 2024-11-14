@@ -24,6 +24,7 @@ const Header = () => {
     const handleLogOut = () =>{
       Swal.fire({
         title: "Log Out?",
+        position:'center',
         text: "You won't be able to revert this!",
         icon: "warning",
         showCancelButton: true,
@@ -35,6 +36,7 @@ const Header = () => {
           logOut();
           Swal.fire({
             title: "Log Out!",
+            position:"center",
             text: "You log out successfully!.",
             icon: "success"
           });

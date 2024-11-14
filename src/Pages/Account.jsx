@@ -13,7 +13,7 @@ const Account = () => {
             
               <div className="flex flex-col gap-2 justify-center items-center">
                 <div>
-                    <img className="w-16 h-16 border-yellow-600 rounded-full border-2" src={user?.photoURL} alt="" />
+                    <img className="w-16 h-16 border-yellow-600 rounded-full border-2" src={user?.photoURL?user.photoURL:'/default-user.jpg'} alt="" />
                 </div>
                 <h2 className="text-md text-gray-500 font-semibold">{user?.displayName}</h2>
               </div>

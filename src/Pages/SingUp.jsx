@@ -45,21 +45,41 @@ const SingUp = () => {
 
         createUser(email,password)
         .then(result => {
+          
           updateProfile(result.user, {
             displayName:name,photoURL:photo
           })
           .then(() => {
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Account Created",
-              showConfirmButton: false,
-              timer: 1000
-            });
-            form.reset();
-            navigate('/')
+            const displayName = result?.user?.displayName;
+            const email = result?.user?.email;
+            const emailStaus = result?.user?.emailVerified
+            const photoURL = result?.user?.photoURL;
+            const creationTime = result?.user?.metadata?.creationTime;
+            const lastSignInTime = result?.user?.metadata?.lastSignInTime;
+            const userInformation = {displayName,email,emailStaus,photoURL,creationTime,lastSignInTime}
+            fetch('http://localhost:5000/users',{
+              method:"POST",
+              headers:{
+                'content-type':'application/json'
+              },
+              body:JSON.stringify(userInformation)
+            })
+            .then(res => res.json())
+            .then(result => {
+              if(result.insertedId){
+                Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "Account Created",
+                  showConfirmButton: false,
+                  timer: 1000
+                });
+                form.reset();
+                navigate('/')
+              }
+              
+            })
           })
-          
         })
         .catch((error) => {
           setError(error.message)

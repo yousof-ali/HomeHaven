@@ -11,7 +11,6 @@ const AllEstate = () => {
         .then(res => res.json())
         .then(result => {
             setAllEstate(result);
-            console.log(result);
         })
         .catch((err) => {
             console.log(err.message);
@@ -19,7 +18,7 @@ const AllEstate = () => {
     },[])
     return (
         <div>
-            <h2 className='text-center  font-bold py-2 text-3xl text-yellow-600'> All Estate</h2>
+            <h2 className='text-center  font-bold py-4 text-3xl text-yellow-600'> All Estate</h2>
             <div className='overflow-x-auto '>
                 <table className='table'>
                     <thead className='bg-black text-white'>
