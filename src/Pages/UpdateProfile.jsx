@@ -3,9 +3,11 @@ import CommonButton from '../Components/CommonButton';
 import { authProvider } from '../Context/AuthContext';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 
 const UpdateProfile = () => {
     const{user,updateNamePhoto} = useContext(authProvider);
+    const navigate = useNavigate();
     
     const [error,setError] = useState("");
 
@@ -14,7 +16,7 @@ const UpdateProfile = () => {
         setError('');
         const form = e.target
         const name = form.name.value
-        const photo = form.photo.value
+        let photo = form.photo.value
         if(!photo){
           photo = 'https://i.ibb.co.com/TKcxK0g/default-user.jpg'
         }
@@ -31,6 +33,7 @@ const UpdateProfile = () => {
           })
           .then(res => res.json())
           .then(result => {
+            console.log(result);
             if(result.update){
               Swal.fire({
                 position: "center",
@@ -39,6 +42,7 @@ const UpdateProfile = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
+              navigate('/account')
             }
           })
           .catch((err) => {

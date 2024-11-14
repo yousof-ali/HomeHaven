@@ -55,11 +55,16 @@ const SingUp = () => {
           .then(() => {
             const displayName = result?.user?.displayName;
             const email = result?.user?.email;
-            const emailStaus = result?.user?.emailVerified
+            const emailStaus = result?.user?.emailVerified;
+            let providerId = result?.providerId;
+            if(!providerId){
+              providerId = "Email & Password"
+            }
+      
             const photoURL = result?.user?.photoURL;
             const creationTime = result?.user?.metadata?.creationTime;
             const lastSignInTime = result?.user?.metadata?.lastSignInTime;
-            const userInformation = {displayName,email,emailStaus,photoURL,creationTime,lastSignInTime}
+            const userInformation = {displayName,email,emailStaus,photoURL,creationTime,lastSignInTime,providerId}
             fetch('http://localhost:5000/users',{
               method:"POST",
               headers:{

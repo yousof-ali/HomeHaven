@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { MdDelete } from 'react-icons/md';
+import { FaEye } from "react-icons/fa";
 import { MdEdit } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const AllEstate = () => {
     const [allEstate,setAllEstate] = useState([]);
@@ -35,11 +37,15 @@ const AllEstate = () => {
                             allEstate.map((single,indx) => (
                                 <tr key={indx}className='hover:shadow-md' >
                                     <th>{indx + 1}</th>
-                                    <td><img className='w-12' src={single.img} alt="" /></td>
+                                    <td><img className='w-12' src={single?.img} alt="" /></td>
                                     <td>{single.segment_name}</td>
                                     <td>{single.status}</td>
-                                    <td className='flex gap-4'><button className='p-1 md:p-2 text-xl bg-green-300 text-white rounded'><MdEdit></MdEdit></button>
-                                    <button className='p-1 md:p-2 text-xl bg-red-500 text-white rounded'><MdDelete></MdDelete></button></td>
+                                    <td className='flex gap-4'>
+                                    <Link to={`/details/${single?._id}`} className='p-1 md:p-2 text-xl bg-yellow-600 text-white rounded' ><FaEye></FaEye></Link>
+                                    <button className='p-1 md:p-2 text-xl bg-green-300 text-white rounded'><MdEdit></MdEdit></button>
+                                    <button className='p-1 md:p-2 text-xl bg-red-500 text-white rounded'><MdDelete></MdDelete></button>
+                                    
+                                    </td>
                                     
                                 </tr>
                             ))

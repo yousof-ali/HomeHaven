@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DashboardRoute from "./Shared/DashboardRoute";
 import { Outlet } from "react-router-dom";
 import CommonButton from "../Components/CommonButton";
+import { MdOutlineMenu } from "react-icons/md";
 
 const Dashboard = () => {
   const [forbtn, setbtn] = useState(false);
@@ -11,15 +12,13 @@ const Dashboard = () => {
   return (
     <div className=" ">
       <div
-        className={`max-w-[1800px] relative grid grid-cols-5 pt-4  pb-8   mx-auto min-h-[70vh]`}
+        className={`max-w-[1800px] relative grid grid-cols-5 pt-8 gap-2 md:gap-4  pb-8 overflow-y-auto  mx-auto h-[80vh]`}
       >
         <button
           onClick={handleBtn}
-          className={`absolute top-1/2 ${
-            forbtn ? "left-0" : "hidden"
-          }  p-1 bg-yellow-600 text-white font-bold rounded`}
+          className={'absolute left-0 top-0 p-1 bg-yellow-600 text-white font-bold rounded'}
         >
-          {forbtn && " >"}
+          {forbtn?'Menu >':'< Close'}
         </button>
 
         <div
@@ -29,13 +28,13 @@ const Dashboard = () => {
         </div>
         <div
           className={`${
-            forbtn ? "col-span-5 md:col-span-5" : "col-span-3 relative md:col-span-4"
-          } bg-white border ml-4  `}
+            forbtn ? "col-span-5 md:col-span-5" : "col-span-3  md:col-span-4"
+          } bg-white border   `}
         >
           <Outlet></Outlet>
           <button
           onClick={handleBtn}
-          className={`absolute top-1/2 ${
+          className={`absolute top-0 ${
             !forbtn ? "-left-7" : "hidden"
           }  p-1 bg-yellow-600 text-white font-bold rounded`}
         >

@@ -5,9 +5,10 @@ import { FaEye } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { removeItems } from "../utilites/localstorage";
+import Swal from "sweetalert2";
 
-const SingleBookmark = ({setBookmarks, data,bookmarks }) => {
-  const {_id, bookmarkId, img, title, segment_name } = data;
+const SingleBookmark = ({ setBookmarks, data, bookmarks }) => {
+  const { _id, bookmarkId, img, title, segment_name } = data;
   AOS.init({
     duration: 1200,
     easing: "ease-in-out",
@@ -15,24 +16,39 @@ const SingleBookmark = ({setBookmarks, data,bookmarks }) => {
   });
 
   const handleRemove = (id) => {
-    console.log(id);
-     
-      fetch(`http://localhost:5000/delete-bookmark/${id}`,{
-        method:"DELETE"
-      })
-      .then(res => res.json())
-      .then(result => {
-        console.log(result);
-        if(result.deletedCount>0){
-          const filter = bookmarks.filter(single => single._id !== id);
-          console.log(filter);
-          setBookmarks(filter);
-        }
-      })
-      .catch((error) => {
-        console.log(error.message);
-      })
-    
+    Swal.fire({
+      title: "Remove it?",
+      position: "center",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Remove!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/delete-bookmark/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            console.log(result);
+            if (result.deletedCount > 0) {
+              const filter = bookmarks.filter((single) => single._id !== id);
+              setBookmarks(filter);
+              Swal.fire({
+                title: "Log Out!",
+                position:"center",
+                text: "You log out successfully!.",
+                icon: "success"
+              });
+            }
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
+      }
+    });
   };
 
   return (
@@ -48,7 +64,7 @@ const SingleBookmark = ({setBookmarks, data,bookmarks }) => {
         <h2 className="">{title}</h2>
       </div>
       <div className=" col-span-2 flex justify-end gap-2 md:gap-4">
-        <div onClick={()=>handleRemove(_id)}>
+        <div onClick={() => handleRemove(_id)}>
           <CommonButton>x</CommonButton>
         </div>
         <Link to={`/details/${bookmarkId}`}>
