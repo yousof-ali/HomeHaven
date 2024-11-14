@@ -40,7 +40,7 @@ const Users = () => {
                             allUsers.map((single,indx) => (
                                 <tr key={indx}className='hover:shadow-md' >
                                     <th>{indx + 1}</th>
-                                    <td><img className='w-12 rounded-full' src={single.photoURL?single.photoURL:'/default-user.jpg'} alt="" /></td>
+                                    <td><img className='w-12 h-12 rounded-full' src={single.photoURL} alt="" /></td>
                                     <td>{single.displayName}</td>
                                     <td>{single.email}</td>
                                     <td>{`${single.emailStatus?"verified":"Not Verified"}`}</td>

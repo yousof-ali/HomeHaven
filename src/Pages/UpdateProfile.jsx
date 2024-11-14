@@ -15,18 +15,40 @@ const UpdateProfile = () => {
         const form = e.target
         const name = form.name.value
         const photo = form.photo.value
+        if(!photo){
+          photo = 'https://i.ibb.co.com/TKcxK0g/default-user.jpg'
+        }
+        const updated = {name,photo};
 
         updateNamePhoto(name,photo)
         .then(() => {
-            Swal.fire({
+          fetch(`http://localhost:5000/update-profile?email=${user?.email}`,{
+            method:"PUT",
+            headers:{
+              'Content-type':'application/json'
+            },
+            body:JSON.stringify(updated)
+          })
+          .then(res => res.json())
+          .then(result => {
+            if(result.update){
+              Swal.fire({
                 position: "center",
                 icon: "success",
                 title: "Profile Sucessfully updated!",
                 showConfirmButton: false,
                 timer: 1500
               });
-        });
+            }
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+           
+        })
         
+        
+       
         
     };
     return (

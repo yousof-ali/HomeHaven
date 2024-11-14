@@ -27,7 +27,10 @@ const SingUp = () => {
 
         const email = form.email.value
         const name = form.name.value
-        const photo = form.photo.value
+        let photo = form.photo.value
+        if(!photo){
+          photo = 'https://i.ibb.co.com/TKcxK0g/default-user.jpg'
+        }
         const password = form.password.value
         
         if(password.length<6){
@@ -80,6 +83,7 @@ const SingUp = () => {
               
             })
           })
+
         })
         .catch((error) => {
           setError(error.message)
