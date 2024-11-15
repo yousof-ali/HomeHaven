@@ -32,15 +32,32 @@ const Login = () => {
 
     logIn(email, password)
       .then((result) => {
-        console.log(result.providerId);
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Your work has been saved",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate(location?.state ? location.state : "/");
+        const lastSignInTime = result?.user?.metadata?.lastSignInTime;
+        const userInformation = {
+          lastSignInTime
+        };
+        fetch(`http://localhost:5000/update-lastlogin?email=${email}`,{
+          method:"PUT",
+          headers:{
+            'content-type':'application/json'
+          },
+          body:JSON.stringify(userInformation)
+        })
+        .then(res => res.json())
+          .then(result => {
+            console.log(result);
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Your work has been saved",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate(location?.state ? location.state : "/");
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
       })
       .catch(() => {
         setError("Wrong email or password!");
@@ -49,14 +66,10 @@ const Login = () => {
 
   const handleGoogleLogin = () => {
     googleLogin().then((result) => {
-      console.log(result.user)
       const displayName = result?.user?.displayName;
       const email = result?.user?.email;
       const emailStaus = result?.user?.emailVerified;
-      let providerId = result?.providerId;
-            if(!providerId){
-              providerId = "Email & Password"
-            }
+      const providerId = result?.providerId;
       const photoURL = result?.user?.photoURL;
       const creationTime = result?.user?.metadata?.creationTime;
       const lastSignInTime = result?.user?.metadata?.lastSignInTime;
@@ -67,6 +80,7 @@ const Login = () => {
         photoURL,
         creationTime,
         lastSignInTime,
+        providerId
       };
       fetch('http://localhost:5000/users',{
         method:"POST",
@@ -77,8 +91,24 @@ const Login = () => {
       })
       .then(res => res.json())
       .then(result => {
-        console.log(result)
-      })
+        console.log(result);
+        if(result.alreadyTaken){
+          fetch(`http://localhost:5000/update-lastlogin?email=${email}`,{
+            method:"PUT",
+            headers:{
+              'content-type':'application/json'
+            },
+            body:JSON.stringify(userInformation)
+          })
+          .then(res => res.json())
+          .then(result => {
+            console.log(result);
+          })
+          .catch((err) => {
+            console.log(err.message);
+          })
+        }
+    })
       .catch((error) => {
         console.log(error.message);
       })
@@ -88,13 +118,11 @@ const Login = () => {
 
   const handleGithubLogin = () => {
     gitHubLogin().then((result) => {
+      console.log(result);
       const displayName = result?.user?.displayName;
-      const email = result?.user?.email;
+      const email = result?._tokenResponse?.screenName;
       const emailStaus = result?.user?.emailVerified;
-      let providerId = result?.providerId;
-            if(!providerId){
-              providerId = "Email & Password"
-            }
+      const providerId = result?.providerId;
       const photoURL = result?.user?.photoURL;
       const creationTime = result?.user?.metadata?.creationTime;
       const lastSignInTime = result?.user?.metadata?.lastSignInTime;
@@ -105,6 +133,7 @@ const Login = () => {
         photoURL,
         creationTime,
         lastSignInTime,
+        providerId
       };
       fetch('http://localhost:5000/users',{
         method:"POST",
@@ -115,7 +144,24 @@ const Login = () => {
       })
       .then(res => res.json())
       .then(result => {
-        console.log(result)
+        
+        if(result.alreadyTaken){
+          fetch(`http://localhost:5000/update-lastlogin?email=${email}`,{
+            method:"PUT",
+            headers:{
+              'content-type':'application/json'
+            },
+            body:JSON.stringify(userInformation)
+          })
+          .then(res => res.json())
+          .then(result => {
+            console.log(result);
+          })
+          .catch((err) => {
+            console.log(err.message);
+          })
+        }
+        
       })
       .catch((error) => {
         console.log(error.message);

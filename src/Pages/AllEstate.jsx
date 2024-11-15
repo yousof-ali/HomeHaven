@@ -20,7 +20,7 @@ const AllEstate = () => {
     },[])
     return (
         <div>
-            <h2 className='text-center  font-bold py-4 text-3xl text-yellow-600'> All Estate</h2>
+            <h2 className='text-center bg-gray-200  font-bold py-4 text-3xl text-yellow-600'> All Estate</h2>
             <div className='overflow-x-auto '>
                 <table className='table'>
                     <thead className='bg-black text-white'>

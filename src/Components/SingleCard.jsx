@@ -1,12 +1,15 @@
 import React from "react";
 import CommonButton from "./CommonButton";
 import { Link } from "react-router-dom";
+import AOS from "aos";
 
 
 const SingleCard = ({singledata}) => {
   const{_id,img,title,segment_name,status,price}=singledata
   return (
-    <div className="card mx-4 md:mx-0 bg-base-100 shadow-md  ">
+    <div
+     data-aos="zoom-in"
+     className="card mx-4 md:mx-0 bg-base-100 shadow-md  ">
       <figure>
         <img
           src={img}

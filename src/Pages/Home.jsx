@@ -154,7 +154,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="">
-                <Link className="absolute left-5 -bottom-12"><CommonButton>Sell & Rent</CommonButton></Link>
+                <Link to={'/sell-rent-my-proparties'} className="absolute left-5 -bottom-12"><CommonButton>Sell & Rent</CommonButton></Link>
                 </div>
                 
                 {/* <div

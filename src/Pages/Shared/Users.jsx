@@ -13,11 +13,22 @@ const Users = () => {
       });
   }, []);
 
-  
+  // const handleDelete = (id) => {
+  //        fetch(`http://localhost:5000/user-delete/${id}`,{
+  //         method:"DELETE"
+  //        })
+  //        .then(res => res.json())
+  //        .then(result => {
+  //         console.log(result);
+  //        })
+  //        .catch((err) => {
+  //         console.log(err.message);
+  //        });
+  // };
 
   return (
     <div>
-      <h2 className="text-center  font-bold py-4 text-3xl text-yellow-600">
+      <h2 className="text-center bg-gray-200  font-bold py-4 text-3xl text-yellow-600">
         Users
       </h2>
       <div className="overflow-x-auto overflow-y-auto">
@@ -27,11 +38,12 @@ const Users = () => {
               <th>No</th>
               <th>Img</th>
               <th>Name</th>
-              <th>Email</th>
+              <th>Email or Auth Username</th>
               <th>Login With</th>
               <th>Email Status</th>
               <th>Creation Time</th>
               <th>Last Login</th>
+              {/* <th>x</th> */}
             </tr>
           </thead>
           <tbody>
@@ -51,6 +63,7 @@ const Users = () => {
                 <td>{`${single?.emailStaus ? "verified" : "Not Verified"}`}</td>
                 <td>{single?.creationTime}</td>
                 <td>{single?.lastSignInTime}</td>
+                {/* <td><button onClick={() => handleDelete(single?._id)} className="btn btn-primary">X</button></td> */}
               </tr>
             ))}
           </tbody>

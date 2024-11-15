@@ -20,6 +20,7 @@ import Users from "../Pages/Shared/Users";
 import AllEstate from "../Pages/AllEstate";
 import PendingRequest from "../Pages/Shared/PendingRequest";
 import Order from "../Pages/Shared/Order";
+import SellRent from "../Pages/SellRent";
 
 const router = createBrowserRouter([
     {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
         {
           path:'/account',
           element:<PrivateRouter><Account></Account></PrivateRouter> 
+        },
+        {
+          path:'/sell-rent-my-proparties',
+          element:<PrivateRouter><SellRent></SellRent></PrivateRouter>
         },
         {
           path:'/dashboard',
