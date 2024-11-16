@@ -12,7 +12,13 @@ const Details = () => {
   const { id } = useParams();
   const [data, setData] = useState({});
   const { user } = useContext(authProvider);
-  const[btn,setbtn] = useState(false);
+  const [bookmarked,setBookmarked] = useState([]);
+  const [btn,setBtn] = useState(true);
+  let email = user?.email;
+  if(!email) {
+    email = user?.photoURL;
+  }
+  console.log(btn);
 
   useEffect(() => {
     fetch(`http://localhost:5000/details/${id}`)
@@ -25,9 +31,28 @@ const Details = () => {
       });
   }, []);
 
+  
+  useEffect(() => {
+    fetch(`http://localhost:5000/bookmark?email=${email}`)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      setBookmarked(data);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    })
+  },[data])
+
+  const filter = bookmarked.find(single => single.bookmarkId == data?._id);
+  console.log(filter);
 
   const handleBookmark = (id) => {
-    const email = user?.email
+    let email = user?.email
+    if(!email) {
+      email = user?.photoURL
+    }
+    console.log(email)
     const bookmarkId = id
     const img = data?.img
     const title = data?.title
@@ -52,11 +77,9 @@ const Details = () => {
           showConfirmButton:false,
           timer:1500
         })
-        setbtn(false);
+        setBtn(false);
       }else{
-        if(result.status == 'bookmarked'){
-          setbtn(false);
-        }
+        
         
       }
       console.log(result);
@@ -67,15 +90,15 @@ const Details = () => {
     
   };
 
-  useEffect(() => {
-    const ids = id
-    const localstorage = getItems();
-    const filter = localstorage.find(single => single == ids);
-    if(!filter){
-      setbtn(true);
-    }
+  // useEffect(() => {
+  //   const ids = id
+  //   const localstorage = getItems();
+  //   const filter = localstorage.find(single => single == ids);
+  //   if(!filter){
+  //     setbtn(true);
+  //   }
 
-  },[])
+  // },[])
 
   const handleOrder = (e) => {
     e.preventDefault();
@@ -95,7 +118,8 @@ const Details = () => {
 
       <div className="container  gap-8 mb-6 lg:my-16 my-auto  lg:min-h-[50vh] md:grid md:items-center lg:items-start grid-cols-5 md:px-0 px-2 mx-auto">
         <div className="col-span-3 ">
-          <img src={data?.img} alt="" />
+       
+          <img src={data?.img} className="h-[500px] w-full" alt="" />
           <h2 className="text-3xl my-4 font-bold font-Josefin text-yellow-600 ">
             Details
           </h2>
@@ -133,10 +157,10 @@ const Details = () => {
             Details : <span className="font-light">{data?.description}</span>
           </p>
 
-          {
-            btn?<CommonButton className={'block'} onClick={() => handleBookmark(data?._id)}>
+          { filter?.bookmarkId || !btn?
+            <button className="btn border border-orange-600">Bookmarked</button>:<CommonButton className={'block'} onClick={() => handleBookmark(data?._id)}>
             Bookmark
-          </CommonButton>:<button className="p-4 bg-gray-300 flex  rounded text-black font-bold">Bookmarked</button>
+          </CommonButton>
           }
 
           

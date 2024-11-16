@@ -9,12 +9,15 @@ import { authProvider } from "../Context/AuthContext";
 const Bookmarks = () => {
   const [bookmarks, setBookmarks] = useState([]);
   const {user} = useContext(authProvider);
-  console.log(user.email);
+  let email = user?.email;
+  if(!email) {
+    email = user?.photoURL
+  }
 
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/bookmark?email=${user?.email}`)
+    fetch(`http://localhost:5000/bookmark?email=${email}`)
     .then(res => res.json())
     .then(data => {
       setBookmarks(data);
@@ -55,7 +58,7 @@ const Bookmarks = () => {
       <h2 className="text-2xl font-Josefin font-bold text-center text-yellow-600 pt-6">
         Bookmarks
       </h2>
-      {bookmarks.length < 1 && (
+      {bookmarks?.length < 1 && (
         <h3 className="text-center mt-4 text-xl font-semibold">
           You have no bookmarks!!!
         </h3>

@@ -37,9 +37,9 @@ const SingleBookmark = ({ setBookmarks, data, bookmarks }) => {
               const filter = bookmarks.filter((single) => single._id !== id);
               setBookmarks(filter);
               Swal.fire({
-                title: "Log Out!",
+                title: "Removed!",
                 position:"center",
-                text: "You log out successfully!.",
+                text: "You Removed successfully!.",
                 icon: "success"
               });
             }
@@ -57,7 +57,7 @@ const SingleBookmark = ({ setBookmarks, data, bookmarks }) => {
       className="grid grid-cols-7 p-2 md:p-4  shadow-md border-2 bg-slate-100 rounded-xl items-center gap-4 md:gap-8"
     >
       <div className="col-span-2">
-        <img src={img} alt="" />
+        <img className="w-[180px] h-[112px]" src={img} alt="" />
       </div>
       <div className="col-span-3">
         <h4 className="font-bold">{segment_name}</h4>
