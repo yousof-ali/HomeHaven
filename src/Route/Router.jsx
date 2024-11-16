@@ -21,6 +21,8 @@ import AllEstate from "../Pages/AllEstate";
 import PendingRequest from "../Pages/Shared/PendingRequest";
 import Order from "../Pages/Shared/Order";
 import SellRent from "../Pages/SellRent";
+import PendingDetails from "../Pages/PendingDetails";
+import AprovedRequest from "../Pages/Shared/AprovedRequest";
 
 const router = createBrowserRouter([
     {
@@ -92,7 +94,19 @@ const router = createBrowserRouter([
             {
               path:'order',
               element:<Order></Order>
-            }
+            },
+            {
+              path:'pending-request/pending-details/:id',
+              element:<PendingDetails></PendingDetails>
+            },
+            {
+              path:'aprove-request',
+              element:<AprovedRequest></AprovedRequest>
+            },
+            {
+              path:'aprove-request/aprove-details/:id',
+              element:<PendingDetails></PendingDetails>
+            }  
 
           ],
          

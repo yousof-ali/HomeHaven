@@ -10,12 +10,13 @@ const SingleCard = ({singledata}) => {
     <div
      data-aos="zoom-in"
      className="card mx-4 md:mx-0 bg-base-100 shadow-md  ">
-      <figure>
+      <div className="p-4 w-full h-[280px]">
         <img
           src={img}
+          className="rounded-xl w-full h-full"
           alt="home"
         />
-      </figure>
+      </div>
       <div className=" p-4 space-y-1">
       <div className="flex gap-4 justify-start">
         <p className="text-white rounded p-1 bg-green-500 text-sm">{status}</p>

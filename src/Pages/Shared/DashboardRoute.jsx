@@ -15,6 +15,9 @@ const DashboardRoute = () => {
                 <NavLink className={'block  bg-slate-100 hover:border   hover:border-black  p-2'} to={'pending-request'}>Pending</NavLink>
                 </li>
                 <li className='w-full '>
+                <NavLink className={'block  bg-slate-100 hover:border   hover:border-black  p-2'} to={'aprove-request'}>Aproved</NavLink>
+                </li>
+                <li className='w-full '>
                 <NavLink className={'block  bg-slate-100 hover:border   hover:border-black  p-2'} to={'order'}>Order</NavLink>
                 </li>
                
