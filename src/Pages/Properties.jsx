@@ -5,99 +5,35 @@ import CommonButton from "../Components/CommonButton";
 import { Helmet } from "react-helmet-async";
 
 const Properties = () => {
-  const [alldata, setallData] = useState([]);
-  const [sortBy, setSortBy] = useState("all");
+  const [allData,setAllData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [sortBy,setSortBy] = useState('all');
 
+  
   useEffect(() => {
-    fetch("http://localhost:5000/homes")
-      .then((res) => res.json())
-      .then((data) => {
-        setallData(data);
-        // if(id==0){
-
-        //   setallData(data);
-        //   setSorted(data);
-        //   setDefault(data);
-        // }
-        // else if(id==1){
-        //   const filtered = data.filter( single => single.segment_name == "Student Housing" );
-        //   setallData(filtered);
-        //   setSorted(filtered);
-        //   setDefault(filtered);
-        // }
-        // else if(id==2){
-        //   const filtered = data.filter(single => single.segment_name == "Vacation Rentals");
-        //   setallData(filtered);
-        //   setSorted(filtered);
-        //   setDefault(filtered);
-        // }
-        // else if(id==3){
-        //   const filtered = data.filter(single => single.segment_name == "Townhouse");
-        //   setallData(filtered);
-        //   setSorted(filtered);
-        //   setDefault(filtered);
-        // }
-        // else if(id==4){
-        //   const filtered = data.filter(single => single.segment_name == "Single Family Homes");
-        //   setallData(filtered);
-        //   setSorted(filtered);
-        //   setDefault(filtered);
-        // }
-        // else if(id==5){
-        //   const filtered = data.filter(single => single.segment_name == "Apartment");
-        //   setallData(filtered);
-        //   setSorted(filtered);
-        //   setDefault(filtered);
-        // }else{
-        //   setallData(data);
-        //   setSorted(data);
-        //   setDefault(data);
-        // }
-      });
-  }, []);
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/properties?sortBy=${sortBy}`)
-      .then((res) => res.json())
-      .then((result) => {
-        setallData(result);
+      fetch(`http://localhost:5000/homes`)
+      .then(res => res.json())
+      .then(result => {
+          setAllData(result);
+          setLoading(false);
+          
       })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }, [sortBy]);
+  },[])
+
 
   const handleSort = (option) => {
-    setSortBy(option);
+    fetch(`http://localhost:5000/homes?sortBy=${option}`)
+      .then(res => res.json())
+      .then(result => {
+          setAllData(result);
+          setSortBy(option);
+          setLoading(false);
+          
+      })
+    
   };
 
-  // const handleSort = (sortBy) => {
-  //   console.log(sortBy);
-  //   if (sortBy === "all") {
-  //     setallData(defalt);
-  //     setStyle("all");
-  //   } else if (sortBy === "hp") {
-  //     const filtered = sorted.sort((a, b) => b.price - a.price);
-  //     console.log(filtered);
-  //     setallData(filtered);
-  //     setStyle("hp");
-  //     console.log(alldata);
-  //   } else if (sortBy === "sale") {
-  //     const filtered = sorted.filter((single) => single.status == "Sale");
-  //     setallData(filtered);
-  //     setStyle("sale");
-
-  //   } else if (sortBy === "rent") {
-  //     const filtered = sorted.filter((single) => single.status == "Rent");
-  //     setallData(filtered);
-  //     setStyle("rent");
-
-  //   }else if(sortBy === "lp"){
-  //     const filtered = sorted.sort((a,b) => a.price - b.price);
-  //     setallData(filtered);
-  //     setStyle("lp");
-  //   }
-  // };
+  
 
   return (
     <div className="py-8 md:py-12 px-2 min-h-[80vh]  max-w-[2000px] mx-auto bg-slate-200">
@@ -109,8 +45,8 @@ const Properties = () => {
           Search Properties
         </h2>
         <p className="text-center mb-4">Find your best Estate</p>
-      </div>
-      <div className="mx-4 my-4 flex justify-end ">
+      </div> 
+       <div className="mx-4 my-4 flex justify-end ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className=" m-1 ">
             <CommonButton>
@@ -159,16 +95,15 @@ const Properties = () => {
           </ul>
         </div>
       </div>
-      {alldata?.length < 1 && (
-        <p className="text-center text-2xl pt-24">
-          <span className="loading loading-spinner text-error"></span>
-        </p>
-      )}
+      {
+        loading && <p className="text-center text-2xl mt-24"><span className="loading loading-spinner text-error"></span></p>
+      }
+     
       <div className="container grid grid-cols- 1 md:grid-cols-2 lg:grid-cols-4 gap-6  items-center justify-center mx-auto">
-        {alldata.map((singledata) => (
-          <SingleCard key={singledata._id} singledata={singledata}></SingleCard>
-        ))}
-      </div>
+          {
+            allData.map(singledata => <SingleCard key={singledata._id} singledata={singledata}></SingleCard>)
+          }
+        </div>
     </div>
   );
 };

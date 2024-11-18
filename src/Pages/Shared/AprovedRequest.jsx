@@ -6,6 +6,7 @@ import { MdEdit } from "react-icons/md";
 
 const AprovedRequest = () => {
   const [newEstate, setNewEstate] = useState([]);
+  const [loading,setLoading] =  useState(true);
 
   useEffect(() => {
     fetch("http://localhost:5000/get-newestate")
@@ -15,6 +16,7 @@ const AprovedRequest = () => {
           (single) => single?.requestStatus == "Aprove"
         );
         setNewEstate(filterOnlyPending);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err.message);
@@ -24,12 +26,17 @@ const AprovedRequest = () => {
     <div className="relative">
       <h2 className="text-center  bg-gray-200 font-bold py-4 text-3xl text-yellow-600">
         {" "}
-        Pending Request
+        Aproved Request
       </h2>
-      {newEstate?.length < 1 && (
+      {newEstate?.length < 1 && !loading && (
         <h3 className="text-center top-40 left-1/3 absolute mt-4 text-xl font-semibold">
-          Empty aproved list !
+          Empty Pending List !
         </h3>
+      )}
+      {loading && (
+        <p className="absolute text-2xl top-32 left-1/2">
+          <span className="loading loading-spinner text-error"></span>
+        </p>
       )}
       <div className="overflow-x-auto ">
         <table className="table">

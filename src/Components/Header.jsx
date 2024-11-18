@@ -7,6 +7,7 @@ import { MdLogin } from "react-icons/md";
 import { authProvider } from '../Context/AuthContext';
 import { IoIosLogOut } from "react-icons/io";
 import Swal from 'sweetalert2';
+import { FaRegBookmark } from 'react-icons/fa';
 
 
 
@@ -14,6 +15,7 @@ const Header = () => {
     
   const{user,logOut} = useContext(authProvider);
   const navigate = useNavigate();
+  
   
   // const {displayName,photoURL
   // } = user
@@ -51,8 +53,9 @@ const Header = () => {
         <li>< NavLink to={`/properties`}>Properties</NavLink></li>
         {
           user?<>
-          <li>< NavLink to={'/bookmarks'}>Bookmarks</NavLink></li>
-        <li>< NavLink to={'/account'}>My Account</NavLink></li>
+          <li>< NavLink to={'/my-estate'}>My Estate</NavLink></li>
+        <li>< NavLink to={'/account'}>Account</NavLink></li>
+    
         <li>< NavLink to={'/dashboard'}>Dashboard</NavLink></li>
           </>:<>
           <li>< NavLink to={'/login'}>Login</NavLink></li>
@@ -66,6 +69,7 @@ const Header = () => {
         setmenu(!menu);
         
     }
+    
     return (
         <div className="navbar max-w-[2000px] mx-auto bg-base-200">
   <div className="navbar-start">
@@ -91,18 +95,24 @@ const Header = () => {
       {links}
     </ul>
   </div>
-  <div className="navbar-end  md:gap-4">
+  <div className="navbar-end  md:gap-2">
     {
       user && (
         <>
+        <Link to={'/bookmarks'}>
+       <div title='Bookmarks'  className={`text-2xl hover:text-yellow-600 mr-3 lg:mr-4 `}>
+            <FaRegBookmark></FaRegBookmark>
+       </div>
+       </Link>
        <Link to={'/account'}>
-       <div className='w-8 h-8 mr-2 lg:mr-4 outline rounded-full'>
+       <div className='w-8 h-8 mr-3 lg:mr-4 outline rounded-full'>
           {user.photoURL ?
            (<img title={user.displayName} alt='user' className='rounded-full h-8 w-8' src={user.photoURL}
             />):(<img title={user.displayName} alt='user' className='rounded-full h-8 w-8' src='/default-user.jpg'
               />)}
         </div>
        </Link>
+       
         </>
       )
     }

@@ -1,36 +1,32 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Users = () => {
   const [allUsers, setAllUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((result) => {
         setAllUsers(result);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err.message);
       });
   }, []);
 
-  // const handleDelete = (id) => {
-  //        fetch(`http://localhost:5000/user-delete/${id}`,{
-  //         method:"DELETE"
-  //        })
-  //        .then(res => res.json())
-  //        .then(result => {
-  //         console.log(result);
-  //        })
-  //        .catch((err) => {
-  //         console.log(err.message);
-  //        });
-  // };
+ 
 
   return (
-    <div>
+    <div className="relative">
       <h2 className="text-center bg-gray-200  font-bold py-4 text-3xl text-yellow-600">
         Users
       </h2>
+      {loading && (
+        <p className="absolute text-2xl top-44 left-1/2">
+          <span className="loading loading-spinner text-error"></span>
+        </p>
+      )}
       <div className="overflow-x-auto overflow-y-auto">
         <table className="table">
           <thead className="bg-black text-white">

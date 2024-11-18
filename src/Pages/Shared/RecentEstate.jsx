@@ -28,7 +28,7 @@ const RecentEstate = () => {
       )}
         <div className="container grid grid-cols- 1 md:grid-cols-2 lg:grid-cols-4 gap-6  items-center justify-center mx-auto">
           {
-            recentData.slice(0,6).map(singledata => <SingleCard key={singledata._id} singledata={singledata}></SingleCard>)
+            recentData?.slice(recentData?.length-6,recentData?.length).reverse().map(singledata => <SingleCard key={singledata._id} singledata={singledata}></SingleCard>)
           }
         </div>
       </div>

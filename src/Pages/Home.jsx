@@ -63,11 +63,14 @@ const Home = () => {
                 <p className="w-[80%] md:w-1/2">
                   These are standalone houses designed for one family.Search over 2000 properties to rent from the top agents in the country
                 </p>
-                <Link to={`/property/${'family-house'}`}>
-                  <CommonButton className={"mt-4 md:mt-6"}>
-                    Explore More <FaChevronRight />
-                  </CommonButton>
-                </Link>
+                <div className="mt-4 flex    md:mt-6">
+                <Link  to={`/property/${'family-house'}`}>
+                 
+                 <CommonButton>
+                 Explore More <FaChevronRight />
+                  </CommonButton>                  
+             </Link>
+                </div>
               </div>
             </div>
           </SwiperSlide>
@@ -89,11 +92,13 @@ const Home = () => {
                   Apartments are ideal for those seeking lower maintenance
                   living and often include .
                 </p>
+                <div className="mt-4 flex    md:mt-6">
                 <Link  to={`/property/${'apartments'}`}>
-                  <CommonButton className={"mt-4 md:mt-6"}>
+                  <CommonButton >
                     Explore More <FaChevronRight />
                   </CommonButton>
                 </Link>
+                </div>
               </div>
             </div>
           </SwiperSlide>
@@ -114,11 +119,13 @@ const Home = () => {
                   These are short-term rental properties used for holidays or
                   vacations.
                 </p>
+                <div className="mt-4 flex    md:mt-6">
                 <Link to={`/property/${'vacation-rentals'}`}>
-                  <CommonButton className={"mt-4 md:mt-6"}>
+                  <CommonButton >
                     Explore More <FaChevronRight />
                   </CommonButton>
                 </Link>
+                </div>
               </div>
             </div>
           </SwiperSlide>

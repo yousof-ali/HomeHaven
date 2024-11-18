@@ -6,6 +6,7 @@ import { MdEdit } from "react-icons/md";
 
 const PendingRequest = () => {
   const [newEstate, setNewEstate] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("http://localhost:5000/get-newestate")
@@ -15,6 +16,7 @@ const PendingRequest = () => {
           (single) => single?.requestStatus == "pending"
         );
         setNewEstate(filterOnlyPending);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err.message);
@@ -27,11 +29,16 @@ const PendingRequest = () => {
         {" "}
         Pending Request
       </h2>
-      {newEstate?.length < 1 && (
-            <h3 className="text-center top-40 left-1/3 absolute mt-4 text-xl font-semibold">
-              Empty Pending List !
-            </h3>
-          )}
+      {newEstate?.length < 1 && !loading && (
+        <h3 className="text-center top-40 left-1/3 absolute mt-4 text-xl font-semibold">
+          Empty Pending List !
+        </h3>
+      )}
+      {loading && (
+        <p className="absolute text-2xl top-32 left-1/2">
+          <span className="loading loading-spinner text-error"></span>
+        </p>
+      )}
 
       <div className="overflow-x-auto ">
         <table className="table">
@@ -48,7 +55,7 @@ const PendingRequest = () => {
               <th>Action</th>
             </tr>
           </thead>
-          
+
           <tbody>
             {newEstate.map((single, indx) => (
               <tr key={indx} className="hover:shadow-md">

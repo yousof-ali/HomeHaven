@@ -1,0 +1,123 @@
+import React, { useContext, useEffect, useState } from "react";
+import { authProvider } from "../Context/AuthContext";
+import SingleRequest from "../Components/SingleRequest";
+import { Link } from "react-router-dom";
+import CommonButton from "../Components/CommonButton";
+
+const MyEstate = () => {
+  const [mySalerent, setMysalerent] = useState([]);
+  const [aproved, setAproved] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [load, setLoad] = useState(true);
+
+  const { user } = useContext(authProvider);
+  useEffect(() => {
+    fetch(`http://localhost:5000/newEstate?email=${user?.email}`)
+      .then((res) => res.json())
+      .then((result) => {
+        const filter = result.filter(
+          (single) => single.requestStatus == "pending"
+        );
+        console.log(filter);
+
+        setMysalerent(filter);
+        setLoading(false);
+      });
+  }, []);
+  useEffect(() => {
+    fetch(`http://localhost:5000/aproved?email=${user?.email}`)
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        setAproved(result);
+        setLoad(false);
+      });
+  }, []);
+  return (
+    <div className=" bg-slate-200 min-h-[80vh]">
+      <div className="container mx-auto py-6">
+        <h1 className="text-3xl text-center text-yellow-600 font-bold font-Josefin">
+          My Properties
+        </h1>
+        <p className="text-center">
+          Here is your all proparty that you sale and rent and also you can add
+          a new your proparty
+        </p>
+        <div className="flex md:hidden justify-end my-4">
+            <Link to={"/sell-rent-my-proparties"}><CommonButton>Add New ?</CommonButton></Link>
+        </div>
+        <div className="grid gap-6 md:grid-cols-4">
+          <div className=" mx-2 col-span-3  md:mx-0 mt-6 ">
+            <div className="mt-4 p-4     min-h-[30vh] ">
+              <h2 className="text-xl text-yellow-600 mb-4 font-bold text-left ">
+                Aproved Request
+              </h2>
+              {load && (
+                <p className="text-center text-2xl pt-12">
+                  <span className="loading loading-spinner text-error"></span>
+                </p>
+              )}
+              {aproved?.length < 1 && !load &&(
+                <p className="text-center font-bold">You have no Pending</p>
+              )}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 lg:grid-cols-4 ">
+                {aproved?.map((single, indx) => (
+                  <SingleRequest data={single} key={indx}></SingleRequest>
+                ))}
+              </div>
+            </div>
+            <div className="divider hidden md:flex py-4 "></div>
+            <div className=" border p-4   min-h-[30vh]">
+              <h2 className="text-xl mb-4 text-left  font-bold text-yellow-600 ">
+                {" "}
+                Pending Request
+              </h2>
+              {loading && (
+                <p className="text-center text-2xl pt-12">
+                  <span className="loading loading-spinner text-error"></span>
+                </p>
+              )}
+              {mySalerent?.length < 1 && !loading &&(
+                <>
+                  <p className="text-center font-bold">You have no Request</p>
+                  <p className="mt-8 text-center te">
+                    Do you want to sale or rent your proparties?
+                  </p>
+                  <div className="flex justify-center mt-4">
+                    <Link to={"/sell-rent-my-proparties"}>
+                      <CommonButton>Sell & Rent</CommonButton>
+                    </Link>
+                  </div>
+                </>
+              )}
+              <div className="grid gap-3 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+                {mySalerent?.map((single, indx) => (
+                  <SingleRequest data={single} key={indx}></SingleRequest>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className=" col-span-1 mx-4 max-h-[450px] md:mt-16 mt-6 p-4 rounded bg-slate-50 ">
+          <div className="flex mb-6  items-center">
+              <img src="/logo.png" className="w-20" alt="" />
+              <h2 className="text-2xl font-bold font-Josefin text-yellow-500">
+                Haven
+              </h2>
+            </div>
+            <h2 className="text-xl font-bold ">Add your Proparty ?</h2>
+            <p className="py-2">If you have real estate . And you want to sale and rent. Add a any kind of Properties</p>
+            <div className="w-[80%] mt-4 mx-auto ">
+                <img className="rounded" src={'https://i.ibb.co.com/Ptq6pN4/home5.jpg'} alt="" />
+                <div className="flex justify-end mt-4">
+                    <Link to={"/sell-rent-my-proparties"}><CommonButton>Add</CommonButton></Link>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+      </div>
+    </div>
+  );
+};
+
+export default MyEstate;

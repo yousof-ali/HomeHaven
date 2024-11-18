@@ -23,6 +23,9 @@ import Order from "../Pages/Shared/Order";
 import SellRent from "../Pages/SellRent";
 import PendingDetails from "../Pages/PendingDetails";
 import AprovedRequest from "../Pages/Shared/AprovedRequest";
+import MyEstate from "../Pages/MyEstate";
+import Addnew from "../Pages/Shared/Addnew";
+import Edit from "../Pages/Shared/Edit";
 
 const router = createBrowserRouter([
     {
@@ -75,6 +78,10 @@ const router = createBrowserRouter([
           element:<PrivateRouter><SellRent></SellRent></PrivateRouter>
         },
         {
+          path:'/my-estate',
+          element:<PrivateRouter><MyEstate></MyEstate></PrivateRouter>
+        },
+        {
           path:'/dashboard',
           element:<PrivateRouter><Dashboard></Dashboard></PrivateRouter>,
           children:[
@@ -85,6 +92,10 @@ const router = createBrowserRouter([
             {
               path:'all-estate',
               element:<AllEstate></AllEstate>
+            },
+            {
+              path:'add-new',
+              element:<Addnew></Addnew>
             },
             {
               path:'pending-request',
@@ -106,7 +117,11 @@ const router = createBrowserRouter([
             {
               path:'aprove-request/aprove-details/:id',
               element:<PendingDetails></PendingDetails>
-            }  
+            }  ,
+            {
+              path:'all-estate/edit/:id',
+              element:<Edit></Edit>
+            }
 
           ],
          

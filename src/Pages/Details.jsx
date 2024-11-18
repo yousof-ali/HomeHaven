@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import { authProvider } from "../Context/AuthContext";
 import Swal from "sweetalert2";
+import AOS from "aos";
 
 const Details = () => {
   const { id } = useParams();
@@ -166,7 +167,7 @@ const Details = () => {
           
           <ToastContainer />
         </div>
-        <div className="col-span-2 md:mt-0  space-y-1 ">
+        <div className="col-span-2 md:mt-0   space-y-1 ">
           <div className="mb-12">
             <h2 className="text-3xl lg:mt-0  my-4 font-bold text-yellow-600 font-Josefin">
               Explore More
@@ -193,7 +194,8 @@ const Details = () => {
               </li>
             </div>
           </div>
-          <div className="border mt-4 rounded-md md:p-4 p-2 bg-slate-100 ">
+          <div
+           className="border mt-4 rounded-md md:p-4 p-2 bg-slate-100 ">
             <div className="flex  items-center">
               <img src="/logo.png" className="w-20" alt="" />
               <h2 className="text-2xl font-bold font-Josefin text-yellow-500">
