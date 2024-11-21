@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import CommonButton from "../../Components/CommonButton";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Edit = () => {
     const {id} = useParams();
     const [data,setData] = useState({});
     const [segment, setSegment] = useState('');
     const [statuss, setStatus] = useState('');
+    const navigate = useNavigate();
+
+    const backONe = () => {
+      navigate(-1)
+    }
     
     const handleChangeCategory = (e) => {
       setSegment(e.target.value);
@@ -207,8 +212,14 @@ const Edit = () => {
               </div>
             </div>
           </div>
-          <div className=" flex justify-end ">
+          <div className=" flex gap-4 justify-end ">
+          <div>
+              <button onClick={backONe} className="btn hover:bg-gray-700 bg-black text-white">Back</button>
+            </div>
+            <div>
             <CommonButton>Update</CommonButton>
+            </div>
+           
           </div>
         </form>
       </div>

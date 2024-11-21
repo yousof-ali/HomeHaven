@@ -61,7 +61,7 @@ const PendingDetails = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result)
-                fetch(`http://localhost:5000/aprove/${data?._id}`,{
+                fetch(`http://localhost:5000/admin-aprove/${data?._id}`,{
                     method:"PUT",
                     headers:{
                         'content-type':'application/json'
@@ -95,9 +95,9 @@ const PendingDetails = () => {
 
   return (
     <div className="p-4">
-      <div className="flex flex-col gap-4 p-4 rounded shadow-xl max-w-[1000px]  mx-auto md:flex-row">
+      <div className="flex flex-col items-center gap-4 p-4 rounded shadow-xl max-w-[1000px]  mx-auto md:flex-row">
         <div className="flex-1 ">
-          <img src={data?.img} className=" rounded-lg" alt="" />
+          <img src={data?.img} c className="w-full max-h-[400px] rounded-lg" alt="" />
         </div>
 
         <div className="flex-1 mt-2 space-y-2 md:mt-0">

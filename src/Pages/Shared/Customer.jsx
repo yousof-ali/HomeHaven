@@ -46,7 +46,7 @@ const Customer = () => {
         ]
       };
     return (
-        <div className='bg-gradient-to-tl from-red-300 to-[#73c1e6] px-8 py-12'>
+        <div className='bg-gradient-to-tl  max-w-[2000px] mx-auto from-red-300 to-[#73c1e6] px-8 py-12'>
             <h1 className='text-4xl text-center font-bold text-yellow-600 font-Josefin'>Our Customer Review</h1>
             <p className='text-center mb-6 mx-2 w-full md:w-1/2 md:mx-auto'>the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
             <div>

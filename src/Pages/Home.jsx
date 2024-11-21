@@ -136,22 +136,14 @@ const Home = () => {
      
       <ExploreMore></ExploreMore>
 
-      <div className="min-h-[70vh] mt-8">
-        <div className=" flex md:flex-row flex-col items-center container mx-auto gap-4 lg:gap-12">
-          <div
-            className=" flex-1 py-12 pb-16"
-            style={{
-              backgroundImage: "url(https://i.ibb.co.com/J2hn7ff/bac.jpg)",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-            }}
-          >
-            <div>
+      <div className="min-h-[50vh] pb-8">
+        <div className=" container mx-auto flex-col lg:flex-row flex justify-center items-center gap-16 md:gap-4 ">
+          
+            <div className="flex-1">
               <div className="hero-content relative  flex-col ">
                 <div className="text-center lg:text-left">
                   <h1 className="text-3xl font-bold font-Josefin text-yellow-600">
-                    Sell Your Proparty
+                    Sale Your Proparty
                   </h1>
                 </div>
                 <div className="relative">
@@ -161,74 +153,11 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="">
-                <Link to={'/sell-rent-my-proparties'} className="absolute left-5 -bottom-12"><CommonButton>Sell & Rent</CommonButton></Link>
+                <Link to={'/sell-rent-my-proparties'} className="absolute left-5 -bottom-12"><CommonButton>Sale & Rent</CommonButton></Link>
                 </div>
                 
-                {/* <div
-                  data-aos="fade-down-right"
-                  className=" rounded bg-base-100 w-full max-w-sm shrink-0 "
-                >
-                  <form className=" card-body">
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text">Inquiry Type</span>
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Inquiry Type"
-                        className="border p-2 rounded border-black outline-yellow-500"
-                        required
-                      />
-                    </div>
-                    <div className="form-control">
-                      <label>
-                        <span className="label-text font-bold">
-                          Personal Info
-                        </span>
-                      </label>
-                    </div>
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text ">Name</span>
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Name"
-                        className="border p-2 rounded border-black outline-yellow-500"
-                        required
-                      />
-                    </div>
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text">Email</span>
-                      </label>
-                      <input
-                        type="email"
-                        placeholder="Email"
-                        className="border p-2 rounded border-black outline-yellow-500"
-                        required
-                      />
-                    </div>
-                    <div className=" form-control">
-                      <div className="flex gap-2 justify-center">
-                        <input
-                          className="border w-full border-black p-2 rounded mt-3 outline-yellow-500"
-                          type="text"
-                          placeholder="Max Price"
-                        />
-                        <input
-                          className="border w-full border-black p-2 rounded mt-3 outline-yellow-500"
-                          type="text"
-                          placeholder="Minimum size (sq)"
-                        />
-                      </div>
-                    </div>
-                    <div className="form-control mt-6">
-                      <CommonButton>Submit</CommonButton>
-                    </div>
-                  </form>
-                </div> */}
-              </div>
+                
+              
             </div>
             
           </div>

@@ -5,17 +5,7 @@ const DashboardRoute = () => {
   return (
     <div className="bg-slate-200 rounded-md   h-full py-4 md:px-4">
       <ul className="dasboard-ul space-y-2">
-        <li className="w-full ">
-          <NavLink
-            className={
-              "block  bg-slate-100 hover:border   hover:border-black p-2"
-            }
-            to={"add-new"}
-          >
-            Add New
-          </NavLink>
-        </li>
-        <li className="w-full ">
+      <li className="w-full ">
           <NavLink
             className={
               "block  bg-slate-100 hover:border   hover:border-black p-2"
@@ -30,11 +20,13 @@ const DashboardRoute = () => {
             className={
               "block  bg-slate-100 hover:border   hover:border-black p-2"
             }
-            to={"all-user"}
+            to={"add-new"}
           >
-            Users
+            Add New
           </NavLink>
         </li>
+        
+       
 
         <li className="w-full ">
           <NavLink
@@ -64,6 +56,16 @@ const DashboardRoute = () => {
             to={"order"}
           >
             Order
+          </NavLink>
+        </li>
+        <li className="w-full ">
+          <NavLink
+            className={
+              "block  bg-slate-100 hover:border   hover:border-black p-2"
+            }
+            to={"all-user"}
+          >
+            Users
           </NavLink>
         </li>
       </ul>

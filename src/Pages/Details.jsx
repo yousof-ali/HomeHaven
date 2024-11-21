@@ -14,30 +14,40 @@ const Details = () => {
   const [data, setData] = useState({});
   const { user } = useContext(authProvider);
   const [bookmarked,setBookmarked] = useState([]);
+  const [bookingBtn,setBookingBtn] = useState(true);
   const [btn,setBtn] = useState(true);
   let email = user?.email;
   if(!email) {
     email = user?.photoURL;
   }
-  console.log(btn);
+
+
+  
+  
 
   useEffect(() => {
     fetch(`http://localhost:5000/details/${id}`)
       .then((res) => res.json())
       .then((result) => {
         setData(result);
+        
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
 
+
+
+
+
+
   
   useEffect(() => {
     fetch(`http://localhost:5000/bookmark?email=${email}`)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
+      
       setBookmarked(data);
     })
     .catch((err) => {
@@ -46,20 +56,19 @@ const Details = () => {
   },[data])
 
   const filter = bookmarked.find(single => single.bookmarkId == data?._id);
-  console.log(filter);
 
   const handleBookmark = (id) => {
     let email = user?.email
     if(!email) {
       email = user?.photoURL
     }
-    console.log(email)
+    
     const bookmarkId = id
     const img = data?.img
     const title = data?.title
     const segment_name = data?.segment_name;
     const bookmark = {email,bookmarkId,img,title,segment_name};
-    console.log(bookmark); 
+     
 
     fetch('http://localhost:5000/bookmarks',{
       method:'POST',
@@ -79,17 +88,27 @@ const Details = () => {
           timer:1500
         })
         setBtn(false);
-      }else{
-        
-        
-      }
-      console.log(result);
+      };
     })
     .catch((error) => {
       console.log(error.message);
-    })
+    });
     
   };
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/bookings/person?email=${email}`)
+    .then(res => res.json())
+    .then(result => {
+      const search = result.filter(single => single.productId == id);
+      if(search.length>0){
+        console.log(search)
+        setBookingBtn(false)
+
+      }
+     
+    })
+  },[id])
 
   // useEffect(() => {
   //   const ids = id
@@ -106,10 +125,36 @@ const Details = () => {
     const from = e.target 
     const name =  from.name.value
     const email = user?.email 
-    const order = {name,email,productId:id}
-    
-    console.log(order);
-  }
+    const productId = data?._id
+    const product = data;
+    const order = {name,email,productId,product}
+    fetch('http://localhost:5000/booking',{
+      method:"POST",
+      headers:{
+        'content-type':'application/json'
+      },
+      body:JSON.stringify(order)
+    })
+    .then(res => res.json())
+    .then(result => {
+      if(result.insertedId){
+        Swal.fire({
+          icon:'success',
+          title:'Booking',
+          showConfirmButton:false,
+          timer:1500
+        });
+      }
+      setBookingBtn(false);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+
+  };
+
+
+  
 
   return (
     <div className="flex justify-center  items-center">
@@ -204,7 +249,7 @@ const Details = () => {
             </div>
             <h2 className="text-xl mx-auto lg:w-3/4 text-purple-700  font-bold mt-6">
               Do You Want to{" "}
-              <span className="text-yellow-600">{data?.status}</span> it ?
+              <span className="text-yellow-600">Booking</span>?
             </h2>
             <form onSubmit={handleOrder}>
               <div className="form-control mx-auto lg:w-3/4">
@@ -238,9 +283,13 @@ const Details = () => {
                   <span>Price : </span>{" "}
                   <span className="font-bold">{data?.price}$</span>
                 </p>
-                <CommonButton>
-                  {data?.status}
-                </CommonButton>
+                
+                {
+                  bookingBtn?<CommonButton >
+                  Booking
+                </CommonButton>:<button className="p-2 border font-bold border-yellow-600 rounded"> Booked</button>
+                }
+               
               </div>
             </form>
           </div>

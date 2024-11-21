@@ -7,7 +7,7 @@ const Users = () => {
     fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((result) => {
-        setAllUsers(result);
+        setAllUsers(result.reverse());
         setLoading(false);
       })
       .catch((err) => {

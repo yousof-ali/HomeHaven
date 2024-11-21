@@ -15,7 +15,7 @@ const AprovedRequest = () => {
         const filterOnlyPending = result.filter(
           (single) => single?.requestStatus == "Aprove"
         );
-        setNewEstate(filterOnlyPending);
+        setNewEstate(filterOnlyPending.reverse());
         setLoading(false);
       })
       .catch((err) => {
@@ -60,7 +60,7 @@ const AprovedRequest = () => {
                 <td>{single?.name}</td>
                 <td>{single?.email}</td>
                 <td>
-                  <img className="w-12 rounded-full" src={single?.img} alt="" />
+                  <img className="w-16 h-8" src={single?.img} alt="" />
                 </td>
 
                 <td>{single?.segment_name}</td>

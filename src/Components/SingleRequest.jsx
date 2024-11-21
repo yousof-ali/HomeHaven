@@ -3,6 +3,7 @@ import CommonButton from './CommonButton';
 import { Link } from 'react-router-dom';
 
 const SingleRequest = ({data}) => {
+
     
     return (
         <div className='bg-white p-3 rounded ' >
@@ -15,7 +16,7 @@ const SingleRequest = ({data}) => {
             
             <div className='flex justify-end'>
                    {
-                    data?.requestStatus?<p className='p-2 text-gray-400 border rounded disabled'>Pending </p>:<Link to={`/details/${data?._id}`}><CommonButton> Details</CommonButton></Link>
+                    data?.requestStatus?<><Link to={`/pending-edit/${data?._id}`}><CommonButton>Edit</CommonButton></Link><p className='p-2 text-gray-400 ml-4 border rounded disabled'>Pending </p></>:<Link to={`/details/${data?._id}`}><CommonButton> Details</CommonButton></Link>
                    }
 
             </div>

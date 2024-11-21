@@ -26,6 +26,7 @@ import AprovedRequest from "../Pages/Shared/AprovedRequest";
 import MyEstate from "../Pages/MyEstate";
 import Addnew from "../Pages/Shared/Addnew";
 import Edit from "../Pages/Shared/Edit";
+import PendingEdit from "../Pages/PendingEdit"; 
 
 const router = createBrowserRouter([
     {
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
         {
           path:'/sell-rent-my-proparties',
           element:<PrivateRouter><SellRent></SellRent></PrivateRouter>
+        },
+        {
+         path:'pending-edit/:id',
+         element:<PrivateRouter><PendingEdit></PendingEdit></PrivateRouter>
         },
         {
           path:'/my-estate',
