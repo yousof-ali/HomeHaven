@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import { auth } from '../firebase/firebaseConfig';
+import axios from 'axios';
 
 
 
@@ -10,6 +11,7 @@ const AuthContext = ({children}) => {
     const[user,setUser] = useState(null);
     const googleProvider = new GoogleAuthProvider()
     const gitHubProvider = new GithubAuthProvider()
+   
     
     const createUser = (email,password) =>{
         setLoader(true);
@@ -20,8 +22,28 @@ const AuthContext = ({children}) => {
         const userStateChange = onAuthStateChanged(auth,currentUser => {
             setLoader(false);
             setUser(currentUser);
+            const userEmail = currentUser?.email || user?.email
+            // const currentUser = {email:userEmail}
+            if(userEmail){
+                axios.post('http://localhost:5000/jwt',{email:userEmail},{withCredentials:true})
+                .then(result => console.log(result.data))
+                .catch((err) => {
+                    console.log(err.message);
+                })
+             }
+            else{
+                axios.post('http://localhost:5000/logout',{email:userEmail},{withCredentials:true})
+                .then(result => {
+                    console.log(result.data);
+                })
+                .catch((err) => {
+                    console.log(err.message);
+                })
+            }
         })
-        return userStateChange;
+        return () => {
+            userStateChange
+        };
     },[])
 
     const logOut = () =>{

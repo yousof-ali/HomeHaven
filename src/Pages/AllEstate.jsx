@@ -3,6 +3,7 @@ import { MdDelete } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AllEstate = () => {
   const [allEstate, setAllEstate] = useState([]);
@@ -19,6 +20,38 @@ const AllEstate = () => {
         console.log(err.message);
       });
   }, []);
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Delete?",
+      position:'center',
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Delete!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/delete-estate/${id}`,{
+          method:"Delete"
+        }).then(res => res.json())
+        .then(result => {
+          if(result.deletedCount>0){
+            const filt = allEstate.filter(single => single._id !== id)
+            setAllEstate(filt);
+            Swal.fire({
+              title: "Deleted!",
+              position:"center",
+              text: "Delete successfully!.",
+              icon: "success"
+            });
+          } ;
+        });
+     };
+   });
+
+  }
   return (
     <div className="relative">
       <h2 className="text-center bg-gray-200  font-bold py-4 text-3xl text-yellow-600">
@@ -61,7 +94,7 @@ const AllEstate = () => {
                   <Link to={`edit/${single?._id}`} className="p-1 md:p-2 text-xl bg-green-300 text-white rounded">
                     <MdEdit></MdEdit>
                   </Link>
-                  <button className="p-1 md:p-2 text-xl bg-red-500 text-white rounded">
+                  <button onClick={()=> handleDelete(single?._id)} className="p-1 md:p-2 text-xl bg-red-500 text-white rounded">
                     <MdDelete></MdDelete>
                   </button>
                 </td>
