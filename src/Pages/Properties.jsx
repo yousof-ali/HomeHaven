@@ -24,7 +24,7 @@ const Properties = () => {
   //       setLoading(false);
   //     });
   // }, []);
-  console.log(sortBy);
+  
 
   useEffect(() => {
     fetch(

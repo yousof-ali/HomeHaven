@@ -19,7 +19,7 @@ const SingleCard = ({singledata}) => {
       </div>
       <div className=" p-4 space-y-1">
       <div className="flex gap-4 justify-start">
-        <p className="text-white rounded p-1 bg-green-500 text-sm">{singledata?.status}</p>
+        <p className={`${singledata?.status == "Sale"?'bg-green-500':'bg-black'} text-white  rounded p-1  text-sm`}>{singledata?.status}</p>
         </div>
         
         <p className="font-bold">{singledata?.segment_name}</p>

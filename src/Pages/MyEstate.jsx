@@ -40,7 +40,6 @@ const MyEstate = () => {
     fetch(`https://haven-server-site.vercel.app/aproved?email=${user?.email}`)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         setAproved(result.reverse());
         setLoad(false);
       });
