@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CommonButton from "../../Components/CommonButton";
 import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Edit = () => {
     const {id} = useParams();
@@ -46,7 +47,6 @@ const Edit = () => {
         let facilitiess = form.facilities.value
         const facilities = facilitiess.split(/\s+/);
         const newEstate = {img,title,segment_name,description,price,status,area,location,facilities};
-        console.log(newEstate);
         fetch(`https://haven-server-site.vercel.app/update/${data?._id}`,{
             method:"PUT",
             headers:{
@@ -56,7 +56,15 @@ const Edit = () => {
         })
         .then(res => res.json())
         .then(result => {
-            console.log(result);
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Updated",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          form.reset();
+          navigate(-1)
         })
     }
   return (
