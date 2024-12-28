@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import CommonButton from "../../Components/CommonButton";
 import Swal from "sweetalert2";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Addnew = () => {
   const [segment, setSegment] = useState("Single Family Homes");
   const [statuss, setStatus] = useState("Sale");
+  const navigate = useNavigate();
   const handleChangeCategory = (e) => {
     setSegment(e.target.value);
   };
+  
 
   const handleChangeStatus = (e) => {
     setStatus(e.target.value);
@@ -28,7 +31,7 @@ const Addnew = () => {
     const facilities = facilitiess.split(/\s+/);
     const newEstate = {img,title,segment_name,description,price,status,area,location,facilities};
     
-    fetch('http://localhost:5000/addnew-estate',{
+    fetch('https://haven-server-site.vercel.app/addnew-estate',{
         method:"POST",
         headers:{
             'content-type':'application/json'
@@ -41,11 +44,13 @@ const Addnew = () => {
         Swal.fire({
             position: "center",
             icon: "success",
-            title: "Your work has been saved",
+            title: "Added new estate",
             showConfirmButton: false,
             timer: 1500,
           });
           form.reset()
+          navigate('/dashboard/all-estate')
+          
     })
     .catch((err) => {
         console.log(err.message)

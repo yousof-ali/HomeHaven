@@ -22,7 +22,7 @@ const Edit = () => {
     };
 
     useEffect(()=> {
-        fetch(`http://localhost:5000/details/${id}`)
+        fetch(`https://haven-server-site.vercel.app/details/${id}`)
         .then(res => res.json())
         .then(result => {
             setData(result);
@@ -47,7 +47,7 @@ const Edit = () => {
         const facilities = facilitiess.split(/\s+/);
         const newEstate = {img,title,segment_name,description,price,status,area,location,facilities};
         console.log(newEstate);
-        fetch(`http://localhost:5000/update/${data?._id}`,{
+        fetch(`https://haven-server-site.vercel.app/update/${data?._id}`,{
             method:"PUT",
             headers:{
                 'content-type':'application/json'

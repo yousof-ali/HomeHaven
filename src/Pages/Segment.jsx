@@ -8,7 +8,7 @@ const Segment = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/segment?option=${id}`)
+    fetch(`https://haven-server-site.vercel.app/segment?option=${id}`)
       .then((res) => res.json())
       .then((result) => {
         setData(result);

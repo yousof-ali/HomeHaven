@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         {
           path:'/details/:id',
           element:<PrivateRouter> <Details></Details></PrivateRouter> ,
-          loder:({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+          loder:({params}) => fetch(`https://haven-server-site.vercel.app/details/${params.id}`)
         },
         {
           path:'/properties',
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
         {
           path:'/bookmarks',
           element:<PrivateRouter><Bookmarks></Bookmarks></PrivateRouter>,
-          // loader:() => fetch('http://localhost:5000/homes')
+          // loader:() => fetch('https://haven-server-site.vercel.app/homes')
         },
         {
           path:'/singUp',

@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -8,10 +9,9 @@ const Order = () => {
   
 
   useEffect(() => {
-    fetch(`http://localhost:5000/all-bookings`)
-      .then((res) => res.json())
+    axios(`https://haven-server-site.vercel.app/all-bookings`,{withCredentials:true})
       .then((result) => {
-        setData(result.reverse());
+        setData(result.data.reverse());
         setLoading(false);
         console.log(result)
       })

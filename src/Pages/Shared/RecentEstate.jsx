@@ -4,7 +4,7 @@ import SingleCard from '../../Components/SingleCard';
 const RecentEstate = () => {
     const [recentData,setRecentData] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/homes')
+        fetch('https://haven-server-site.vercel.app/homes')
         .then(res => res.json())
         .then(result => {
             setRecentData(result);

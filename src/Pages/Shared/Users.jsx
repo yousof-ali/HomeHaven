@@ -4,7 +4,7 @@ const Users = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://haven-server-site.vercel.app/users")
       .then((res) => res.json())
       .then((result) => {
         setAllUsers(result.reverse());

@@ -36,7 +36,7 @@ const Login = () => {
         const userInformation = {
           lastSignInTime
         };
-        fetch(`http://localhost:5000/update-lastlogin?email=${email}`,{
+        fetch(`https://haven-server-site.vercel.app/update-lastlogin?email=${email}`,{
           method:"PUT",
           headers:{
             'content-type':'application/json'
@@ -49,7 +49,7 @@ const Login = () => {
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "Your work has been saved",
+              title: "Log In",
               showConfirmButton: false,
               timer: 1500,
             });
@@ -82,7 +82,7 @@ const Login = () => {
         lastSignInTime,
         providerId
       };
-      fetch('http://localhost:5000/users',{
+      fetch('https://haven-server-site.vercel.app/users',{
         method:"POST",
         headers:{
           'content-type':'application/json'
@@ -93,7 +93,7 @@ const Login = () => {
       .then(result => {
         console.log(result);
         if(result.alreadyTaken){
-          fetch(`http://localhost:5000/update-lastlogin?email=${email}`,{
+          fetch(`https://haven-server-site.vercel.app/update-lastlogin?email=${email}`,{
             method:"PUT",
             headers:{
               'content-type':'application/json'
@@ -116,59 +116,59 @@ const Login = () => {
     });
   };
 
-  const handleGithubLogin = () => {
-    gitHubLogin().then((result) => {
-      console.log(result);
-      const displayName = result?.user?.displayName;
-      const email = result?._tokenResponse?.screenName;
-      const emailStaus = result?.user?.emailVerified;
-      const providerId = result?.providerId;
-      const photoURL = result?.user?.photoURL;
-      const creationTime = result?.user?.metadata?.creationTime;
-      const lastSignInTime = result?.user?.metadata?.lastSignInTime;
-      const userInformation = {
-        displayName,
-        email,
-        emailStaus,
-        photoURL,
-        creationTime,
-        lastSignInTime,
-        providerId
-      };
-      fetch('http://localhost:5000/users',{
-        method:"POST",
-        headers:{
-          'content-type':'application/json'
-        },
-        body:JSON.stringify(userInformation)
-      })
-      .then(res => res.json())
-      .then(result => {
+  // const handleGithubLogin = () => {
+  //   gitHubLogin().then((result) => {
+  //     console.log(result);
+  //     const displayName = result?.user?.displayName;
+  //     const email = result?._tokenResponse?.screenName;
+  //     const emailStaus = result?.user?.emailVerified;
+  //     const providerId = result?.providerId;
+  //     const photoURL = result?.user?.photoURL;
+  //     const creationTime = result?.user?.metadata?.creationTime;
+  //     const lastSignInTime = result?.user?.metadata?.lastSignInTime;
+  //     const userInformation = {
+  //       displayName,
+  //       email,
+  //       emailStaus,
+  //       photoURL,
+  //       creationTime,
+  //       lastSignInTime,
+  //       providerId
+  //     };
+  //     fetch('https://haven-server-site.vercel.app/users',{
+  //       method:"POST",
+  //       headers:{
+  //         'content-type':'application/json'
+  //       },
+  //       body:JSON.stringify(userInformation)
+  //     })
+  //     .then(res => res.json())
+  //     .then(result => {
         
-        if(result.alreadyTaken){
-          fetch(`http://localhost:5000/update-lastlogin?email=${email}`,{
-            method:"PUT",
-            headers:{
-              'content-type':'application/json'
-            },
-            body:JSON.stringify(userInformation)
-          })
-          .then(res => res.json())
-          .then(result => {
-            console.log(result);
-          })
-          .catch((err) => {
-            console.log(err.message);
-          })
-        }
+  //       if(result.alreadyTaken){
+  //         fetch(`https://haven-server-site.vercel.app/update-lastlogin?email=${email}`,{
+  //           method:"PUT",
+  //           headers:{
+  //             'content-type':'application/json'
+  //           },
+  //           body:JSON.stringify(userInformation)
+  //         })
+  //         .then(res => res.json())
+  //         .then(result => {
+  //           console.log(result);
+  //         })
+  //         .catch((err) => {
+  //           console.log(err.message);
+  //         })
+  //       }
         
-      })
-      .catch((error) => {
-        console.log(error.message);
-      })
-      navigate(location?.state ? location.state : "/");
-    });
-  };
+  //     })
+  //     .catch((error) => {
+  //       console.log(error.message);
+  //     })
+  //     navigate(location?.state ? location.state : "/");
+  //   });
+  // };
 
   return (
     <div className="flex items-center justify-center py-8 min-h-[80vh] bg-gray-50-50">
@@ -237,7 +237,7 @@ const Login = () => {
             type="submit"
             className="w-full px-4 py-2  font-semibold rounded-md shadow-sm "
           >
-            Log In
+            Login
           </CommonButton>
         </form>
         <p className="mt-4  text-gray-600">
@@ -247,19 +247,19 @@ const Login = () => {
           </a>
         </p>
         <div className="divider">Or</div>
-        <div className="flex justify-center items-center gap-4">
+        <div className="flex justify-center items-center">
           <p
             onClick={handleGoogleLogin}
             className="text-3xl p-2 cursor-pointer rounded-xl  hover:bg-slate-100"
           >
             <FaGoogle />
           </p>
-          <p
+          {/* <p
             onClick={handleGithubLogin}
             className="text-3xl p-2 cursor-pointer rounded-xl  hover:bg-slate-100"
           >
             <FaGithub />
-          </p>
+          </p> */}
         </div>
       </div>
     </div>

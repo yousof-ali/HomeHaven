@@ -50,7 +50,7 @@ const SellRent = () => {
         name,
         requestStatus
       }
-    fetch('http://localhost:5000/sale-rent-request',{
+    fetch('https://haven-server-site.vercel.app/sale-rent-request',{
         method:"POST",
         headers:{
             'content-type':'application/json'

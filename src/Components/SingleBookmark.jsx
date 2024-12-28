@@ -27,7 +27,7 @@ const SingleBookmark = ({ setBookmarks, data, bookmarks }) => {
       confirmButtonText: "Remove!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/delete-bookmark/${id}`, {
+        fetch(`https://haven-server-site.vercel.app/delete-bookmark/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

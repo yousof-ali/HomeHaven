@@ -25,14 +25,16 @@ const AuthContext = ({children}) => {
             const userEmail = currentUser?.email || user?.email
             // const currentUser = {email:userEmail}
             if(userEmail){
-                axios.post('http://localhost:5000/jwt',{email:userEmail},{withCredentials:true})
-                .then(result => console.log(result.data))
+                axios.post('https://haven-server-site.vercel.app/jwt',{email:userEmail},{withCredentials:true})
+                .then(_ => {
+
+                })
                 .catch((err) => {
                     console.log(err.message);
                 })
              }
             else{
-                axios.post('http://localhost:5000/logout',{email:userEmail},{withCredentials:true})
+                axios.post('https://haven-server-site.vercel.app/logout',{email:userEmail},{withCredentials:true})
                 .then(result => {
                     console.log(result.data);
                 })

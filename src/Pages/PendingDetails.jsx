@@ -8,7 +8,7 @@ const PendingDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate()
   useEffect(() => {
-    fetch(`http://localhost:5000/pending-details/${id}`)
+    fetch(`https://haven-server-site.vercel.app/pending-details/${id}`)
       .then((res) => res.json())
       .then((result) => {
         setData(result);
@@ -51,7 +51,7 @@ const PendingDetails = () => {
       }).then((result) => {
         if (result.isConfirmed) {
 
-            fetch('http://localhost:5000/addnew-estate',{
+            fetch('https://haven-server-site.vercel.app/addnew-estate',{
                 method:"POST",
                 headers:{
                     'content-type':'application/json'
@@ -61,7 +61,7 @@ const PendingDetails = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result)
-                fetch(`http://localhost:5000/admin-aprove/${data?._id}`,{
+                fetch(`https://haven-server-site.vercel.app/admin-aprove/${data?._id}`,{
                     method:"PUT",
                     headers:{
                         'content-type':'application/json'

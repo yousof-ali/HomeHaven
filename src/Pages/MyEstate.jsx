@@ -3,6 +3,7 @@ import { authProvider } from "../Context/AuthContext";
 import SingleRequest from "../Components/SingleRequest";
 import { Link } from "react-router-dom";
 import CommonButton from "../Components/CommonButton";
+import axios from "axios";
 
 const MyEstate = () => {
   const [mySalerent, setMysalerent] = useState([]);
@@ -15,21 +16,18 @@ const MyEstate = () => {
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings/person?email=${user?.email}`)
-    .then(res => res.json())
+    axios.get(`https://haven-server-site.vercel.app/bookings/person?email=${user?.email}`,{withCredentials:true})
     .then(result => {
-      setBookings(result);
-      console.log(result)
+      setBookings(result.data.reverse());
       setLoading(false);
     })
-  },[])
+  },[]);
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/newEstate?email=${user?.email}`)
-      .then((res) => res.json())
+    axios(`https://haven-server-site.vercel.app/newEstate?email=${user?.email}`,{withCredentials:true})
       .then((result) => {
-        const filter = result.filter(
+        const filter = result.data.filter(
           (single) => single.requestStatus == "pending"
         );
         console.log(filter);
@@ -39,7 +37,7 @@ const MyEstate = () => {
       });
   }, []);
   useEffect(() => {
-    fetch(`http://localhost:5000/aproved?email=${user?.email}`)
+    fetch(`https://haven-server-site.vercel.app/aproved?email=${user?.email}`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
@@ -59,7 +57,7 @@ const MyEstate = () => {
         </p>
         
         <div className="my-12">
-          <h2><h2 className="text-center text-3xl font-bold font-Josefin text-yellow-600 mb-4">Booking</h2></h2>
+          <h2 className="text-center text-3xl font-bold font-Josefin text-yellow-600 mb-4">Booking</h2>
           {load && (
                 <p className="text-center text-2xl pt-12">
                   <span className="loading loading-spinner text-error"></span>
@@ -79,7 +77,7 @@ const MyEstate = () => {
                 </>
               )}
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 lg:grid-cols-4">
+          <div className="grid grid-cols- 1 md:grid-cols-2 lg:grid-cols-4 gap-6  items-center justify-center mx-auto">
                 {booking?.map((single, indx) => (
                   <SingleRequest data={single.product} key={indx}></SingleRequest>
                 ))}
@@ -109,7 +107,7 @@ const MyEstate = () => {
                 </p>
               )}
               {aproved?.length < 1 && !load && (
-                <p className="text-center font-bold">You have no Pending</p>
+                <p className="text-center font-bold">You have no post yet.</p>
               )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:grid-cols-3">
                 {aproved?.map((single, indx) => (

@@ -9,7 +9,7 @@ const PendingRequest = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/get-newestate")
+    fetch("https://haven-server-site.vercel.app/get-newestate")
       .then((res) => res.json())
       .then((result) => {
         const filterOnlyPending = result.filter(

@@ -17,7 +17,7 @@ const Properties = () => {
   const pageArray = [...Array(numberOfpage).keys()];
 
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/homes`)
+  //   fetch(`https://haven-server-site.vercel.app/homes`)
   //     .then((res) => res.json())
   //     .then((result) => {
   //       setAllData(result);
@@ -28,7 +28,7 @@ const Properties = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/pagination?page=${currentPage}&size=${itemsPerPage}&sortBy=${sortBy}`
+      `https://haven-server-site.vercel.app/pagination?page=${currentPage}&size=${itemsPerPage}&sortBy=${sortBy}`
     )
       .then((res) => res.json())
       .then((result) => {
@@ -39,7 +39,7 @@ const Properties = () => {
   }, [currentPage, itemsPerPage, sortBy]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/sale-rent?searchBy=${sortBy}`)
+    fetch(`https://haven-server-site.vercel.app/sale-rent?searchBy=${sortBy}`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result);

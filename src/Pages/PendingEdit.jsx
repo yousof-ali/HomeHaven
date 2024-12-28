@@ -13,7 +13,7 @@ const PendingEdit = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/pending-details/${id}`)
+    fetch(`https://haven-server-site.vercel.app/pending-details/${id}`)
       .then((res) => res.json())
       .then((result) => {
         setOldData(result);
@@ -52,7 +52,7 @@ const PendingEdit = () => {
     const updated = {img,title,requestStatus,segment_name,description,price,status,area,location,facilities};
     console.log(updated);
 
-    fetch(`http://localhost:5000/pending-update/${id}`,{
+    fetch(`https://haven-server-site.vercel.app/pending-update/${id}`,{
       method:"PUT",
       headers:{
         'content-type':'application/json'
@@ -88,7 +88,7 @@ const PendingEdit = () => {
   //     name,
   //     requestStatus,
   //   };
-  //   fetch("http://localhost:5000/sale-rent-request", {
+  //   fetch("https://haven-server-site.vercel.app/sale-rent-request", {
   //     method: "POST",
   //     headers: {
   //       "content-type": "application/json",

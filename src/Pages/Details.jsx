@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet-async";
 import { authProvider } from "../Context/AuthContext";
 import Swal from "sweetalert2";
 import AOS from "aos";
+import axios from "axios";
 
 const Details = () => {
   const { id } = useParams();
@@ -26,7 +27,7 @@ const Details = () => {
   
 
   useEffect(() => {
-    fetch(`http://localhost:5000/details/${id}`)
+    fetch(`https://haven-server-site.vercel.app/details/${id}`)
       .then((res) => res.json())
       .then((result) => {
         setData(result);
@@ -44,11 +45,10 @@ const Details = () => {
 
   
   useEffect(() => {
-    fetch(`http://localhost:5000/bookmark?email=${email}`)
-    .then(res => res.json())
+    axios.get(`https://haven-server-site.vercel.app/bookmark?email=${email}`,{withCredentials:true})
     .then(data => {
       
-      setBookmarked(data);
+      setBookmarked(data.data);
     })
     .catch((err) => {
       console.log(err.message);
@@ -70,7 +70,7 @@ const Details = () => {
     const bookmark = {email,bookmarkId,img,title,segment_name};
      
 
-    fetch('http://localhost:5000/bookmarks',{
+    fetch('https://haven-server-site.vercel.app/bookmarks',{
       method:'POST',
       headers:{
         'content-type':'application/json'
@@ -97,17 +97,16 @@ const Details = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings/person?email=${email}`)
-    .then(res => res.json())
+    axios.get(`https://haven-server-site.vercel.app/bookings/person?email=${email}`,{withCredentials:true})
     .then(result => {
-      const search = result.filter(single => single.productId == id);
+      const search = result?.data.filter(single => single.productId == id);
       if(search.length>0){
-        console.log(search)
         setBookingBtn(false)
 
       }
-     
+      
     })
+   
   },[id])
 
   // useEffect(() => {
@@ -128,7 +127,7 @@ const Details = () => {
     const productId = data?._id
     const product = data;
     const order = {name,email,productId,product}
-    fetch('http://localhost:5000/booking',{
+    fetch('https://haven-server-site.vercel.app/booking',{
       method:"POST",
       headers:{
         'content-type':'application/json'
@@ -165,7 +164,7 @@ const Details = () => {
       <div className="container  gap-8 mb-6 lg:my-16 my-auto  lg:min-h-[50vh] md:grid md:items-center lg:items-start grid-cols-5 md:px-0 px-2 mx-auto">
         <div className="col-span-3 ">
        
-          <img src={data?.img} className="h-[500px] w-full" alt="" />
+          <img src={data?.img} className="max-h-[500px] w-full" alt="" />
           <h2 className="text-3xl my-4 font-bold font-Josefin text-yellow-600 ">
             Details
           </h2>

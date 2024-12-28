@@ -15,6 +15,11 @@ const Header = () => {
     
   const{user,logOut} = useContext(authProvider);
   const navigate = useNavigate();
+  const [forBookmarks,setForBookmarks] = useState(false);
+
+  const handleBookmarks = () => {
+    setForBookmarks(true);
+  }
   
   
   // const {displayName,photoURL
@@ -27,7 +32,7 @@ const Header = () => {
       Swal.fire({
         title: "Log Out?",
         position:'center',
-        text: "You won't be able to revert this!",
+        text: "Do you want to log out?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -100,7 +105,7 @@ const Header = () => {
       user && (
         <>
         <Link to={'/bookmarks'}>
-       <div title='Bookmarks'  className={`text-2xl hover:text-yellow-600 mr-3 lg:mr-4 `}>
+       <div title='Bookmarks' onClick={handleBookmarks}  className={`text-2xl ${forBookmarks?'text-yellow-600':'text-black'} hover:text-yellow-600 mr-3 lg:mr-4 `}>
             <FaRegBookmark></FaRegBookmark>
        </div>
        </Link>

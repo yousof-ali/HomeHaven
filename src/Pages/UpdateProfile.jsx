@@ -24,7 +24,7 @@ const UpdateProfile = () => {
 
         updateNamePhoto(name,photo)
         .then(() => {
-          fetch(`http://localhost:5000/update-profile?email=${user?.email}`,{
+          fetch(`https://haven-server-site.vercel.app/update-profile?email=${user?.email}`,{
             method:"PUT",
             headers:{
               'Content-type':'application/json'

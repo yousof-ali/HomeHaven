@@ -65,7 +65,7 @@ const SingUp = () => {
             const creationTime = result?.user?.metadata?.creationTime;
             const lastSignInTime = result?.user?.metadata?.lastSignInTime;
             const userInformation = {displayName,email,emailStaus,photoURL,creationTime,lastSignInTime,providerId}
-            fetch('http://localhost:5000/users',{
+            fetch('https://haven-server-site.vercel.app/users',{
               method:"POST",
               headers:{
                 'content-type':'application/json'
