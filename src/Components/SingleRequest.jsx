@@ -13,7 +13,7 @@ const SingleRequest = ({ data }) => {
         <p className="font-bold text-black">{data?.segment_name}</p>
         <p className="text-gray-500">
           <span className="text-black">Price : </span>
-          {data?.price} $
+          {data?.price} $ {data?.status == 'Rent'&&'(per day)'}
         </p>
         <p className="text-gray-500">
           <span className="text-black">Status : </span>

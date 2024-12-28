@@ -191,7 +191,7 @@ const Details = () => {
 
           <span className="flex gap-2 items-center">
             <p className="font-semibold">Price : </p>
-            <p className="font-light "> {data?.price}$</p>
+            <p className="font-light "> {data?.price} $ {data?.status == 'Rent'&&'(per day)'}</p>
           </span>
           <span className="flex gap-2 items-center">
             <p className="font-semibold">Location : </p>

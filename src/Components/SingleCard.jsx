@@ -26,7 +26,7 @@ const SingleCard = ({singledata}) => {
         
         <h2 className="card-title text-yellow-600">{singledata?.title}</h2>
         
-        <p className="pt-2"><span className="font-bold ">Price:</span> {singledata?.price} $</p>
+        <p className="pt-2"><span className="font-bold ">Price:</span> {singledata?.price}  $ {singledata?.status == 'Rent'&&'(per day)'}</p>
         <div className="card-actions justify-end">
           <Link to={`/details/${singledata?._id}`}><CommonButton>Details</CommonButton></Link>
         </div>
